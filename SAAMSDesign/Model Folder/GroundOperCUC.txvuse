@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<nodeSet  version="1.1">
+	<view uin="id1bl79cko4qme4cko4sw5j">
+		<property name="$description" value="This use case diagram shows the ways that a Ground Operations Controller interacts with SAAMS: indicating to SAAMS the different status changes that occur. Note that the Ground Operations Controller will, as a separate activity, be in radio contact with the aircraft - SAAMS is only concerned with RECORDING the status and providing information for decision making."/>
+		<property name="$metaclass" value="Use Case Diagram"/>
+		<property name="__options" value="option.referenced=Hide&#10;option.papersize=A4&#10;option.links=Direct&#10;option.detail=Design&#10;option.orientation=Portrait&#10;option.associationLinks.directed=No&#10;option.associationLinks.showAttribute=No&#10;option.printfooter=false&#10;option.formatting=UML&#10;option.fittopage=true"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:GOC"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:GOC"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:AircraftManagementDatabase"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:AircraftManagementDatabase"/>
+		<property name="@url" value="element://model:project::SAAMS/design:node:::id15rnfcko4qme4cko4swib.node107"/>
+		<reference referencedUin="design:node:::id1bl79cko4qme4cko4sw5j.node">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="55,204,161,90"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="design:link:::id1bl79cko4qme4cko4sw5j.node.link182:id1bl79cko4qme4cko4sw5j.node">
+				<property name="sourceAnchor" value="221,297"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="266,297"/>
+			</reference>
+			<reference referencedUin="design:link:::id1bl79cko4qme4cko4sw5j.node.link:id1bl79cko4qme4cko4sw5j.node">
+				<property name="sourceAnchor" value="221,221"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="241,221"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id1bl79cko4qme4cko4sw5j.node63">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="236,204,140,24"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="design:link:::id1bl79cko4qme4cko4sw5j.node63.link:id1bl79cko4qme4cko4sw5j.node63">
+				<property name="sourceAnchor" value="322,209"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="475,111"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id1bl79cko4qme4cko4sw5j.node65">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="470,50,420,112"/>
+			<property name="bounds_setted_by_user" value="true"/>
+		</reference>
+		<reference referencedUin="design:node:::id1bl79cko4qme4cko4sw5j.node67">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="239,290,133,24"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="design:link:::id1bl79cko4qme4cko4sw5j.node67.link:id1bl79cko4qme4cko4sw5j.node67">
+				<property name="sourceAnchor" value="321,295"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="475,197"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id1bl79cko4qme4cko4sw5j.node69">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="470,180,420,100"/>
+			<property name="bounds_setted_by_user" value="true"/>
+		</reference>
+		<reference referencedUin="design:node:::id1bl79cko4qme4cko4sw5j.node6">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="20,-110,430,120"/>
+			<property name="bounds_setted_by_user" value="true"/>
+		</reference>
+	</view>
+</nodeSet>

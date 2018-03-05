@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<nodeSet  version="1.1">
+	<view uin="id3y5z3cko4qme4cko4sw81">
+		<property name="$description" value="This use case diagram shows the ways in which Ground Services support staff interact with SAAMS."/>
+		<property name="$metaclass" value="Use Case Diagram"/>
+		<property name="__options" value="option.referenced=Hide&#10;option.papersize=A4&#10;option.links=Direct&#10;option.detail=Design&#10;option.orientation=Portrait&#10;option.associationLinks.directed=No&#10;option.associationLinks.showAttribute=No&#10;option.printfooter=false&#10;option.formatting=UML&#10;option.fittopage=true"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:CleaningSupervisor"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:CleaningSupervisor"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:MaintenanceInspector"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:MaintenanceInspector"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:RefuellingSupervisor"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:RefuellingSupervisor"/>
+		<property name="@url" value="element://model:project::SAAMS/design:node:::id15rnfcko4qme4cko4swib.node107"/>
+		<property name="@url" value="element://model:project::SAAMS/design:node:::id4tg7xcko4qme4cko4swuu.node1"/>
+		<reference referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="10,110,111,90"/>
+			<reference referencedUin="design:link:::id3y5z3cko4qme4cko4sw81.node.link:id3y5z3cko4qme4cko4sw81.node">
+				<property name="sourceAnchor" value="126,145"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="186,145"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node71">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="181,128,156,24"/>
+			<reference referencedUin="design:link:::id3y5z3cko4qme4cko4sw81.node71.link:id3y5z3cko4qme4cko4sw81.node71">
+				<property name="sourceAnchor" value="338,148"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="412,149"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node73">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="407,136,372,50"/>
+		</reference>
+		<reference referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node75">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="12,289,131,90"/>
+			<reference referencedUin="design:link:::id3y5z3cko4qme4cko4sw81.node75.link:id3y5z3cko4qme4cko4sw81.node75">
+				<property name="sourceAnchor" value="148,298"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="203,298"/>
+			</reference>
+			<reference referencedUin="design:link:::id3y5z3cko4qme4cko4sw81.node75.link183:id3y5z3cko4qme4cko4sw81.node75">
+				<property name="sourceAnchor" value="148,372"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="245,372"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node77">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="189,275,161,24"/>
+			<reference referencedUin="design:link:::id3y5z3cko4qme4cko4sw81.node77.link:id3y5z3cko4qme4cko4sw81.node77">
+				<property name="sourceAnchor" value="354,293"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="415,294"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node79">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="410,280,405,50"/>
+		</reference>
+		<reference referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node81">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="196,367,161,24"/>
+			<reference referencedUin="design:link:::id3y5z3cko4qme4cko4sw81.node81.link:id3y5z3cko4qme4cko4sw81.node81">
+				<property name="sourceAnchor" value="353,389"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="415,390"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node83">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="410,380,381,50"/>
+		</reference>
+		<reference referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node85">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="14,485,118,90"/>
+			<reference referencedUin="design:link:::id3y5z3cko4qme4cko4sw81.node85.link:id3y5z3cko4qme4cko4sw81.node85">
+				<property name="sourceAnchor" value="137,522"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="206,522"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node87">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="201,505,129,24"/>
+			<reference referencedUin="design:link:::id3y5z3cko4qme4cko4sw81.node87.link:id3y5z3cko4qme4cko4sw81.node87">
+				<property name="sourceAnchor" value="332,525"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="413,526"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node89">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="408,513,375,50"/>
+		</reference>
+		<reference referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node8">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="30,-50,440,60"/>
+			<property name="bounds_setted_by_user" value="true"/>
+		</reference>
+	</view>
+</nodeSet>

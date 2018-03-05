@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<nodeSet  version="1.1">
+	<view uin="id28ykdcko4qme4cko4sx0e">
+		<property name="$description" value="This use case diagram shows the ways in which ordinary members of the public interact with SAAMS."/>
+		<property name="$metaclass" value="Use Case Diagram"/>
+		<property name="__options" value="option.referenced=Hide&#10;option.papersize=A4&#10;option.links=Direct&#10;option.detail=Design&#10;option.orientation=Portrait&#10;option.associationLinks.directed=No&#10;option.associationLinks.showAttribute=No&#10;option.printfooter=false&#10;option.formatting=UML&#10;option.fittopage=true"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:PublicInfo"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:PublicInfo"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:AircraftManagementDatabase"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:AircraftManagementDatabase"/>
+		<reference referencedUin="design:node:::id28ykdcko4qme4cko4sx0e.node">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="51,65,65,90"/>
+			<reference referencedUin="design:link:::id28ykdcko4qme4cko4sx0e.node.link:id28ykdcko4qme4cko4sx0e.node">
+				<property name="sourceAnchor" value="121,102"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="188,102"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id28ykdcko4qme4cko4sx0e.node155">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="180,90,125,24"/>
+			<reference referencedUin="design:link:::id28ykdcko4qme4cko4sx0e.node155.link:id28ykdcko4qme4cko4sx0e.node155">
+				<property name="sourceAnchor" value="310,107"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="424,107"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id28ykdcko4qme4cko4sx0e.node157">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="419,89,341,71"/>
+			<property name="bounds_setted_by_user" value="true"/>
+		</reference>
+		<reference referencedUin="design:node:::id28ykdcko4qme4cko4sx0e.node159">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="51,273,60,90"/>
+			<reference referencedUin="design:link:::id28ykdcko4qme4cko4sx0e.node159.link:id28ykdcko4qme4cko4sx0e.node159">
+				<property name="sourceAnchor" value="116,306"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="197,306"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id28ykdcko4qme4cko4sx0e.node161">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="187,294,178,24"/>
+			<reference referencedUin="design:link:::id28ykdcko4qme4cko4sx0e.node161.link:id28ykdcko4qme4cko4sx0e.node161">
+				<property name="sourceAnchor" value="363,315"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="418,316"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id28ykdcko4qme4cko4sx0e.node163">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="413,304,347,56"/>
+			<property name="bounds_setted_by_user" value="true"/>
+		</reference>
+		<reference referencedUin="design:node:::id28ykdcko4qme4cko4sx0e.node12">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="40,1,440,49"/>
+			<property name="bounds_setted_by_user" value="true"/>
+		</reference>
+	</view>
+</nodeSet>

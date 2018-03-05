@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<nodeSet  version="1.1">
+	<view uin="id7eu8wekbp1ah5ekbpv1sk">
+		<property name="$metaclass" value="Use Case Diagram"/>
+		<property name="__options" value=""/>
+		<property name="@url" value="element://model:project::SAAMS/design:view:::id3vdzccko4qme4cko4sv53"/>
+		<reference referencedUin="design:node:::id7eu8wekbp1ah5ekbpv1sk.nodeid1tqeekbp1ah5ekbpvrtq">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="94,172,50,90"/>
+			<property name="bounds_setted_by_user" value="true"/>
+		</reference>
+		<reference referencedUin="design:node:::id7eu8wekbp1ah5ekbpv1sk.nodeid240wsekbp1ah5ekbpw35j">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="241,37,425,253"/>
+			<property name="bounds_setted_by_user" value="true"/>
+			<reference referencedUin="design:link:::id7eu8wekbp1ah5ekbpv1sk.nodeid240wsekbp1ah5ekbpw35j.linkidd5t4aekbp1ah5ekbpxs7p:id7eu8wekbp1ah5ekbpv1sk.nodeid240wsekbp1ah5ekbpw35j">
+				<property name="sourceAnchor" value="246,222"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="149,222"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id7eu8wekbp1ah5ekbpv1sk.nodeid35ansekbp1ah5ekbpy4ik">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="241,319,430,321"/>
+			<property name="bounds_setted_by_user" value="true"/>
+			<reference referencedUin="design:link:::id7eu8wekbp1ah5ekbpv1sk.nodeid35ansekbp1ah5ekbpy4ik.linkid836kuekbp1ah5ekbq6g38:id7eu8wekbp1ah5ekbpv1sk.nodeid35ansekbp1ah5ekbpy4ik">
+				<property name="sourceAnchor" value="255,324"/>
+				<property name="targetAnchor" value="149,241"/>
+				<property name="bounds_setted_by_user" value="true"/>
+			</reference>
+		</reference>
+	</view>
+</nodeSet>

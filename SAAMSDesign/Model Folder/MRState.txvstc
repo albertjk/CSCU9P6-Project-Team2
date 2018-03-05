@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<nodeSet  version="1.1">
+	<view uin="id15rnfcko4qme4cko4swib">
+		<property name="$description" value="This state diagram shows the life cycle of a single ManagementRecord. One cycle corresponds to one aircraft passing through &quot;in transit&quot; or landing, reloading and departing again (right click this note or the diagram background for hyperlinks)."/>
+		<property name="$metaclass" value="State Diagram"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:CleaningSupervisor"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:CleaningSupervisor"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:GOC"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:GOC"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:MaintenanceInspector"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:MaintenanceInspector"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:RefuellingSupervisor"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:RefuellingSupervisor"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:LATC"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:LATC"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:RadarTransceiver"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:RadarTransceiver"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:PublicInfo"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:PublicInfo"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:AircraftManagementDatabase"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:AircraftManagementDatabase"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:ManagementRecord"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:ManagementRecord"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:FlightDescriptor"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:FlightDescriptor"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:PassengerDetails"/>
+		<property name="reversedUrl" value="element://model:project::SAAMS/jdt:e_class:src:PassengerDetails"/>
+		<property name="__options" value="option.orientation=Portrait&#10;option.detail=Design&#10;option.right=0.5&#10;option.formatting=UML&#10;option.papersize=A4&#10;option.fittopage=true&#10;option.left=0.5&#10;option.associationLinks.directed=No&#10;option.bottom=0.5&#10;option.printfooter=false&#10;show_shortcut_sign=false&#10;option.referenced=Hide&#10;option.links=Direct&#10;option.associationLinks.showAttribute=No&#10;option.top=0.5"/>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="690,60,20,20"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node.link:id15rnfcko4qme4cko4swib.node">
+				<property name="sourceAnchor" value="700,84"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="700,165"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node103">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="670,160,50,40"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node103.link186:id15rnfcko4qme4cko4swib.node103">
+				<property name="sourceAnchor" value="690,205"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="690,325"/>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node103.link186:id15rnfcko4qme4cko4swib.node103">
+					<property name="bounds" value="440,240,250,46"/>
+					<property name="weight" value="0.2916666666666667"/>
+					<property name="location_set_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node103.link186:id15rnfcko4qme4cko4swib.node103">
+					<property name="bounds" value="295,127,200,60"/>
+				</reference>
+			</reference>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node103.link:id15rnfcko4qme4cko4swib.node103">
+				<property name="sourceAnchor" value="675,187"/>
+				<property name="targetAnchor" value="-220,187"/>
+				<property name="bounds_setted_by_user" value="true"/>
+				<property name="location_set_by_user" value="true"/>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node103.link:id15rnfcko4qme4cko4swib.node103">
+					<property name="bounds" value="60,200,250,46"/>
+					<property name="weight" value="0.7735849056603774"/>
+					<property name="location_set_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node103.link:id15rnfcko4qme4cko4swib.node103">
+					<property name="bounds" value="10,0,200,60"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node105">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="-285,175,60,40"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node105.link:id15rnfcko4qme4cko4swib.node105">
+				<property name="sourceAnchor" value="-260,180"/>
+				<property name="targetAnchor" value="674,176"/>
+				<property name="bounds_setted_by_user" value="true"/>
+				<property name="location_set_by_user" value="true"/>
+				<property name="bendpoints" value="-260,80,160,80"/>
+				<property name="smooth_bendpoints" value="-260,80,160,80"/>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node105.link:id15rnfcko4qme4cko4swib.node105">
+					<property name="bounds" value="-220,40,250,32"/>
+					<property name="weight" value="0.1343570057581574"/>
+					<property name="location_set_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node105.link:id15rnfcko4qme4cko4swib.node105">
+					<property name="bounds" value="-110,150,200,30"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node107">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="-325,355,310,120"/>
+			<property name="bounds_setted_by_user" value="true"/>
+			<property name="location_set_by_user" value="true"/>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node109">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="650,320,99,40"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node109.link:id15rnfcko4qme4cko4swib.node109">
+				<property name="sourceAnchor" value="699,365"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="699,440"/>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node109.link:id15rnfcko4qme4cko4swib.node109">
+					<property name="bounds" value="446,386,250,32"/>
+				</reference>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node109.link:id15rnfcko4qme4cko4swib.node109">
+					<property name="bounds" value="303,281,200,30"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node111">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="621,435,148,40"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node111.link:id15rnfcko4qme4cko4swib.node111">
+				<property name="sourceAnchor" value="697,480"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="697,535"/>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node111.link:id15rnfcko4qme4cko4swib.node111">
+					<property name="bounds" value="302,395,200,30"/>
+				</reference>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node111.link:id15rnfcko4qme4cko4swib.node111">
+					<property name="bounds" value="444,491,250,32"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node113">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="610,2120,184,40"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node113.link:id15rnfcko4qme4cko4swib.node113">
+				<property name="sourceAnchor" value="799,2140"/>
+				<property name="targetAnchor" value="725,180"/>
+				<property name="bounds_setted_by_user" value="true"/>
+				<property name="location_set_by_user" value="true"/>
+				<property name="bendpoints" value="1200,2140,1200,180"/>
+				<property name="smooth_bendpoints" value="1200,2140,1200,180"/>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node113.link:id15rnfcko4qme4cko4swib.node113">
+					<property name="bounds" value="690,1055,200,30"/>
+				</reference>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node113.link:id15rnfcko4qme4cko4swib.node113">
+					<property name="bounds" value="980,860,250,32"/>
+					<property name="weight" value="0.5927362482369535"/>
+					<property name="location_set_by_user" value="true"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node115">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="670,530,54,40"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node115.link:id15rnfcko4qme4cko4swib.node115">
+				<property name="sourceAnchor" value="696,575"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="696,635"/>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node115.link:id15rnfcko4qme4cko4swib.node115">
+					<property name="bounds" value="443,589,250,32"/>
+				</reference>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node115.link:id15rnfcko4qme4cko4swib.node115">
+					<property name="bounds" value="300,493,200,30"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node117">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="670,630,52,40"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node117.link:id15rnfcko4qme4cko4swib.node117">
+				<property name="sourceAnchor" value="695,675"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="695,735"/>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node117.link:id15rnfcko4qme4cko4swib.node117">
+					<property name="bounds" value="442,682,250,46"/>
+				</reference>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node117.link:id15rnfcko4qme4cko4swib.node117">
+					<property name="bounds" value="299,584,200,45"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node119">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="670,730,50,40"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node119.link:id15rnfcko4qme4cko4swib.node119">
+				<property name="sourceAnchor" value="695,775"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="695,835"/>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node119.link:id15rnfcko4qme4cko4swib.node119">
+					<property name="bounds" value="444,796,248,18"/>
+				</reference>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node119.link:id15rnfcko4qme4cko4swib.node119">
+					<property name="bounds" value="299,693,200,30"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node121">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="660,830,65,40"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node121.link:id15rnfcko4qme4cko4swib.node121">
+				<property name="sourceAnchor" value="692,875"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="692,940"/>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node121.link:id15rnfcko4qme4cko4swib.node121">
+					<property name="bounds" value="298,797,200,60"/>
+				</reference>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node121.link:id15rnfcko4qme4cko4swib.node121">
+					<property name="bounds" value="440,880,250,46"/>
+					<property name="weight" value="0.07692307692307693"/>
+					<property name="location_set_by_user" value="true"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node123">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="569,935,231,44"/>
+			<property name="bounds_setted_by_user" value="true"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node123.link:id15rnfcko4qme4cko4swib.node123">
+				<property name="sourceAnchor" value="580,984"/>
+				<property name="targetAnchor" value="698,1239"/>
+				<property name="location_set_by_user" value="true"/>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node123.link:id15rnfcko4qme4cko4swib.node123">
+					<property name="bounds" value="300,1041,200,30"/>
+				</reference>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node123.link:id15rnfcko4qme4cko4swib.node123">
+					<property name="bounds" value="560,1140,250,32"/>
+					<property name="weight" value="0.8218930776549168"/>
+					<property name="location_set_by_user" value="true"/>
+				</reference>
+			</reference>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node123.link188:id15rnfcko4qme4cko4swib.node123">
+				<property name="sourceAnchor" value="574,962"/>
+				<property name="bendpoints" value="-160,962"/>
+				<property name="targetAnchor" value="-160,1080"/>
+				<property name="foreground_color" value="0,0,0"/>
+				<property name="3Dlook" value="Yes"/>
+				<property name="location_set_by_user" value="true"/>
+				<property name="smooth_bendpoints" value="-160,962"/>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node123.link188:id15rnfcko4qme4cko4swib.node123">
+					<property name="bounds" value="-400,1000,250,46"/>
+					<property name="weight" value="0.9061032863849765"/>
+					<property name="location_set_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node123.link188:id15rnfcko4qme4cko4swib.node123">
+					<property name="bounds" value="-110,990,200,60"/>
+				</reference>
+			</reference>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node123.link187:id15rnfcko4qme4cko4swib.node123">
+				<property name="sourceAnchor" value="580,984"/>
+				<property name="targetAnchor" value="987,1239"/>
+				<property name="bounds_setted_by_user" value="true"/>
+				<property name="location_set_by_user" value="true"/>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node123.link187:id15rnfcko4qme4cko4swib.node123">
+					<property name="bounds" value="840,1120,250,32"/>
+					<property name="weight" value="0.6075122883988072"/>
+					<property name="location_set_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node123.link187:id15rnfcko4qme4cko4swib.node123">
+					<property name="bounds" value="370,970,200,30"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node125">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="-245,1075,136,40"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node125.link:id15rnfcko4qme4cko4swib.node125">
+				<property name="sourceAnchor" value="-160,1120"/>
+				<property name="bendpoints" value="-160,1340"/>
+				<property name="targetAnchor" value="160,1340"/>
+				<property name="location_set_by_user" value="true"/>
+				<property name="smooth_bendpoints" value="-160,1340"/>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node125.link:id15rnfcko4qme4cko4swib.node125">
+					<property name="bounds" value="-29,1179,200,30"/>
+				</reference>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node125.link:id15rnfcko4qme4cko4swib.node125">
+					<property name="bounds" value="-125,1343,250,32"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node127">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="629,1234,128,40"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node127.link:id15rnfcko4qme4cko4swib.node127">
+				<property name="sourceAnchor" value="633,1269"/>
+				<property name="targetAnchor" value="252,1331"/>
+				<property name="bounds_setted_by_user" value="true"/>
+				<property name="foreground_color" value="0,0,0"/>
+				<property name="location_set_by_user" value="true"/>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node127.link:id15rnfcko4qme4cko4swib.node127">
+					<property name="bounds" value="26,1270,200,45"/>
+				</reference>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node127.link:id15rnfcko4qme4cko4swib.node127">
+					<property name="bounds" value="380,1320,250,46"/>
+					<property name="weight" value="0.6623801895188987"/>
+					<property name="location_set_by_user" value="true"/>
+				</reference>
+			</reference>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node127.link189:id15rnfcko4qme4cko4swib.node127">
+				<property name="sourceAnchor" value="680,1279"/>
+				<property name="targetAnchor" value="680,1515"/>
+				<property name="location_set_by_user" value="true"/>
+				<property name="foreground_color" value="0,0,0"/>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node127.link189:id15rnfcko4qme4cko4swib.node127">
+					<property name="bounds" value="900,1420,250,32"/>
+					<property name="weight" value="0.597457627118644"/>
+					<property name="location_set_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node127.link189:id15rnfcko4qme4cko4swib.node127">
+					<property name="bounds" value="271,1264,200,30"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node129">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="915,1234,120,40"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node129.link:id15rnfcko4qme4cko4swib.node129">
+				<property name="sourceAnchor" value="985,1279"/>
+				<property name="targetAnchor" value="747,1530"/>
+				<property name="bounds_setted_by_user" value="true"/>
+				<property name="location_set_by_user" value="true"/>
+				<property name="bendpoints" value="1060,1530"/>
+				<property name="smooth_bendpoints" value="1060,1530"/>
+				<property name="foreground_color" value="0,0,0"/>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node129.link:id15rnfcko4qme4cko4swib.node129">
+					<property name="bounds" value="446,1400,200,30"/>
+				</reference>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node129.link:id15rnfcko4qme4cko4swib.node129">
+					<property name="bounds" value="778,1533,250,32"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node131">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="155,1315,92,40"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node131.link:id15rnfcko4qme4cko4swib.node131">
+				<property name="sourceAnchor" value="230,1320"/>
+				<property name="targetAnchor" value="580,984"/>
+				<property name="bounds_setted_by_user" value="true"/>
+				<property name="foreground_color" value="0,0,0"/>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node131.link:id15rnfcko4qme4cko4swib.node131">
+					<property name="bounds" value="-250,890,200,30"/>
+				</reference>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node131.link:id15rnfcko4qme4cko4swib.node131">
+					<property name="bounds" value="280,1200,250,32"/>
+					<property name="weight" value="0.2915647057388119"/>
+					<property name="location_set_by_user" value="true"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node133">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="628,1510,114,40"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node133.link:id15rnfcko4qme4cko4swib.node133">
+				<property name="sourceAnchor" value="685,1555"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="685,1642"/>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node133.link:id15rnfcko4qme4cko4swib.node133">
+					<property name="bounds" value="292,1486,200,30"/>
+				</reference>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node133.link:id15rnfcko4qme4cko4swib.node133">
+					<property name="bounds" value="432,1582,250,32"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node135">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="626,1637,122,40"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node135.link190:id15rnfcko4qme4cko4swib.node135">
+				<property name="sourceAnchor" value="753,1678"/>
+				<property name="bendpoints" value="782,1678,782,1711,749,1711"/>
+				<property name="targetAnchor" value="749,1682"/>
+				<property name="bounds_setted_by_user" value="true"/>
+				<property name="smooth_bendpoints" value="782,1678,782,1711,749,1711"/>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node135.link190:id15rnfcko4qme4cko4swib.node135">
+					<property name="bounds" value="370,1580,200,30"/>
+				</reference>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node135.link190:id15rnfcko4qme4cko4swib.node135">
+					<property name="bounds" value="800,1680,250,32"/>
+					<property name="weight" value="0.23387096774193547"/>
+					<property name="location_set_by_user" value="true"/>
+				</reference>
+			</reference>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node135.link:id15rnfcko4qme4cko4swib.node135">
+				<property name="sourceAnchor" value="687,1682"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="687,1765"/>
+				<property name="location_set_by_user" value="true"/>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node135.link:id15rnfcko4qme4cko4swib.node135">
+					<property name="bounds" value="434,1707,250,32"/>
+				</reference>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node135.link:id15rnfcko4qme4cko4swib.node135">
+					<property name="bounds" value="90,1610,200,30"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node137">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="650,1760,97,40"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node137.link:id15rnfcko4qme4cko4swib.node137">
+				<property name="sourceAnchor" value="696,1805"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="696,1895"/>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node137.link:id15rnfcko4qme4cko4swib.node137">
+					<property name="bounds" value="299,1738,200,30"/>
+				</reference>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node137.link:id15rnfcko4qme4cko4swib.node137">
+					<property name="bounds" value="443,1834,250,32"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node139">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="651,1890,90,40"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node139.link:id15rnfcko4qme4cko4swib.node139">
+				<property name="sourceAnchor" value="696,1935"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="696,2016"/>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node139.link:id15rnfcko4qme4cko4swib.node139">
+					<property name="bounds" value="299,1854,200,30"/>
+				</reference>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node139.link:id15rnfcko4qme4cko4swib.node139">
+					<property name="bounds" value="443,1959,250,32"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="design:node:::id15rnfcko4qme4cko4swib.node141">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="640,2011,114,40"/>
+			<reference referencedUin="design:link:::id15rnfcko4qme4cko4swib.node141.link:id15rnfcko4qme4cko4swib.node141">
+				<property name="sourceAnchor" value="697,2056"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="697,2125"/>
+				<reference referencedUin="linklabel:$transitionInplaceEditing:design:link:::id15rnfcko4qme4cko4swib.node141.link:id15rnfcko4qme4cko4swib.node141">
+					<property name="bounds" value="300,1969,200,45"/>
+				</reference>
+				<reference referencedUin="label:$transitionLabelInplace:design:link:::id15rnfcko4qme4cko4swib.node141.link:id15rnfcko4qme4cko4swib.node141">
+					<property name="bounds" value="444,2067,250,46"/>
+				</reference>
+			</reference>
+		</reference>
+	</view>
+</nodeSet>

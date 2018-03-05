@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<nodeSet  version="1.1">
+	<view uin="id3vdzccko4qme4cko4sv53">
+		<property name="$metaclass" value="Package Diagram"/>
+		<property name="@url" value="element://model:project::SAAMS/design:view:::id7eu8wekbp1ah5ekbpv1sk"/>
+		<property name="$defaultDiagram" value=""/>
+		<property name="__options" value="option.orientation=Landscape&#10;option.detail=Implementation&#10;option.right=0.5&#10;option.formatting=UML&#10;option.papersize=A3&#10;Diagram Detail Level=Implementation&#10;option.fittopage=true&#10;option.left=0.5&#10;option.associationLinks.directed=Automatic&#10;option.bottom=0.5&#10;option.printfooter=false&#10;Dependencies=false&#10;option.showgrid=false&#10;option.links=Direct&#10;option.associationLinks.showAttribute=Automatic&#10;option.top=0.5"/>
+		<reference referencedUin="jdt:e_class:src:ManagementRecord">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="1395,295,324,666"/>
+			<property name="bounds_setted_by_user" value="true"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="jdt:l_ast:src:ManagementRecord:itinerary">
+				<property name="sourceAnchor" value="1724,393"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="1920,393"/>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:ManagementRecord:itinerary">
+					<property name="bounds" value="1734,372,11,18"/>
+				</reference>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:ManagementRecord:itinerary">
+					<property name="bounds" value="1340,-87,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:ManagementRecord:itinerary">
+					<property name="bounds" value="1192,-103,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:label:jdt:l_ast:src:ManagementRecord:itinerary">
+					<property name="bounds" value="1798,396,49,18"/>
+				</reference>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:ManagementRecord:itinerary">
+					<property name="bounds" value="1289,-87,49,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:ManagementRecord:itinerary">
+					<property name="bounds" value="1899,372,11,18"/>
+				</reference>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:ManagementRecord:attribute4">
+				<property name="sourceAnchor" value="1400,695"/>
+				<property name="targetAnchor" value="601,1023"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:ManagementRecord:attribute3">
+				<property name="sourceAnchor" value="1724,662"/>
+				<property name="targetAnchor" value="2220,662"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:ManagementRecord:attribute12">
+				<property name="sourceAnchor" value="1648,966"/>
+				<property name="targetAnchor" value="1454,1085"/>
+				<property name="bendpoints" value="1648,1150"/>
+				<property name="smooth_bendpoints" value="1648,1150"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:e_field:src:ManagementRecord.itinerary">
+				<property name="bounds" value="12,420,379,16"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:ManagementRecord:attribute5">
+				<property name="sourceAnchor" value="1724,404"/>
+				<property name="targetAnchor" value="1920,404"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:ManagementRecord:attribute7">
+				<property name="sourceAnchor" value="1724,873"/>
+				<property name="targetAnchor" value="1265,1070"/>
+				<property name="bendpoints" value="1909,1150"/>
+				<property name="smooth_bendpoints" value="1909,1150"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:e_field:src:ManagementRecord.OK_AWAIT_CLEAN">
+				<property name="bounds" value="2,220,318,16"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:ManagementRecord:attribute2">
+				<property name="sourceAnchor" value="1400,779"/>
+				<property name="targetAnchor" value="1047,1095"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="property:e_property:jdt=e_class=src=ManagementRecord:itinerary">
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:ManagementRecord:attribute8">
+				<property name="sourceAnchor" value="1724,797"/>
+				<property name="targetAnchor" value="2070,980"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:e_field:src:ManagementRecord.passengerList">
+				<property name="bounds" value="22,450,379,16"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:ManagementRecord:attribute6">
+				<property name="sourceAnchor" value="1400,769"/>
+				<property name="targetAnchor" value="813,1093"/>
+				<property name="bendpoints" value="948,1150"/>
+				<property name="smooth_bendpoints" value="948,1150"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:e_method:src:ManagementRecord.radarDetect:radarDetect~QFlightDescriptor;">
+			</reference>
+			<reference referencedUin="jdt:l_ast:src:ManagementRecord:passengerList">
+				<property name="sourceAnchor" value="1723,794"/>
+				<property name="targetAnchor" value="1929,794"/>
+				<property name="location_set_by_user" value="true"/>
+				<reference referencedUin="label:label:jdt:l_ast:src:ManagementRecord:passengerList">
+					<property name="bounds" value="1802,797,49,18"/>
+				</reference>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:ManagementRecord:passengerList">
+					<property name="bounds" value="1330,335,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:ManagementRecord:passengerList">
+					<property name="bounds" value="1733,773,11,18"/>
+				</reference>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:ManagementRecord:passengerList">
+					<property name="bounds" value="1918,773,11,18"/>
+				</reference>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:ManagementRecord:passengerList">
+					<property name="bounds" value="1281,335,49,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:ManagementRecord:passengerList">
+					<property name="bounds" value="1192,320,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:ManagementRecord:attribute11">
+				<property name="sourceAnchor" value="1400,732"/>
+				<property name="targetAnchor" value="868,360"/>
+				<property name="bendpoints" value="723,1150"/>
+				<property name="smooth_bendpoints" value="723,1150"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:ManagementRecord:attribute1">
+				<property name="sourceAnchor" value="1400,630"/>
+				<property name="targetAnchor" value="1163,630"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:ManagementRecord:attribute10">
+				<property name="sourceAnchor" value="1400,526"/>
+				<property name="targetAnchor" value="1117,347"/>
+			</reference>
+			<reference referencedUin="jdt:e_field:src:ManagementRecord.WANTING_TO_LAND">
+				<property name="bounds" value="-2,349,322,14"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:ManagementRecord:attribute9">
+				<property name="sourceAnchor" value="1724,797"/>
+				<property name="targetAnchor" value="2112,850"/>
+				<property name="bendpoints" value="2112,1150"/>
+				<property name="smooth_bendpoints" value="2112,1150"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:Itinerary">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="1915,295,262,186"/>
+			<property name="bounds_setted_by_user" value="true"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="jdt:l_dpn:src:Itinerary:attribute1">
+				<property name="sourceAnchor" value="2040,486"/>
+				<property name="targetAnchor" value="2040,540"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:Itinerary:attribute3">
+				<property name="sourceAnchor" value="1919,384"/>
+				<property name="targetAnchor" value="953,324"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:Itinerary:attribute2">
+				<property name="sourceAnchor" value="1920,458"/>
+				<property name="targetAnchor" value="813,1020"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:PassengerList">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="1925,735,292,110"/>
+			<property name="bounds_setted_by_user" value="true"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="jdt:l_dpn:src:PassengerList:attribute1">
+				<property name="sourceAnchor" value="2068,740"/>
+				<property name="targetAnchor" value="2220,662"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:l_ast:src:PassengerList:details">
+				<property name="sourceAnchor" value="2069,849"/>
+				<property name="targetAnchor" value="2069,980"/>
+				<property name="location_set_by_user" value="true"/>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:PassengerList:details">
+					<property name="bounds" value="2072,952,26,18"/>
+				</reference>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:PassengerList:details">
+					<property name="bounds" value="1493,395,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:label:jdt:l_ast:src:PassengerList:details">
+					<property name="bounds" value="2017,905,49,18"/>
+				</reference>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:PassengerList:details">
+					<property name="bounds" value="2072,851,11,18"/>
+				</reference>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:PassengerList:details">
+					<property name="bounds" value="1480,440,49,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:PassengerList:details">
+					<property name="bounds" value="1470,470,24,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:PassengerList:attribute3">
+				<property name="sourceAnchor" value="2112,850"/>
+				<property name="targetAnchor" value="1724,797"/>
+				<property name="bendpoints" value="2250,1150"/>
+				<property name="smooth_bendpoints" value="2250,1150"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:PassengerList:attribute4">
+				<property name="sourceAnchor" value="2061,850"/>
+				<property name="targetAnchor" value="2070,980"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:PassengerList:attribute2">
+				<property name="sourceAnchor" value="1930,749"/>
+				<property name="targetAnchor" value="620,563"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:LATC">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="655,1015,153,80"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="jdt:l_ast:src:LATC:lnkUnnamed">
+				<property name="sourceAnchor" value="747,1020"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="824,765"/>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:LATC:lnkUnnamed">
+					<property name="bounds" value="57,-75,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:label:jdt:l_ast:src:LATC:lnkUnnamed">
+					<property name="bounds" value="800,854,104,18"/>
+				</reference>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:LATC:lnkUnnamed">
+					<property name="bounds" value="804,766,11,18"/>
+				</reference>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:LATC:lnkUnnamed">
+					<property name="bounds" value="734,1001,11,18"/>
+				</reference>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:LATC:lnkUnnamed">
+					<property name="bounds" value="241,-30,105,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:LATC:lnkUnnamed">
+					<property name="bounds" value="351,16,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:LATC:attribute2">
+				<property name="sourceAnchor" value="813,1090"/>
+				<property name="targetAnchor" value="1400,779"/>
+				<property name="bendpoints" value="968,1150"/>
+				<property name="smooth_bendpoints" value="968,1150"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:LATC:attribute1">
+				<property name="sourceAnchor" value="740,1020"/>
+				<property name="targetAnchor" value="824,765"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:GOC">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="440,1015,156,80"/>
+			<property name="location_set_by_user" value="true"/>
+			<property name="bounds_setted_by_user" value="true"/>
+			<reference referencedUin="jdt:l_ast:src:GOC:lnkUnnamed">
+				<property name="sourceAnchor" value="523,1020"/>
+				<property name="targetAnchor" value="523,862"/>
+				<property name="location_set_by_user" value="true"/>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:GOC:lnkUnnamed">
+					<property name="bounds" value="526,864,11,18"/>
+				</reference>
+				<reference referencedUin="label:label:jdt:l_ast:src:GOC:lnkUnnamed">
+					<property name="bounds" value="416,932,104,18"/>
+				</reference>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:GOC:lnkUnnamed">
+					<property name="bounds" value="-37,11,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:GOC:lnkUnnamed">
+					<property name="bounds" value="-247,-4,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:GOC:lnkUnnamed">
+					<property name="bounds" value="-166,-4,105,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:GOC:lnkUnnamed">
+					<property name="bounds" value="526,992,11,18"/>
+				</reference>
+			</reference>
+			<reference referencedUin="jdt:l_ast:src:GOC:lnkUnnamed1">
+				<property name="sourceAnchor" value="563,1020"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="824,765"/>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:GOC:lnkUnnamed1">
+					<property name="bounds" value="140,26,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:GOC:lnkUnnamed1">
+					<property name="bounds" value="180,40,105,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:label:jdt:l_ast:src:GOC:lnkUnnamed1">
+					<property name="bounds" value="820,913,104,18"/>
+					<property name="weight" value="0.4150197628458498"/>
+					<property name="location_set_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:GOC:lnkUnnamed1">
+					<property name="bounds" value="584,969,11,18"/>
+				</reference>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:GOC:lnkUnnamed1">
+					<property name="bounds" value="788,768,11,18"/>
+				</reference>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:GOC:lnkUnnamed1">
+					<property name="bounds" value="310,41,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:GOC:attribute1">
+				<property name="sourceAnchor" value="515,1020"/>
+				<property name="targetAnchor" value="515,862"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:GOC:attribute2">
+				<property name="sourceAnchor" value="556,1020"/>
+				<property name="targetAnchor" value="817,765"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:GOC:attribute3">
+				<property name="sourceAnchor" value="601,1027"/>
+				<property name="targetAnchor" value="1400,699"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:GateConsole">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="440,495,175,103"/>
+			<property name="location_set_by_user" value="true"/>
+			<property name="bounds_setted_by_user" value="true"/>
+			<reference referencedUin="jdt:l_dpn:src:GateConsole:attribute3">
+				<property name="sourceAnchor" value="620,575"/>
+				<property name="targetAnchor" value="1960,1007"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:GateConsole:attribute2">
+				<property name="sourceAnchor" value="523,603"/>
+				<property name="targetAnchor" value="523,657"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:GateConsole:attribute4">
+				<property name="sourceAnchor" value="620,565"/>
+				<property name="targetAnchor" value="1930,752"/>
+			</reference>
+			<reference referencedUin="jdt:l_ast:src:GateConsole:lnkUnnamed1">
+				<property name="sourceAnchor" value="619,546"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="800,546"/>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:GateConsole:lnkUnnamed1">
+					<property name="bounds" value="160,180,105,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:label:jdt:l_ast:src:GateConsole:lnkUnnamed1">
+					<property name="bounds" value="657,549,104,18"/>
+				</reference>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:GateConsole:lnkUnnamed1">
+					<property name="bounds" value="127,167,24,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:GateConsole:lnkUnnamed1">
+					<property name="bounds" value="779,525,11,18"/>
+				</reference>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:GateConsole:lnkUnnamed1">
+					<property name="bounds" value="629,525,26,18"/>
+				</reference>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:GateConsole:lnkUnnamed1">
+					<property name="bounds" value="310,182,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:GateConsole:attribute6">
+				<property name="sourceAnchor" value="620,551"/>
+				<property name="targetAnchor" value="1400,551"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:GateConsole:attribute5">
+				<property name="sourceAnchor" value="620,530"/>
+				<property name="targetAnchor" value="800,530"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:GateConsole:attribute1">
+				<property name="sourceAnchor" value="444,601"/>
+				<property name="targetAnchor" value="284,701"/>
+			</reference>
+			<reference referencedUin="jdt:l_ast:src:GateConsole:lnkUnnamed">
+				<property name="sourceAnchor" value="531,602"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="531,655"/>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:GateConsole:lnkUnnamed">
+					<property name="bounds" value="-247,142,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:label:jdt:l_ast:src:GateConsole:lnkUnnamed">
+					<property name="bounds" value="424,619,104,18"/>
+				</reference>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:GateConsole:lnkUnnamed">
+					<property name="bounds" value="-200,140,105,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:GateConsole:lnkUnnamed">
+					<property name="bounds" value="534,637,11,18"/>
+				</reference>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:GateConsole:lnkUnnamed">
+					<property name="bounds" value="-50,157,24,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:GateConsole:lnkUnnamed">
+					<property name="bounds" value="624,551,26,18"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:CleaningSupervisor">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="889,1015,153,80"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="jdt:l_dpn:src:CleaningSupervisor:attribute1">
+				<property name="sourceAnchor" value="1047,1081"/>
+				<property name="targetAnchor" value="1400,774"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:CleaningSupervisor:attribute2">
+				<property name="sourceAnchor" value="972,1020"/>
+				<property name="targetAnchor" value="972,765"/>
+			</reference>
+			<reference referencedUin="jdt:l_ast:src:CleaningSupervisor:lnkUnnamed">
+				<property name="sourceAnchor" value="980,1018"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="980,764"/>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:CleaningSupervisor:lnkUnnamed">
+					<property name="bounds" value="180,290,105,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:CleaningSupervisor:lnkUnnamed">
+					<property name="bounds" value="983,1000,11,18"/>
+				</reference>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:CleaningSupervisor:lnkUnnamed">
+					<property name="bounds" value="134,324,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:CleaningSupervisor:lnkUnnamed">
+					<property name="bounds" value="313,253,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:label:jdt:l_ast:src:CleaningSupervisor:lnkUnnamed">
+					<property name="bounds" value="873,882,104,18"/>
+				</reference>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:CleaningSupervisor:lnkUnnamed">
+					<property name="bounds" value="983,766,11,18"/>
+				</reference>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:MaintenanceInspector">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="1095,1015,165,80"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="jdt:l_dpn:src:MaintenanceInspector:attribute1">
+				<property name="sourceAnchor" value="1112,1020"/>
+				<property name="targetAnchor" value="1102,765"/>
+			</reference>
+			<reference referencedUin="jdt:l_ast:src:MaintenanceInspector:lnkUnnamed">
+				<property name="sourceAnchor" value="1130,1018"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="1118,764"/>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:MaintenanceInspector:lnkUnnamed">
+					<property name="bounds" value="346,370,105,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:MaintenanceInspector:lnkUnnamed">
+					<property name="bounds" value="1133,1000,11,18"/>
+				</reference>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:MaintenanceInspector:lnkUnnamed">
+					<property name="bounds" value="405,324,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:MaintenanceInspector:lnkUnnamed">
+					<property name="bounds" value="214,451,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:label:jdt:l_ast:src:MaintenanceInspector:lnkUnnamed">
+					<property name="bounds" value="1017,882,104,18"/>
+				</reference>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:MaintenanceInspector:lnkUnnamed">
+					<property name="bounds" value="1122,774,11,18"/>
+				</reference>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:MaintenanceInspector:attribute2">
+				<property name="sourceAnchor" value="1265,1070"/>
+				<property name="targetAnchor" value="1724,888"/>
+				<property name="bendpoints" value="1889,1150"/>
+				<property name="smooth_bendpoints" value="1889,1150"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:RefuellingSupervisor">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="1295,1015,154,80"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="jdt:l_ast:src:RefuellingSupervisor:lnkUnnamed">
+				<property name="sourceAnchor" value="1350,1020"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="1119,765"/>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:RefuellingSupervisor:lnkUnnamed">
+					<property name="bounds" value="1346,995,11,18"/>
+				</reference>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:RefuellingSupervisor:lnkUnnamed">
+					<property name="bounds" value="505,390,105,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:RefuellingSupervisor:lnkUnnamed">
+					<property name="bounds" value="486,515,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:RefuellingSupervisor:lnkUnnamed">
+					<property name="bounds" value="1142,772,11,18"/>
+				</reference>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:RefuellingSupervisor:lnkUnnamed">
+					<property name="bounds" value="502,320,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:label:jdt:l_ast:src:RefuellingSupervisor:lnkUnnamed">
+					<property name="bounds" value="1100,861,104,18"/>
+				</reference>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:RefuellingSupervisor:attribute1">
+				<property name="sourceAnchor" value="1338,1020"/>
+				<property name="targetAnchor" value="1118,764"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:RefuellingSupervisor:attribute2">
+				<property name="sourceAnchor" value="1454,1087"/>
+				<property name="targetAnchor" value="1628,966"/>
+				<property name="bendpoints" value="1628,1150"/>
+				<property name="smooth_bendpoints" value="1628,1150"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:PassengerDetails">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="1955,975,231,132"/>
+			<property name="bounds_setted_by_user" value="true"/>
+			<property name="location_set_by_user" value="true"/>
+			<property name="collapsedCompartments" value=""/>
+			<reference referencedUin="jdt:l_dpn:src:PassengerDetails:attribute2">
+				<property name="sourceAnchor" value="2070,980"/>
+				<property name="targetAnchor" value="1163,719"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:PassengerDetails:attribute4">
+				<property name="sourceAnchor" value="2070,980"/>
+				<property name="targetAnchor" value="2069,849"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:PassengerDetails:attribute3">
+				<property name="sourceAnchor" value="2070,980"/>
+				<property name="targetAnchor" value="1723,794"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:PassengerDetails:attribute1">
+				<property name="sourceAnchor" value="1960,1009"/>
+				<property name="targetAnchor" value="620,578"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:PublicInfo">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="1015,275,97,80"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="jdt:l_dpn:src:PublicInfo:attribute2">
+				<property name="sourceAnchor" value="1026,360"/>
+				<property name="targetAnchor" value="1865,658"/>
+				<property name="bendpoints" value="198,1150"/>
+				<property name="smooth_bendpoints" value="198,1150"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:l_ast:src:PublicInfo:lnkUnnamed">
+				<property name="sourceAnchor" value="1076,360"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="1076,458"/>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:PublicInfo:lnkUnnamed">
+					<property name="bounds" value="1079,362,26,18"/>
+				</reference>
+				<reference referencedUin="label:label:jdt:l_ast:src:PublicInfo:lnkUnnamed">
+					<property name="bounds" value="969,400,104,18"/>
+				</reference>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:PublicInfo:lnkUnnamed">
+					<property name="bounds" value="1079,440,11,18"/>
+				</reference>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:PublicInfo:lnkUnnamed">
+					<property name="bounds" value="487,5,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:PublicInfo:lnkUnnamed">
+					<property name="bounds" value="502,-174,24,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:PublicInfo:lnkUnnamed">
+					<property name="bounds" value="480,-40,105,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:PublicInfo:attribute1">
+				<property name="sourceAnchor" value="1068,360"/>
+				<property name="targetAnchor" value="1068,460"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:PublicInfo:attribute4">
+				<property name="sourceAnchor" value="1117,350"/>
+				<property name="targetAnchor" value="1400,529"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:PublicInfo:attribute3">
+				<property name="sourceAnchor" value="1117,330"/>
+				<property name="targetAnchor" value="1920,330"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:RadarTransceiver">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="795,275,153,80"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="jdt:l_dpn:src:RadarTransceiver:attribute1">
+				<property name="sourceAnchor" value="868,360"/>
+				<property name="targetAnchor" value="868,460"/>
+			</reference>
+			<reference referencedUin="jdt:l_ast:src:RadarTransceiver:lnkUnnamed">
+				<property name="sourceAnchor" value="884,359"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="884,460"/>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:RadarTransceiver:lnkUnnamed">
+					<property name="bounds" value="373,-63,105,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:label:jdt:l_ast:src:RadarTransceiver:lnkUnnamed">
+					<property name="bounds" value="777,400,104,18"/>
+				</reference>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:RadarTransceiver:lnkUnnamed">
+					<property name="bounds" value="887,361,11,18"/>
+				</reference>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:RadarTransceiver:lnkUnnamed">
+					<property name="bounds" value="244,-172,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:RadarTransceiver:lnkUnnamed">
+					<property name="bounds" value="436,13,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:RadarTransceiver:lnkUnnamed">
+					<property name="bounds" value="887,432,11,18"/>
+				</reference>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:RadarTransceiver:attribute5">
+				<property name="sourceAnchor" value="944,360"/>
+				<property name="targetAnchor" value="1975,850"/>
+				<property name="bendpoints" value="944,1905,1975,1905"/>
+				<property name="smooth_bendpoints" value="944,1905,1975,1905"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:RadarTransceiver:attribute4">
+				<property name="sourceAnchor" value="867,360"/>
+				<property name="targetAnchor" value="1400,730"/>
+				<property name="bendpoints" value="703,1150"/>
+				<property name="smooth_bendpoints" value="703,1150"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:RadarTransceiver:attribute3">
+				<property name="sourceAnchor" value="953,321"/>
+				<property name="targetAnchor" value="1920,381"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:RadarTransceiver:attribute2">
+				<property name="sourceAnchor" value="953,338"/>
+				<property name="targetAnchor" value="1860,549"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:FlightDescriptor">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="1855,535,415,118"/>
+			<property name="bounds_setted_by_user" value="true"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="jdt:l_dpn:src:FlightDescriptor:attribute4">
+				<property name="sourceAnchor" value="2220,662"/>
+				<property name="targetAnchor" value="1724,670"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:FlightDescriptor:attribute1">
+				<property name="sourceAnchor" value="1860,617"/>
+				<property name="targetAnchor" value="1163,617"/>
+			</reference>
+			<reference referencedUin="jdt:l_ast:src:FlightDescriptor:lnkUnnamed">
+				<property name="sourceAnchor" value="2048,540"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="2048,485"/>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:FlightDescriptor:lnkUnnamed">
+					<property name="bounds" value="2051,586,11,18"/>
+				</reference>
+				<reference referencedUin="label:label:jdt:l_ast:src:FlightDescriptor:lnkUnnamed">
+					<property name="bounds" value="1996,503,49,18"/>
+				</reference>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:FlightDescriptor:lnkUnnamed">
+					<property name="bounds" value="1460,0,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:FlightDescriptor:lnkUnnamed">
+					<property name="bounds" value="1460,70,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:FlightDescriptor:lnkUnnamed">
+					<property name="bounds" value="2051,487,11,18"/>
+				</reference>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:FlightDescriptor:lnkUnnamed">
+					<property name="bounds" value="1481,14,49,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:FlightDescriptor:attribute7">
+				<property name="sourceAnchor" value="1860,546"/>
+				<property name="targetAnchor" value="953,335"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:FlightDescriptor:attribute6">
+				<property name="sourceAnchor" value="2220,662"/>
+				<property name="targetAnchor" value="2125,740"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:l_ast:src:FlightDescriptor:lnkUnnamed1">
+				<property name="sourceAnchor" value="2076,658"/>
+				<property name="targetAnchor" value="2076,740"/>
+				<property name="location_set_by_user" value="true"/>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:FlightDescriptor:lnkUnnamed1">
+					<property name="bounds" value="2079,660,11,18"/>
+				</reference>
+				<reference referencedUin="label:label:jdt:l_ast:src:FlightDescriptor:lnkUnnamed1">
+					<property name="bounds" value="2024,690,49,18"/>
+				</reference>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:FlightDescriptor:lnkUnnamed1">
+					<property name="bounds" value="1484,201,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:FlightDescriptor:lnkUnnamed1">
+					<property name="bounds" value="1470,240,49,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:FlightDescriptor:lnkUnnamed1">
+					<property name="bounds" value="2079,712,11,18"/>
+				</reference>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:FlightDescriptor:lnkUnnamed1">
+					<property name="bounds" value="1470,260,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:FlightDescriptor:attribute3">
+				<property name="sourceAnchor" value="2032,540"/>
+				<property name="targetAnchor" value="2032,486"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:FlightDescriptor:attribute2">
+				<property name="sourceAnchor" value="2220,662"/>
+				<property name="targetAnchor" value="746,1100"/>
+				<property name="bendpoints" value="918,1715"/>
+				<property name="smooth_bendpoints" value="918,1715"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:FlightDescriptor:attribute5">
+				<property name="sourceAnchor" value="2220,662"/>
+				<property name="targetAnchor" value="1960,1054"/>
+				<property name="bendpoints" value="626,1150"/>
+				<property name="smooth_bendpoints" value="626,1150"/>
+				<property name="location_set_by_user" value="true"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:Gate">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="75,635,204,262"/>
+			<property name="bounds_setted_by_user" value="true"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="jdt:l_dpn:src:Gate:attribute1">
+				<property name="sourceAnchor" value="284,706"/>
+				<property name="targetAnchor" value="449,603"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:Gate:attribute2">
+				<property name="sourceAnchor" value="284,750"/>
+				<property name="targetAnchor" value="387,750"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:GateInfoDatabase">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="382,652,291,205"/>
+			<property name="bounds_setted_by_user" value="true"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="jdt:l_ast:src:GateInfoDatabase:gates">
+				<property name="sourceAnchor" value="385,758"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="283,758"/>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:GateInfoDatabase:gates">
+					<property name="bounds" value="-413,292,49,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:GateInfoDatabase:gates">
+					<property name="bounds" value="-420,200,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:label:jdt:l_ast:src:GateInfoDatabase:gates">
+					<property name="bounds" value="310,761,49,18"/>
+				</reference>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:GateInfoDatabase:gates">
+					<property name="bounds" value="293,737,26,18"/>
+				</reference>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:GateInfoDatabase:gates">
+					<property name="bounds" value="374,737,11,18"/>
+				</reference>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:GateInfoDatabase:gates">
+					<property name="bounds" value="-420,330,24,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:GateInfoDatabase:attribute1">
+				<property name="sourceAnchor" value="387,742"/>
+				<property name="targetAnchor" value="284,742"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:GateInfoDatabase:attribute2">
+				<property name="sourceAnchor" value="515,657"/>
+				<property name="targetAnchor" value="515,603"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:AircraftManagementDatabase">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="795,455,363,305"/>
+			<property name="bounds_setted_by_user" value="true"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="jdt:l_dpn:src:AircraftManagementDatabase:attribute13">
+				<property name="sourceAnchor" value="1118,764"/>
+				<property name="targetAnchor" value="1344,1020"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:AircraftManagementDatabase:attribute10">
+				<property name="sourceAnchor" value="1163,719"/>
+				<property name="targetAnchor" value="1930,752"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:AircraftManagementDatabase:attribute3">
+				<property name="sourceAnchor" value="800,538"/>
+				<property name="targetAnchor" value="620,538"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:AircraftManagementDatabase:attribute12">
+				<property name="sourceAnchor" value="876,460"/>
+				<property name="targetAnchor" value="876,360"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:AircraftManagementDatabase:attribute6">
+				<property name="sourceAnchor" value="824,765"/>
+				<property name="targetAnchor" value="807,1020"/>
+			</reference>
+			<reference referencedUin="jdt:l_ast:src:AircraftManagementDatabase:MRs">
+				<property name="sourceAnchor" value="1161,606"/>
+				<property name="bendpoints" value=""/>
+				<property name="targetAnchor" value="1399,606"/>
+				<reference referencedUin="label:label:jdt:l_ast:src:AircraftManagementDatabase:MRs">
+					<property name="bounds" value="1256,609,49,18"/>
+				</reference>
+				<reference referencedUin="linklabel:supplierCardinality:jdt:l_ast:src:AircraftManagementDatabase:MRs">
+					<property name="bounds" value="848,162,24,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:clientCardinality:jdt:l_ast:src:AircraftManagementDatabase:MRs">
+					<property name="bounds" value="693,146,14,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="linklabel:label:jdt:l_ast:src:AircraftManagementDatabase:MRs">
+					<property name="bounds" value="793,162,49,15"/>
+					<property name="bounds_setted_by_user" value="true"/>
+				</reference>
+				<reference referencedUin="label:clientCardinality:jdt:l_ast:src:AircraftManagementDatabase:MRs">
+					<property name="bounds" value="1171,585,11,18"/>
+				</reference>
+				<reference referencedUin="label:supplierCardinality:jdt:l_ast:src:AircraftManagementDatabase:MRs">
+					<property name="bounds" value="1373,585,26,18"/>
+				</reference>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:AircraftManagementDatabase:attribute1">
+				<property name="sourceAnchor" value="964,765"/>
+				<property name="targetAnchor" value="964,1020"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:AircraftManagementDatabase:attribute2">
+				<property name="sourceAnchor" value="1163,625"/>
+				<property name="targetAnchor" value="1860,625"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:AircraftManagementDatabase:attribute8">
+				<property name="sourceAnchor" value="1163,638"/>
+				<property name="targetAnchor" value="1400,638"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:AircraftManagementDatabase:attribute5">
+				<property name="sourceAnchor" value="1163,473"/>
+				<property name="targetAnchor" value="1920,458"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:AircraftManagementDatabase:attribute9">
+				<property name="sourceAnchor" value="1163,719"/>
+				<property name="targetAnchor" value="2069,980"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:AircraftManagementDatabase:attribute4">
+				<property name="sourceAnchor" value="810,765"/>
+				<property name="targetAnchor" value="549,1020"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:AircraftManagementDatabase:attribute7">
+				<property name="sourceAnchor" value="1110,765"/>
+				<property name="targetAnchor" value="1121,1020"/>
+			</reference>
+			<reference referencedUin="jdt:l_dpn:src:AircraftManagementDatabase:attribute11">
+				<property name="sourceAnchor" value="1084,460"/>
+				<property name="targetAnchor" value="1084,360"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:Main">
+			<property name="$shortcutReference" value="true"/>
+			<property name="bounds" value="375,295,162,80"/>
+			<property name="location_set_by_user" value="true"/>
+		</reference>
+		<reference referencedUin="design:node:::id3vdzccko4qme4cko4sv53.nodeid7sltxekbp1ah5ekbq6xjd">
+			<property name="$shortcutReference" value="true"/>
+			<property name="background_color" value="255,102,102"/>
+			<property name="bounds" value="315,35,600,120"/>
+			<property name="bounds_setted_by_user" value="true"/>
+			<property name="location_set_by_user" value="true"/>
+			<property name="font" value="1|Tahoma|16|1|WINDOWS|1|-21|0|0|0|700|0|0|0|0|3|2|1|34|Tahoma;"/>
+		</reference>
+		<reference referencedUin="design:view:::id1un8dcko4qme4cko4sw27">
+			<property name="bounds" value="3281,2275,271,145"/>
+			<property name="location_set_by_user" value="true"/>
+			<property name="$hidden" value="true"/>
+		</reference>
+		<reference referencedUin="design:view:::id7eu8wekbp1ah5ekbpv1sk">
+			<property name="bounds" value="3229,775,224,173"/>
+			<property name="location_set_by_user" value="true"/>
+			<property name="$hidden" value="true"/>
+		</reference>
+		<reference referencedUin="design:view:::id3oolzcko4qme4cko4sx40">
+			<property name="bounds" value="2971,295,270,159"/>
+			<property name="location_set_by_user" value="true"/>
+			<property name="$hidden" value="true"/>
+		</reference>
+		<reference referencedUin="design:view:::idwwyucko4qme4cko4sgxi">
+			<property name="bounds" value="2971,495,290,215"/>
+			<property name="location_set_by_user" value="true"/>
+			<property name="$hidden" value="true"/>
+		</reference>
+		<reference referencedUin="design:view:::id2wdkkcko4qme4cko4svm2">
+			<property name="bounds" value="3204,995,280,173"/>
+			<property name="location_set_by_user" value="true"/>
+			<property name="$hidden" value="true"/>
+		</reference>
+		<reference referencedUin="design:view:::id15rnfcko4qme4cko4swib">
+			<property name="bounds" value="553,2295,271,369"/>
+			<property name="location_set_by_user" value="true"/>
+			<property name="$hidden" value="true"/>
+		</reference>
+		<reference referencedUin="design:view:::id2fh3ncko4qme4cko4swe5">
+			<property name="bounds" value="2915,775,294,187"/>
+			<property name="location_set_by_user" value="true"/>
+			<property name="$hidden" value="true"/>
+		</reference>
+		<reference referencedUin="design:view:::id4tg7xcko4qme4cko4swuu">
+			<property name="bounds" value="844,2455,289,145"/>
+			<property name="location_set_by_user" value="true"/>
+			<property name="$hidden" value="true"/>
+		</reference>
+		<reference referencedUin="design:view:::id1jkohcko4qme4cko4svww">
+			<property name="bounds" value="2341,295,295,159"/>
+			<property name="location_set_by_user" value="true"/>
+			<property name="$hidden" value="true"/>
+		</reference>
+		<reference referencedUin="design:view:::id1bl79cko4qme4cko4sw5j">
+			<property name="bounds" value="3261,295,307,159"/>
+			<property name="location_set_by_user" value="true"/>
+			<property name="$hidden" value="true"/>
+		</reference>
+		<reference referencedUin="design:view:::id3y5z3cko4qme4cko4sw81">
+			<property name="bounds" value="3281,495,296,243"/>
+			<property name="location_set_by_user" value="true"/>
+			<property name="$hidden" value="true"/>
+		</reference>
+		<reference referencedUin="design:view:::id28ykdcko4qme4cko4sx0e">
+			<property name="bounds" value="2656,295,295,173"/>
+			<property name="location_set_by_user" value="true"/>
+			<property name="$hidden" value="true"/>
+		</reference>
+	</view>
+</nodeSet>

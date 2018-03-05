@@ -1,0 +1,1611 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<nodeSet  version="1.1">
+	<node uin="idwwyucko4qme4cko4sgxi.node">
+		<property name="$metaclass" value="Actor"/>
+		<property name="$name" value="Aircraft"/>
+		<link uin="idwwyucko4qme4cko4sgxi.node.link">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::idwwyucko4qme4cko4sgxi.node" role="Client"></participant>
+			<participant referencedUin="design:node:::idwwyucko4qme4cko4sgxi.node1" role="Supplier"></participant>
+		</link>
+		<link uin="idwwyucko4qme4cko4sgxi.node.link177">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::idwwyucko4qme4cko4sgxi.node" role="Client"></participant>
+			<participant referencedUin="design:node:::idwwyucko4qme4cko4sgxi.node5" role="Supplier"></participant>
+		</link>
+		<link uin="idwwyucko4qme4cko4sgxi.node.link178">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::idwwyucko4qme4cko4sgxi.node" role="Client"></participant>
+			<participant referencedUin="design:node:::idwwyucko4qme4cko4sgxi.node9" role="Supplier"></participant>
+		</link>
+		<link uin="idwwyucko4qme4cko4sgxi.node.link179">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::idwwyucko4qme4cko4sgxi.node" role="Client"></participant>
+			<participant referencedUin="design:node:::idwwyucko4qme4cko4sgxi.node13" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="idwwyucko4qme4cko4sgxi.node1">
+		<property name="$description" value="This use case covers all aspects of an aircraft's visit to Stirling Airport, from entry into the local airspace to its eventual departure - in effect this use case is realized by all the operations carried out by the air traffic controllers, ground operations controller, gate staff, etc"/>
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="VisitsAirport"/>
+		<link uin="idwwyucko4qme4cko4sgxi.node1.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::idwwyucko4qme4cko4sgxi.node1" role="Client"></participant>
+			<participant referencedUin="design:node:::idwwyucko4qme4cko4sgxi.node3" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="idwwyucko4qme4cko4sgxi.node3">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note1"/>
+		<property name="$note_text" value="This use case covers all aspects of an aircraft's visit to Stirling Airport, from entry into the local airspace to its eventual departure - in effect this use case is realized by all the operations carried out by the air traffic controllers, ground operations controller, gate staff, etc"/>
+	</node>
+	<node uin="idwwyucko4qme4cko4sgxi.node5">
+		<property name="$description" value="At entry to local airspace, the flight descriptor is downloaded from the aircraft's on-board computer to SAAMS"/>
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="DownloadsFlightInfo"/>
+		<link uin="idwwyucko4qme4cko4sgxi.node5.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::idwwyucko4qme4cko4sgxi.node5" role="Client"></participant>
+			<participant referencedUin="design:node:::idwwyucko4qme4cko4sgxi.node7" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="idwwyucko4qme4cko4sgxi.node7">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note2"/>
+		<property name="$note_text" value="At entry to local airspace, the flight descriptor is downloaded from the aircraft's on-board computer to SAAMS"/>
+	</node>
+	<node uin="idwwyucko4qme4cko4sgxi.node9">
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="PassesBy"/>
+		<property name="$description" value="The aircraft enters local airspace without wanting to land, and departs again soon after. SAAMS records its presence while it is in local airspace."/>
+		<link uin="idwwyucko4qme4cko4sgxi.node9.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::idwwyucko4qme4cko4sgxi.node9" role="Client"></participant>
+			<participant referencedUin="design:node:::idwwyucko4qme4cko4sgxi.node11" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="idwwyucko4qme4cko4sgxi.node11">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note3"/>
+		<property name="$note_text" value="The aircraft enters local airspace without wanting to land,&#10;and departs again soon after. SAAMS records its presence&#10;while it is in local airspace."/>
+	</node>
+	<node uin="idwwyucko4qme4cko4sgxi.node13">
+		<property name="$description" value="When passengers have finished boarding, the aircraft receives a passenger list from SAAMS."/>
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="UploadsPassengerList"/>
+		<link uin="idwwyucko4qme4cko4sgxi.node13.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::idwwyucko4qme4cko4sgxi.node13" role="Client"></participant>
+			<participant referencedUin="design:node:::idwwyucko4qme4cko4sgxi.node15" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="idwwyucko4qme4cko4sgxi.node15">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note4"/>
+		<property name="$note_text" value="When passengers have finished boarding, the aircraft &#10;receives a passenger list from SAAMS."/>
+	</node>
+	<node uin="idwwyucko4qme4cko4sgxi.node2">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note5"/>
+		<property name="$note_text" value="This use case diagram shows the different interactions that an aircraft (or aircraft's staff, or on-board computer) has with SAAMS. Note that aircraft is an ACTOR and NOT a part of SAAMS, so no implementation is required for the aircraft itself!"/>
+	</node>
+	<node uin="id2wdkkcko4qme4cko4svm2.node">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note1"/>
+		<property name="$note_text" value="The GOC allocates a FREE gate for an aircraft that has LANDED and is waiting to taxi to a gate.&#10;&#10;Note: The messages following each &quot;notifyObservers&quot; are omitted, as they are (may be) &quot;broadcast&quot; very widely in the system."/>
+	</node>
+	<node uin="id2wdkkcko4qme4cko4svm2.node36">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="GOC interface"/>
+		<property name="$persistence" value="transient"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:GOC"/>
+		<link uin="id2wdkkcko4qme4cko4svm2.node36.link">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node36" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:GOC" role="Supplier"></participant>
+		</link>
+		<link uin="id2wdkkcko4qme4cko4svm2.node36.link195">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="arguments" value="mCode, gateNumber"/>
+			<property name="minProcessingDuration" value="95"/>
+			<property name="predecessorUid" value="design:link:::id2wdkkcko4qme4cko4svm2.node5.link11:id2wdkkcko4qme4cko4svm2.node5"/>
+			<property name="activationUid" value="design:node:::id2wdkkcko4qme4cko4svm2.node39.node196:id2wdkkcko4qme4cko4svm2.node39"/>
+			<property name="diagram_uniqe_name" value="design:view:::id2wdkkcko4qme4cko4svm2"/>
+			<property name="$name" value=" "/>
+			<property name="normalizedIndex" value="0.6666667"/>
+			<link uin="id2wdkkcko4qme4cko4svm2.node36.link195.operation">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node36.link195:id2wdkkcko4qme4cko4svm2.node36" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:AircraftManagementDatabase.taxiTo:taxiTo~I~I" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node36" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node39" role="Supplier"></participant>
+		</link>
+		<link uin="id2wdkkcko4qme4cko4svm2.node36.link197">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node36" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node39" role="Supplier"></participant>
+		</link>
+		<link uin="id2wdkkcko4qme4cko4svm2.node36.link204">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="arguments" value="gateNumber, mCode"/>
+			<property name="minProcessingDuration" value="105"/>
+			<property name="predecessorUid" value="design:link:::id2wdkkcko4qme4cko4svm2.node5.link11:id2wdkkcko4qme4cko4svm2.node5"/>
+			<property name="activationUid" value="design:node:::id2wdkkcko4qme4cko4svm2.node43.node205:id2wdkkcko4qme4cko4svm2.node43"/>
+			<property name="diagram_uniqe_name" value="design:view:::id2wdkkcko4qme4cko4svm2"/>
+			<property name="$name" value=" "/>
+			<property name="normalizedIndex" value="0.33333334"/>
+			<link uin="id2wdkkcko4qme4cko4svm2.node36.link204.operation">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node36.link204:id2wdkkcko4qme4cko4svm2.node36" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:GateInfoDatabase.allocate:allocate~I~I" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node36" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node43" role="Supplier"></participant>
+		</link>
+		<link uin="id2wdkkcko4qme4cko4svm2.node36.link206">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node36" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node43" role="Supplier"></participant>
+		</link>
+		<node uin="id2wdkkcko4qme4cko4svm2.node36.node">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation9"/>
+			<property name="messageUid" value="design:link:::id2wdkkcko4qme4cko4svm2.node5.link:id2wdkkcko4qme4cko4svm2.node5"/>
+		</node>
+		<node uin="id2wdkkcko4qme4cko4svm2.node36.node12">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::id2wdkkcko4qme4cko4svm2.node5.link11:id2wdkkcko4qme4cko4svm2.node5"/>
+		</node>
+		<link uin="L1b7x3ieida49i0-gzloke">
+			<property name="$metaclass" value="Messages Link"/>
+			<property name="$name" value="Messages Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node36" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node5" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id2wdkkcko4qme4cko4svm2.node39">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="aircraftDB"/>
+		<property name="$persistence" value="transient"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:AircraftManagementDatabase"/>
+		<link uin="id2wdkkcko4qme4cko4svm2.node39.link">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node39" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:AircraftManagementDatabase" role="Supplier"></participant>
+		</link>
+		<node uin="id2wdkkcko4qme4cko4svm2.node39.node196">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation3"/>
+			<property name="messageUid" value="design:link:::id2wdkkcko4qme4cko4svm2.node36.link195:id2wdkkcko4qme4cko4svm2.node36"/>
+		</node>
+		<link uin="id2wdkkcko4qme4cko4svm2.node39.link198">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="arguments" value="gateNumber"/>
+			<property name="predecessorUid" value="design:link:::id2wdkkcko4qme4cko4svm2.node36.link195:id2wdkkcko4qme4cko4svm2.node36"/>
+			<property name="activationUid" value="design:node:::id2wdkkcko4qme4cko4svm2.node41.node199:id2wdkkcko4qme4cko4svm2.node41"/>
+			<property name="diagram_uniqe_name" value="design:view:::id2wdkkcko4qme4cko4svm2"/>
+			<property name="$name" value=" "/>
+			<property name="normalizedIndex" value="0.33333334"/>
+			<link uin="id2wdkkcko4qme4cko4svm2.node39.link198.operation">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node39.link198:id2wdkkcko4qme4cko4svm2.node39" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:ManagementRecord.taxiTo:taxiTo~I" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node39" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node41" role="Supplier"></participant>
+		</link>
+		<link uin="id2wdkkcko4qme4cko4svm2.node39.link200">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node39" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node41" role="Supplier"></participant>
+		</link>
+		<link uin="id2wdkkcko4qme4cko4svm2.node39.link201">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="Message2Self" value="yes"/>
+			<property name="$name" value="notifyObservers"/>
+			<property name="minProcessingDuration" value="20"/>
+			<property name="predecessorUid" value="design:link:::id2wdkkcko4qme4cko4svm2.node36.link195:id2wdkkcko4qme4cko4svm2.node36"/>
+			<property name="activationUid" value="design:node:::id2wdkkcko4qme4cko4svm2.node39.node202:id2wdkkcko4qme4cko4svm2.node39"/>
+			<property name="diagram_uniqe_name" value="design:view:::id2wdkkcko4qme4cko4svm2"/>
+			<property name="normalizedIndex" value="0.6666667"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node39" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node39" role="Supplier"></participant>
+		</link>
+		<node uin="id2wdkkcko4qme4cko4svm2.node39.node202">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation5"/>
+			<property name="messageUid" value="design:link:::id2wdkkcko4qme4cko4svm2.node39.link201:id2wdkkcko4qme4cko4svm2.node39"/>
+		</node>
+		<link uin="id2wdkkcko4qme4cko4svm2.node39.link203">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node39" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node39" role="Supplier"></participant>
+		</link>
+		<link uin="L1b7x3iekmp0d3a4xpqbb">
+			<property name="$metaclass" value="Messages Link"/>
+			<property name="$name" value="Messages Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node39" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node36" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id2wdkkcko4qme4cko4svm2.node41">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="MR"/>
+		<property name="$persistence" value="transient"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:ManagementRecord"/>
+		<link uin="id2wdkkcko4qme4cko4svm2.node41.link">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node41" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:ManagementRecord" role="Supplier"></participant>
+		</link>
+		<node uin="id2wdkkcko4qme4cko4svm2.node41.node199">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation4"/>
+			<property name="messageUid" value="design:link:::id2wdkkcko4qme4cko4svm2.node39.link198:id2wdkkcko4qme4cko4svm2.node39"/>
+		</node>
+		<link uin="L1b7x3iekmp0d3k-6kccj2">
+			<property name="$metaclass" value="Messages Link"/>
+			<property name="$name" value="Messages Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node41" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node39" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id2wdkkcko4qme4cko4svm2.node43">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="gateDB"/>
+		<property name="$persistence" value="transient"/>
+		<link uin="id2wdkkcko4qme4cko4svm2.node43.link">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node43" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:GateInfoDatabase" role="Supplier"></participant>
+		</link>
+		<node uin="id2wdkkcko4qme4cko4svm2.node43.node205">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation6"/>
+			<property name="messageUid" value="design:link:::id2wdkkcko4qme4cko4svm2.node36.link204:id2wdkkcko4qme4cko4svm2.node36"/>
+		</node>
+		<link uin="id2wdkkcko4qme4cko4svm2.node43.link207">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="arguments" value="mCode"/>
+			<property name="predecessorUid" value="design:link:::id2wdkkcko4qme4cko4svm2.node36.link204:id2wdkkcko4qme4cko4svm2.node36"/>
+			<property name="activationUid" value="design:node:::id2wdkkcko4qme4cko4svm2.node45.node208:id2wdkkcko4qme4cko4svm2.node45"/>
+			<property name="diagram_uniqe_name" value="design:view:::id2wdkkcko4qme4cko4svm2"/>
+			<property name="$name" value=" "/>
+			<property name="normalizedIndex" value="0.33333334"/>
+			<link uin="id2wdkkcko4qme4cko4svm2.node43.link207.operation">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node43.link207:id2wdkkcko4qme4cko4svm2.node43" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:Gate.allocate:allocate~I" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node43" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node45" role="Supplier"></participant>
+		</link>
+		<link uin="id2wdkkcko4qme4cko4svm2.node43.link209">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node43" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node45" role="Supplier"></participant>
+		</link>
+		<link uin="id2wdkkcko4qme4cko4svm2.node43.link210">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="Message2Self" value="yes"/>
+			<property name="$name" value="notifyObservers"/>
+			<property name="minProcessingDuration" value="20"/>
+			<property name="predecessorUid" value="design:link:::id2wdkkcko4qme4cko4svm2.node36.link204:id2wdkkcko4qme4cko4svm2.node36"/>
+			<property name="activationUid" value="design:node:::id2wdkkcko4qme4cko4svm2.node43.node211:id2wdkkcko4qme4cko4svm2.node43"/>
+			<property name="diagram_uniqe_name" value="design:view:::id2wdkkcko4qme4cko4svm2"/>
+			<property name="normalizedIndex" value="0.6666667"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node43" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node43" role="Supplier"></participant>
+		</link>
+		<node uin="id2wdkkcko4qme4cko4svm2.node43.node211">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation8"/>
+			<property name="messageUid" value="design:link:::id2wdkkcko4qme4cko4svm2.node43.link210:id2wdkkcko4qme4cko4svm2.node43"/>
+		</node>
+		<link uin="id2wdkkcko4qme4cko4svm2.node43.link212">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node43" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node43" role="Supplier"></participant>
+		</link>
+		<link uin="L1b7x3iekmp0d3a7xg89h">
+			<property name="$metaclass" value="Messages Link"/>
+			<property name="$name" value="Messages Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node43" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node36" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id2wdkkcko4qme4cko4svm2.node45">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="gate"/>
+		<property name="$persistence" value="transient"/>
+		<link uin="id2wdkkcko4qme4cko4svm2.node45.link">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node45" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:Gate" role="Supplier"></participant>
+		</link>
+		<node uin="id2wdkkcko4qme4cko4svm2.node45.node208">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation7"/>
+			<property name="messageUid" value="design:link:::id2wdkkcko4qme4cko4svm2.node43.link207:id2wdkkcko4qme4cko4svm2.node43"/>
+		</node>
+		<link uin="L1b7x3iekmp0d3k-ohhq0h">
+			<property name="$metaclass" value="Messages Link"/>
+			<property name="$name" value="Messages Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node45" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node43" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id2wdkkcko4qme4cko4svm2.node5">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="The GOC"/>
+		<property name="@stereotype" value="actor"/>
+		<link uin="id2wdkkcko4qme4cko4svm2.node5.link">
+			<property name="$description" value="GOC chooses an aircraft to allocate a gate for,&#10;and a gate, by selecting on the screen.&#10;This determines the mCode and &#10;gateNumber for the subsequent Allocate event."/>
+			<property name="$metaclass" value="Message Link"/>
+			<property name="$name" value="SelectAircraftAndGate"/>
+			<property name="normalizedIndex" value="0.3333333333333333"/>
+			<property name="activationUid" value="design:node:::id2wdkkcko4qme4cko4svm2.node36.node:id2wdkkcko4qme4cko4svm2.node36"/>
+			<property name="diagram_uniqe_name" value="design:view:::id2wdkkcko4qme4cko4svm2"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node5" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node36" role="Supplier"></participant>
+		</link>
+		<link uin="id2wdkkcko4qme4cko4svm2.node5.link11">
+			<property name="$description" value="GOC clicks &quot;Allocate gate&quot; button: The previously selected mCode and gateNumber are used to set up the correct status for the aircraft and gate in their respective databases"/>
+			<property name="$metaclass" value="Message Link"/>
+			<property name="$name" value="Allocate"/>
+			<property name="minProcessingDuration" value="53"/>
+			<property name="normalizedIndex" value="0.6666666666666666"/>
+			<property name="activationUid" value="design:node:::id2wdkkcko4qme4cko4svm2.node36.node12:id2wdkkcko4qme4cko4svm2.node36"/>
+			<property name="diagram_uniqe_name" value="design:view:::id2wdkkcko4qme4cko4svm2"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node5" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node36" role="Supplier"></participant>
+		</link>
+		<link uin="L1b7x3iekmp0d3k-3wj9bc">
+			<property name="$metaclass" value="Messages Link"/>
+			<property name="$name" value="Messages Link"/>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node5" role="Client"></participant>
+			<participant referencedUin="design:node:::id2wdkkcko4qme4cko4svm2.node36" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id1jkohcko4qme4cko4svww.node">
+		<property name="$metaclass" value="Actor"/>
+		<property name="$name" value="GateStaff"/>
+		<link uin="id1jkohcko4qme4cko4svww.node.link">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::id1jkohcko4qme4cko4svww.node" role="Client"></participant>
+			<participant referencedUin="design:node:::id1jkohcko4qme4cko4svww.node47" role="Supplier"></participant>
+		</link>
+		<link uin="id1jkohcko4qme4cko4svww.node.link181">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::id1jkohcko4qme4cko4svww.node" role="Client"></participant>
+			<participant referencedUin="design:node:::id1jkohcko4qme4cko4svww.node51" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id1jkohcko4qme4cko4svww.node47">
+		<property name="$description" value="Receives an arriving aircraft docking at a passenger gate, and supervises disembarking of passengers. Gate staff signal to SAAMS that the aircraft has docked, and later signal that all the passengers have disembarked."/>
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="ReceivesAircraft"/>
+		<link uin="id1jkohcko4qme4cko4svww.node47.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::id1jkohcko4qme4cko4svww.node47" role="Client"></participant>
+			<participant referencedUin="design:node:::id1jkohcko4qme4cko4svww.node49" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id1jkohcko4qme4cko4svww.node49">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note1"/>
+		<property name="$note_text" value="Receives an arriving aircraft docking at a passenger gate, and supervises disembarking of passengers. Gate staff signal to SAAMS that the aircraft has docked, and later signal that all the passengers have disembarked."/>
+	</node>
+	<node uin="id1jkohcko4qme4cko4svww.node51">
+		<property name="$description" value="Supervises boarding of passengers and departure of the aircraft from a gate. Gate staff enter individual passengers' details, and then signal to SAAMS that boarding is complete."/>
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="EmbarksAircraft"/>
+		<link uin="id1jkohcko4qme4cko4svww.node51.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::id1jkohcko4qme4cko4svww.node51" role="Client"></participant>
+			<participant referencedUin="design:node:::id1jkohcko4qme4cko4svww.node53" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id1jkohcko4qme4cko4svww.node53">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note2"/>
+		<property name="$note_text" value="Supervises boarding of passengers and departure of the aircraft from a gate. Gate staff enter individual passengers' details, and then signal to SAAMS that boarding is complete."/>
+	</node>
+	<node uin="id1jkohcko4qme4cko4svww.node4">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note3"/>
+		<property name="$note_text" value="This use case diagram shows the ways that gate staff interact with SAAMS."/>
+	</node>
+	<node uin="id1un8dcko4qme4cko4sw27.node">
+		<property name="$description" value="Status code: Gate.FREE"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="Free"/>
+		<link uin="id1un8dcko4qme4cko4sw27.node.link">
+			<property name="$description" value="This gate has been allocated by GOC  &#10;for an aircraft that has landed."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="allocate"/>
+			<property name="$event_arguments" value="int mCode"/>
+			<participant referencedUin="design:node:::id1un8dcko4qme4cko4sw27.node" role="Client"></participant>
+			<participant referencedUin="design:node:::id1un8dcko4qme4cko4sw27.node55" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id1un8dcko4qme4cko4sw27.node55">
+		<property name="$description" value="Status code: Gate.RESERVED"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="Reserved"/>
+		<link uin="id1un8dcko4qme4cko4sw27.node55.link">
+			<property name="$description" value="The gate staff press a button on the gate's console to  &#10;indicate that an aircraft has docked at the gate."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="docked"/>
+			<participant referencedUin="design:node:::id1un8dcko4qme4cko4sw27.node55" role="Client"></participant>
+			<participant referencedUin="design:node:::id1un8dcko4qme4cko4sw27.node57" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id1un8dcko4qme4cko4sw27.node57">
+		<property name="$description" value="Status code: Gate.OCCUPIED"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="Occupied"/>
+		<link uin="id1un8dcko4qme4cko4sw27.node57.link">
+			<property name="$description" value="The gate staff press a button on the gate's console  &#10;when an aircraft has completed embarking  &#10;passengers and has left the gate."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="departed"/>
+			<participant referencedUin="design:node:::id1un8dcko4qme4cko4sw27.node57" role="Client"></participant>
+			<participant referencedUin="design:node:::id1un8dcko4qme4cko4sw27.node" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id1un8dcko4qme4cko4sw27.node59">
+		<property name="$metaclass" value="Start State"/>
+		<property name="$name" value="Gate creation"/>
+		<link uin="id1un8dcko4qme4cko4sw27.node59.link">
+			<property name="$metaclass" value="Transition"/>
+			<participant referencedUin="design:node:::id1un8dcko4qme4cko4sw27.node59" role="Client"></participant>
+			<participant referencedUin="design:node:::id1un8dcko4qme4cko4sw27.node" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id1un8dcko4qme4cko4sw27.node61">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note1"/>
+		<property name="$note_text" value="This state diagram shows the life cycle of a single Gate (right-click this note or the diagram background for hyperlinks)"/>
+		<property name="@url" value="element://model:project::SAAMS/design:view:::id2wdkkcko4qme4cko4svm2"/>
+		<property name="@url" value="element://model:project::SAAMS/design:view:::id1jkohcko4qme4cko4svww"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:Gate"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:GateConsole"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:GateInfoDatabase"/>
+	</node>
+	<node uin="id1bl79cko4qme4cko4sw5j.node">
+		<property name="$metaclass" value="Actor"/>
+		<property name="$name" value="GroundOperationsController"/>
+		<link uin="id1bl79cko4qme4cko4sw5j.node.link">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::id1bl79cko4qme4cko4sw5j.node" role="Client"></participant>
+			<participant referencedUin="design:node:::id1bl79cko4qme4cko4sw5j.node63" role="Supplier"></participant>
+		</link>
+		<link uin="id1bl79cko4qme4cko4sw5j.node.link182">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::id1bl79cko4qme4cko4sw5j.node" role="Client"></participant>
+			<participant referencedUin="design:node:::id1bl79cko4qme4cko4sw5j.node67" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id1bl79cko4qme4cko4sw5j.node63">
+		<property name="$description" value="Receives an arriving aircraft, and manages its ground movements to a passenger gate. This use case is really an umbrella for a number of smaller use cases, such as granting permission to land, allocating a gate, and so on."/>
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="ReceivesAircraft"/>
+		<property name="@url" value="element://model:project::SAAMS/design:view:::id2wdkkcko4qme4cko4svm2"/>
+		<link uin="id1bl79cko4qme4cko4sw5j.node63.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::id1bl79cko4qme4cko4sw5j.node63" role="Client"></participant>
+			<participant referencedUin="design:node:::id1bl79cko4qme4cko4sw5j.node65" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id1bl79cko4qme4cko4sw5j.node65">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note1"/>
+		<property name="$note_text" value="Receives an arriving aircraft, and manages its ground movements to a passenger gate. This use case is really an umbrella for a number of smaller use cases, such as granting permission to land, allocating a gate, and so on."/>
+	</node>
+	<node uin="id1bl79cko4qme4cko4sw5j.node67">
+		<property name="$description" value="Manages the departure ground movements of an aircraft from passenger gate to take off. This use case actually only covers the single MR state transition when an aircraft that has being allocated an air slot (by the LATC) is granted permission to taxi to the runway by the GOC."/>
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="DepartsAircraft"/>
+		<link uin="id1bl79cko4qme4cko4sw5j.node67.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::id1bl79cko4qme4cko4sw5j.node67" role="Client"></participant>
+			<participant referencedUin="design:node:::id1bl79cko4qme4cko4sw5j.node69" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id1bl79cko4qme4cko4sw5j.node69">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note2"/>
+		<property name="$note_text" value="Manages the departure ground movements of an aircraft from passenger gate to take off. This use case actually only covers the single MR state transition when an aircraft that has being allocated an air slot (by the LATC) is granted permission to taxi to the runway by the GOC."/>
+	</node>
+	<node uin="id1bl79cko4qme4cko4sw5j.node6">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note3"/>
+		<property name="$note_text" value="This use case diagram shows the ways that a Ground Operations Controller interacts with SAAMS: indicating to SAAMS the different status changes that occur. Note that the Ground Operations Controller will, as a separate activity, be in radio contact with the aircraft - SAAMS is only concerned with RECORDING the status and providing information for decision making."/>
+	</node>
+	<node uin="id3y5z3cko4qme4cko4sw81.node">
+		<property name="$metaclass" value="Actor"/>
+		<property name="$name" value="CleaningSupervisor"/>
+		<link uin="id3y5z3cko4qme4cko4sw81.node.link">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node" role="Client"></participant>
+			<participant referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node71" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id3y5z3cko4qme4cko4sw81.node71">
+		<property name="$description" value="Notes when an aircraft docked at a gate is ready for cleaning, &#10;dispatches a cleaning team, and notifies SAAMS when cleaning &#10;is complete."/>
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="OrganizesCleaning"/>
+		<link uin="id3y5z3cko4qme4cko4sw81.node71.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node71" role="Client"></participant>
+			<participant referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node73" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id3y5z3cko4qme4cko4sw81.node73">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note1"/>
+		<property name="$note_text" value="Notes when an aircraft docked at a gate is ready for cleaning,&#10;dispatches a cleaning team, and notifies SAAMS when cleaning&#10;is complete."/>
+	</node>
+	<node uin="id3y5z3cko4qme4cko4sw81.node75">
+		<property name="$metaclass" value="Actor"/>
+		<property name="$name" value="MaintenanceInspector"/>
+		<link uin="id3y5z3cko4qme4cko4sw81.node75.link">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node75" role="Client"></participant>
+			<participant referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node77" role="Supplier"></participant>
+		</link>
+		<link uin="id3y5z3cko4qme4cko4sw81.node75.link183">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node75" role="Client"></participant>
+			<participant referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node81" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id3y5z3cko4qme4cko4sw81.node77">
+		<property name="$description" value="Notes when an aircraft at a gate is ready for its basic safety  &#10;check, dispatches an inspection team, and notifies SAAMS when the &#10;check is successful."/>
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="OrganizesOKCheck"/>
+		<link uin="id3y5z3cko4qme4cko4sw81.node77.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node77" role="Client"></participant>
+			<participant referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node79" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id3y5z3cko4qme4cko4sw81.node79">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note2"/>
+		<property name="$note_text" value="Notes when an aircraft at a gate is ready for its basic safety &#10;check, dispatches an inspection team, and notifies SAAMS when the&#10;check is successful."/>
+	</node>
+	<node uin="id3y5z3cko4qme4cko4sw81.node81">
+		<property name="$description" value="Notes when an aircraft at a gate is ready for its basic safety  &#10;check, dispatches an inspection team, notifies SAAMS when the &#10;check fails, and again when the repairs have been completed."/>
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="OrganizesFailCheck"/>
+		<property name="@url" value="element://model:project::SAAMS/design:view:::id4tg7xcko4qme4cko4swuu"/>
+		<link uin="id3y5z3cko4qme4cko4sw81.node81.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node81" role="Client"></participant>
+			<participant referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node83" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id3y5z3cko4qme4cko4sw81.node83">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note3"/>
+		<property name="$note_text" value="Notes when an aircraft at a gate is ready for its basic safety &#10;check, dispatches an inspection team, notifies SAAMS when the&#10;check fails, and again when the repairs have been completed."/>
+	</node>
+	<node uin="id3y5z3cko4qme4cko4sw81.node85">
+		<property name="$metaclass" value="Actor"/>
+		<property name="$name" value="RefuellingSupervisor"/>
+		<link uin="id3y5z3cko4qme4cko4sw81.node85.link">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node85" role="Client"></participant>
+			<participant referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node87" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id3y5z3cko4qme4cko4sw81.node87">
+		<property name="$description" value="Notes when an aircraft at a gate is ready for refuelling,  &#10;dispatches a fuel tanker and notifies SAAMS when refuelling is  &#10;complete."/>
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="RefuelsAircraft"/>
+		<link uin="id3y5z3cko4qme4cko4sw81.node87.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node87" role="Client"></participant>
+			<participant referencedUin="design:node:::id3y5z3cko4qme4cko4sw81.node89" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id3y5z3cko4qme4cko4sw81.node89">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note4"/>
+		<property name="$note_text" value="Notes when an aircraft at a gate is ready for refuelling,  &#10;dispatches a fuel tanker and notifies SAAMS when refuelling is  &#10;complete."/>
+	</node>
+	<node uin="id3y5z3cko4qme4cko4sw81.node8">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note5"/>
+		<property name="$note_text" value="This use case diagram shows the ways in which Ground Services support staff interact with SAAMS."/>
+	</node>
+	<node uin="id7eu8wekbp1ah5ekbpv1sk.nodeid1tqeekbp1ah5ekbpvrtq">
+		<property name="$metaclass" value="Actor"/>
+		<property name="$name" value="You the reader"/>
+	</node>
+	<node uin="id7eu8wekbp1ah5ekbpv1sk.nodeid240wsekbp1ah5ekbpw35j">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note1"/>
+		<property name="$note_text" value="About reading this design document:  &#10;&#10;Most of the 'items' in the design (diagram panes, components of diagrams, associations, classes, methods, attributes, etc) have essential descriptive documentation attached. This is displayed in the Description line of the Properties panel: select the item, then look at Properties, select Description and then you can see the full description text (association links display the description in the Javadoc property).  &#10;&#10;Further, many of the items in the document (including diagram backgrounds) are hyperlinked to one or more related items - they appear in blue; for example classes are hyperlinked to use cases relevant to them, use cases are hyperlinked to sequence diagrams, and vice versa. To follow a link: right-mouse click the item and choose Hyperlink to... from the pop-up menu."/>
+		<link uin="id7eu8wekbp1ah5ekbpv1sk.nodeid240wsekbp1ah5ekbpw35j.linkidd5t4aekbp1ah5ekbpxs7p">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::id7eu8wekbp1ah5ekbpv1sk.nodeid240wsekbp1ah5ekbpw35j" role="Client"></participant>
+			<participant referencedUin="design:node:::id7eu8wekbp1ah5ekbpv1sk.nodeid1tqeekbp1ah5ekbpvrtq" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id7eu8wekbp1ah5ekbpv1sk.nodeid35ansekbp1ah5ekbpy4ik">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note2"/>
+		<property name="$note_text" value="Introduction to SAAMS &#10;&#10;This document contains the design for an information system for the management of aircraft during their arrival, unloading, loading and  departure from Stirling Airport: the Stirling Airport Aircraft Management System, SAAMS. &#10;&#10;Note that SAAMS is purely a support system for the  people associated with the airport and aircraft: it provides information for the staff, passengers and non-travelling public about the status of aircraft, and regulates the progress of the aircraft through the various stages of its visit. SAAMS does not directly control the aircraft, nor any physical systems --- though it does have a minimal interface with each visiting aircraft's on-board computer for the automatic transfer of flight details. SAAMS' principal interfaces with the real world are through screens, most of which are touch sensitive or are equipped with a mouse and keyboard: airport staff view information, receive instructions and enter status updates and other information via the screens. All &quot;real actions&quot; are carried out by &quot;real people''; in particular, all actions &quot;required of an aircraft'', such as taxiing to a certain passenger gate to unload passengers, are notified to the aircraft's crew by airport staff via radio."/>
+		<link uin="id7eu8wekbp1ah5ekbpv1sk.nodeid35ansekbp1ah5ekbpy4ik.linkid836kuekbp1ah5ekbq6g38">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::id7eu8wekbp1ah5ekbpv1sk.nodeid35ansekbp1ah5ekbpy4ik" role="Client"></participant>
+			<participant referencedUin="design:node:::id7eu8wekbp1ah5ekbpv1sk.nodeid1tqeekbp1ah5ekbpvrtq" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id2fh3ncko4qme4cko4swe5.node">
+		<property name="$description" value="Local Air Traffic Controller"/>
+		<property name="$metaclass" value="Actor"/>
+		<property name="$name" value="LocalAirTrafficController"/>
+		<link uin="id2fh3ncko4qme4cko4swe5.node.link">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::id2fh3ncko4qme4cko4swe5.node" role="Client"></participant>
+			<participant referencedUin="design:node:::id2fh3ncko4qme4cko4swe5.node91" role="Supplier"></participant>
+		</link>
+		<link uin="id2fh3ncko4qme4cko4swe5.node.link184">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::id2fh3ncko4qme4cko4swe5.node" role="Client"></participant>
+			<participant referencedUin="design:node:::id2fh3ncko4qme4cko4swe5.node95" role="Supplier"></participant>
+		</link>
+		<link uin="id2fh3ncko4qme4cko4swe5.node.link185">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::id2fh3ncko4qme4cko4swe5.node" role="Client"></participant>
+			<participant referencedUin="design:node:::id2fh3ncko4qme4cko4swe5.node99" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id2fh3ncko4qme4cko4swe5.node91">
+		<property name="$description" value="Receives an arriving aircraft into local airspace and manages its landing. This covers a number of smaller use cases: giving clearance for landing, and confirming landing."/>
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="ReceivesAircraft"/>
+		<link uin="id2fh3ncko4qme4cko4swe5.node91.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::id2fh3ncko4qme4cko4swe5.node91" role="Client"></participant>
+			<participant referencedUin="design:node:::id2fh3ncko4qme4cko4swe5.node93" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id2fh3ncko4qme4cko4swe5.node93">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note1"/>
+		<property name="$note_text" value="Receives an arriving aircraft into local airspace and manages its landing. This covers a number of smaller use cases: giving clearance for landing, and confirming landing."/>
+	</node>
+	<node uin="id2fh3ncko4qme4cko4swe5.node95">
+		<property name="$description" value="Manages the transit of a non-landing aircraft through local airspace - this actually amounts to just watching the aircraft 'passing through'."/>
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="ManagesTransit"/>
+		<link uin="id2fh3ncko4qme4cko4swe5.node95.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::id2fh3ncko4qme4cko4swe5.node95" role="Client"></participant>
+			<participant referencedUin="design:node:::id2fh3ncko4qme4cko4swe5.node97" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id2fh3ncko4qme4cko4swe5.node97">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note2"/>
+		<property name="$note_text" value="Manages the transit of a non-landing aircraft through local airspace - this actually amounts to just watching the aircraft 'passing through'."/>
+	</node>
+	<node uin="id2fh3ncko4qme4cko4swe5.node99">
+		<property name="$description" value="Manages the departure of aircraft through local airspace and into national airspace. This covers a number of smaller use cases: allocating an air slot for take off, and confirming that immediate take off is OK."/>
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="ManagesDeparture"/>
+		<link uin="id2fh3ncko4qme4cko4swe5.node99.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::id2fh3ncko4qme4cko4swe5.node99" role="Client"></participant>
+			<participant referencedUin="design:node:::id2fh3ncko4qme4cko4swe5.node101" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id2fh3ncko4qme4cko4swe5.node101">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note3"/>
+		<property name="$note_text" value="Manages the departure of aircraft through local airspace and into national airspace. This covers a number of smaller use cases: allocating an air slot for take off, and confirming that immediate take off is OK."/>
+	</node>
+	<node uin="id2fh3ncko4qme4cko4swe5.node10">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note4"/>
+		<property name="$note_text" value="This use case diagram shows the ways in which a Local Air Traffic Controller interacts with SAAMS. Note that the Local Air Traffic Controller will, as a separate activity, be in radio contact with the aircraft - SAAMS is only concerned with RECORDING the status and providing information for decision making."/>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node">
+		<property name="$metaclass" value="Start State"/>
+		<property name="$name" value="Management Record creation"/>
+		<link uin="id15rnfcko4qme4cko4swib.node.link">
+			<property name="$metaclass" value="Transition"/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node103" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node103">
+		<property name="$description" value="This MR is currently not &#10;in use for a visiting aircraft.&#10;Status code: ManagementRecord.FREE"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="Free"/>
+		<link uin="id15rnfcko4qme4cko4swib.node103.link">
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="radarDetect"/>
+			<property name="$event_arguments" value="FlightDescriptor fD"/>
+			<property name="$guard_condition" value="Not wanting to land at Stirling"/>
+			<property name="$action_expression" value="Flight details recorded in MR with status IN_TRANSIT"/>
+			<property name="$description" value="Radar has reported detection of a new aircraft entering local airspace, has downloaded its flight descriptor, but the aircraft does not wish to land at Stirling."/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node103" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node105" role="Supplier"></participant>
+		</link>
+		<link uin="id15rnfcko4qme4cko4swib.node103.link186">
+			<property name="$description" value="Radar has reported detection of a new aircraft entering local airspace, has downloaded its flight descriptor, and the aircraft wishes to land at Stirling."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="radarDetect"/>
+			<property name="$event_arguments" value="FlightDescriptor fD"/>
+			<property name="$guard_condition" value="Wishes to land at Stirling"/>
+			<property name="$action_expression" value="Flight details recorded in MR with status WANTING_TO_LAND"/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node103" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node109" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node105">
+		<property name="$description" value="Status code: ManagementRecord.IN_TRANSIT"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="InTransit"/>
+		<link uin="id15rnfcko4qme4cko4swib.node105.link">
+			<property name="$description" value="The radar has lost contact with the aircraft managed by this MR. The MR is cleared."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="radarLostContact"/>
+			<property name="$action_expression" value="Flight details cleared from MR"/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node105" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node103" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node107">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note1"/>
+		<property name="$note_text" value="This state diagram shows the life cycle of a single ManagementRecord. One cycle corresponds to one aircraft passing through &quot;in transit&quot; or landing, reloading and departing again (right click this note or the diagram background for hyperlinks)."/>
+		<property name="@url" value="element://model:project::SAAMS/design:view:::id2wdkkcko4qme4cko4svm2"/>
+		<property name="@url" value="element://model:project::SAAMS/design:view:::id4tg7xcko4qme4cko4swuu"/>
+		<property name="@url" value="element://model:project::SAAMS/design:view:::id3oolzcko4qme4cko4sx40"/>
+		<property name="@url" value="element://model:project::SAAMS/design:view:::idwwyucko4qme4cko4sgxi"/>
+		<property name="@url" value="element://model:project::SAAMS/design:view:::id1jkohcko4qme4cko4svww"/>
+		<property name="@url" value="element://model:project::SAAMS/design:view:::id1bl79cko4qme4cko4sw5j"/>
+		<property name="@url" value="element://model:project::SAAMS/design:view:::id3y5z3cko4qme4cko4sw81"/>
+		<property name="@url" value="element://model:project::SAAMS/design:view:::id2fh3ncko4qme4cko4swe5"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:AircraftManagementDatabase"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:CleaningSupervisor"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:GOC"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:LATC"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:MaintenanceInspector"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:ManagementRecord"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:RadarTransceiver"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:RefuellingSupervisor"/>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node109">
+		<property name="$description" value="Status code: ManagementRecord.WANTING_TO_LAND"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="WantingToLand"/>
+		<link uin="id15rnfcko4qme4cko4swib.node109.link">
+			<property name="$description" value="GOC indicates that clearance to land has been granted."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="setStatus"/>
+			<property name="$event_arguments" value="GROUND_CLEARANCE_GRANTED"/>
+			<property name="$guard_condition" value="GOC has given clearance"/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node109" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node111" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node111">
+		<property name="$description" value="Status code: &#10;ManagementRecord.GROUND_CLEARANCE_GRANTED"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="GroundClearanceGranted"/>
+		<link uin="id15rnfcko4qme4cko4swib.node111.link">
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="setStatus"/>
+			<property name="$event_arguments" value="LANDING"/>
+			<property name="$guard_condition" value="LATC has given approach clearance"/>
+			<property name="$description" value="LATC indicates that the aircraft is clear to approach and land."/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node111" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node115" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node113">
+		<property name="$description" value="Status code: &#10;ManagementRecord.DEPARTING_THROUGH_LOCAL_AIRSPACE"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="DepartingThroughLocalAirspace"/>
+		<link uin="id15rnfcko4qme4cko4swib.node113.link">
+			<property name="$description" value="The radar has lost contact with the aircraft managed by this MR. The MR is cleared."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="radarLostContact"/>
+			<property name="$action_expression" value="Flight details cleared, status becomes FREE"/>
+			<property name="$name" value=""/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node113" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node103" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node115">
+		<property name="$description" value="Status code: &#10;ManagementRecord.LANDING"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="Landing"/>
+		<link uin="id15rnfcko4qme4cko4swib.node115.link">
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="setStatus"/>
+			<property name="$event_arguments" value="LANDED"/>
+			<property name="$guard_condition" value="LATC has confirmed landing"/>
+			<property name="$name" value=""/>
+			<property name="$description" value="LATC indicates that the aircraft has landed, so is no longer in airspace, and is now the GOC's responsibility&#10;"/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node115" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node117" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node117">
+		<property name="$description" value="Status code: &#10;ManagementRecord.LANDED"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="Landed"/>
+		<link uin="id15rnfcko4qme4cko4swib.node117.link">
+			<property name="$description" value="GOC allocates a free gate to the aircraft,&#10;and informs it that it can taxi."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="taxiTo"/>
+			<property name="$event_arguments" value="gateNumber"/>
+			<property name="$guard_condition" value="GOC has allocated gate"/>
+			<property name="$action_expression" value="Gate number is recorded, status is set to TAXIING"/>
+			<property name="$name" value=""/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node117" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node119" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node119">
+		<property name="$description" value="Status code: &#10;ManagementRecord.TAXIING"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="Taxiing"/>
+		<link uin="id15rnfcko4qme4cko4swib.node119.link">
+			<property name="$description" value="Gate staff indicate that the aircraft &#10;has arrived at the gate and docked."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="setStatus"/>
+			<property name="$event_arguments" value="UNLOADING"/>
+			<property name="$guard_condition" value="Aircraft has docked"/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node119" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node121" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node121">
+		<property name="$description" value="Status code: &#10;ManagementRecord.UNLOADING"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="Unloading"/>
+		<link uin="id15rnfcko4qme4cko4swib.node121.link">
+			<property name="$description" value="Gate staff confirm that all passengers have&#10;disembarked, and the aircraft is ready&#10;for cleaning and maintenance. The &#10;passenger list is cleared."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="setStatus"/>
+			<property name="$event_arguments" value="READY_CLEAN_AND_MAINT"/>
+			<property name="$guard_condition" value="Gate staff indicate that passengers have disembarked"/>
+			<property name="$action_expression" value="Passenger list cleared"/>
+			<property name="$name" value=""/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node121" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node123" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node123">
+		<property name="$description" value="Status code: &#10;ManagementRecord.READY_CLEAN_AND_MAINT"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="ReadyForCleaningAndMaintenance"/>
+		<link uin="id15rnfcko4qme4cko4swib.node123.link">
+			<property name="$description" value="Cleaning team has reported that cleaning is&#10;finished, and the cleaning supervisor enters this."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$guard_condition" value="Cleaning finished"/>
+			<property name="$event_name" value="setStatus"/>
+			<property name="$event_arguments" value="CLEAN_AWAIT_MAINT"/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node123" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node127" role="Supplier"></participant>
+		</link>
+		<link uin="id15rnfcko4qme4cko4swib.node123.link187">
+			<property name="$description" value="Maintenance team has reported that there are&#10;no faults, and the maintenance supervisor &#10;enters this."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="setStatus"/>
+			<property name="$event_arguments" value="OK_AWAIT_CLEAN"/>
+			<property name="$guard_condition" value="Maintenance has reported OK"/>
+			<property name="$name" value=""/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node123" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node129" role="Supplier"></participant>
+		</link>
+		<link uin="id15rnfcko4qme4cko4swib.node123.link188">
+			<property name="$description" value="Maintenance team have reported that faults have been found, and the maintenance supervisor enters this, with a description of the problem."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="faultsFound"/>
+			<property name="$event_arguments" value="description"/>
+			<property name="$guard_condition" value="Maintenance have found faults"/>
+			<property name="$action_expression" value="Description is recorded, status is set to FAULTY_AWAIT_CLEAN"/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node123" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node125" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node125">
+		<property name="$description" value="Maintenance team have reported  faults, &#10;but cleaning is not yet finished.&#10;Status code: &#10;ManagementRecord.FAULTY_AWAIT_CLEAN"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="FaultyAwaitingCleaning"/>
+		<link uin="id15rnfcko4qme4cko4swib.node125.link">
+			<property name="$description" value="Cleaning team has reported that cleaning is&#10;finished, and the cleaning supervisor enters this."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$guard_condition" value="Cleaning has finished"/>
+			<property name="$event_name" value="setStatus"/>
+			<property name="$event_arguments" value="AWAIT_REPAIR"/>
+			<property name="$name" value=""/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node125" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node131" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node127">
+		<property name="$description" value="Cleaning team have finished, but the&#10;maintenance team haven't reported yet.&#10;Status code: &#10;ManagementRecord.CLEAN_AWAIT_MAINT"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="AwaitingMaintenance"/>
+		<link uin="id15rnfcko4qme4cko4swib.node127.link">
+			<property name="$description" value="Maintenance team have reported that faults have been found, and the maintenance supervisor enters this, with a description of the problem."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="faultsFound"/>
+			<property name="$event_arguments" value="description"/>
+			<property name="$guard_condition" value="Maintenance have found faults"/>
+			<property name="$action_expression" value="Description is recorded, status set to AWAIT_REPAIR"/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node127" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node131" role="Supplier"></participant>
+		</link>
+		<link uin="id15rnfcko4qme4cko4swib.node127.link189">
+			<property name="$description" value="Maintenance team has reported that there are no faults, and the maintenance supervisor enters this."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="setStatus"/>
+			<property name="$event_arguments" value="READY_REFUEL"/>
+			<property name="$guard_condition" value="Maintenance has reported OK"/>
+			<property name="$name" value=""/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node127" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node133" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node129">
+		<property name="$description" value="Maintenance team have reported that the aircraft&#10;is OK, but the cleaning team haven't  finished yet.&#10;Status code: &#10;ManagementRecord.OK_AWAIT_CLEAN"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="OKAwaitingCleaning"/>
+		<link uin="id15rnfcko4qme4cko4swib.node129.link">
+			<property name="$description" value="Cleaning team has reported that cleaning is&#10;finished, and the cleaning supervisor enters this."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$guard_condition" value="Cleaning has finished"/>
+			<property name="$event_name" value="setStatus"/>
+			<property name="$event_arguments" value="READY_REFUEL"/>
+			<property name="$name" value=""/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node129" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node133" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node131">
+		<property name="$description" value="Aircraft is clean but has faults that need repairing&#10;Status code: AWAIT_REPAIR"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="AwaitingRepair"/>
+		<link uin="id15rnfcko4qme4cko4swib.node131.link">
+			<property name="$description" value="Maintenance Supervisor indicates that repairs are complete."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="setStatus"/>
+			<property name="$event_arguments" value="READY_CLEAN_AND_MAINT"/>
+			<property name="$guard_condition" value="Repair complete"/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node131" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node123" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node133">
+		<property name="$description" value="Cleaning and maintenance are both complete.&#10;Status code:&#10;ManagementRecord.READY_REFUEL"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="ReadyForRefuelling"/>
+		<link uin="id15rnfcko4qme4cko4swib.node133.link">
+			<property name="$description" value="Refuelling Supervisor reports that refuelling&#10;has been completed."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="setStatus"/>
+			<property name="$event_arguments" value="READY_PASSENGERS"/>
+			<property name="$guard_condition" value="Refuelling has finished"/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node133" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node135" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node135">
+		<property name="$description" value="Status code:&#10;ManagementRecord.READY_PASSENGERS"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="ReadyForPassengers"/>
+		<link uin="id15rnfcko4qme4cko4swib.node135.link">
+			<property name="$description" value="All passengers are on board.&#10;Gate staff have closed the flight.&#10;The passenger list is uploaded from the MR to the on-board computer."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="setStatus"/>
+			<property name="$event_arguments" value="READY_DEPART"/>
+			<property name="$guard_condition" value="Flight has closed"/>
+			<property name="$action_expression" value="Passenger list uploaded"/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node135" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node137" role="Supplier"></participant>
+		</link>
+		<link uin="id15rnfcko4qme4cko4swib.node135.link190">
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_arguments" value="details"/>
+			<property name="$action_expression" value="Details recorded in passenger list"/>
+			<property name="$event_name" value="addPassenger"/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node135" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node135" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node137">
+		<property name="$description" value="Status code:&#10;ManagementRecord.READY_DEPART"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="ReadyToDepart"/>
+		<link uin="id15rnfcko4qme4cko4swib.node137.link">
+			<property name="$description" value="The LATC indicates that an air slot has been allocated for departure."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="setStatus"/>
+			<property name="$event_arguments" value="AWAITING_TAXI"/>
+			<property name="$guard_condition" value="Air slot has been allocated"/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node137" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node139" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node139">
+		<property name="$description" value="Status code:&#10;ManagementRecord.AWAITING_TAXI"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="WaitingToTaxi"/>
+		<link uin="id15rnfcko4qme4cko4swib.node139.link">
+			<property name="$description" value="GOC clears the aircraft to taxi from the gate&#10;to the runway."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="setStatus"/>
+			<property name="$event_arguments" value="AWAITING_TAKE_OFF"/>
+			<property name="$guard_condition" value="Taxiing permission has been granted"/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node139" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node141" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id15rnfcko4qme4cko4swib.node141">
+		<property name="$description" value="Status code:&#10;ManagementRecord.AWAITING_TAKEOFF"/>
+		<property name="$metaclass" value="State"/>
+		<property name="$name" value="WaitingForTakeOff"/>
+		<link uin="id15rnfcko4qme4cko4swib.node141.link">
+			<property name="$description" value="The LATC confirms that immediate take off is OK."/>
+			<property name="$metaclass" value="Transition"/>
+			<property name="$event_name" value="setStatus"/>
+			<property name="$event_arguments" value="DEPARTING_THROUGH_LOCAL_AIRSPACE"/>
+			<property name="$guard_condition" value="Take off has been permitted"/>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node141" role="Client"></participant>
+			<participant referencedUin="design:node:::id15rnfcko4qme4cko4swib.node113" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id4tg7xcko4qme4cko4swuu.node">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note1"/>
+		<property name="$note_text" value="The Maintenance Inspector sees an aircraft ready for maintenance on his screen, and sends a team to carry out the safety check (this is not part of SAAMS). When the team returns they report that the aircraft has failed its check. The Inspector notifies SAAMS of this, entering a text description of the problem. Some time later the repair is complete, and the Inspector notifies SAAMS of this.&#10;&#10;Note: The messages following each &quot;notifyObservers&quot; are omitted, as they are (may be) &quot;broadcast&quot; very widely in the system."/>
+	</node>
+	<node uin="id4tg7xcko4qme4cko4swuu.node146">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="Maintenance Inspector interface"/>
+		<property name="$persistence" value="transient"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:MaintenanceInspector"/>
+		<link uin="id4tg7xcko4qme4cko4swuu.node146.link">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node146" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:MaintenanceInspector" role="Supplier"></participant>
+		</link>
+		<link uin="id4tg7xcko4qme4cko4swuu.node146.link215">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="arguments" value="mCode, description"/>
+			<property name="operationNameAsText" value="'faultsFound(int,String):void'"/>
+			<property name="minProcessingDuration" value="113"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<property name="predecessorUid" value="design:link:::id4tg7xcko4qme4cko4swuu.node1.link:id4tg7xcko4qme4cko4swuu.node1"/>
+			<property name="activationUid" value="design:node:::id4tg7xcko4qme4cko4swuu.node149.node216:id4tg7xcko4qme4cko4swuu.node149"/>
+			<property name="diagram_uniqe_name" value="design:view:::id4tg7xcko4qme4cko4swuu"/>
+			<property name="$name" value=" "/>
+			<link uin="id4tg7xcko4qme4cko4swuu.node146.link215.operation">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node146.link215:id4tg7xcko4qme4cko4swuu.node146" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:AircraftManagementDatabase.faultsFound:faultsFound~I~QString;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node146" role="Client"></participant>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149" role="Supplier"></participant>
+		</link>
+		<link uin="id4tg7xcko4qme4cko4swuu.node146.link217">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node146" role="Client"></participant>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149" role="Supplier"></participant>
+		</link>
+		<link uin="id4tg7xcko4qme4cko4swuu.node146.link226">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="arguments" value="mCode, ManagementRecord.READY_CLEAN_AND_MAINT"/>
+			<property name="minProcessingDuration" value="107"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<property name="predecessorUid" value="design:link:::id4tg7xcko4qme4cko4swuu.node1.link4:id4tg7xcko4qme4cko4swuu.node1"/>
+			<property name="activationUid" value="design:node:::id4tg7xcko4qme4cko4swuu.node149.node227:id4tg7xcko4qme4cko4swuu.node149"/>
+			<property name="diagram_uniqe_name" value="design:view:::id4tg7xcko4qme4cko4swuu"/>
+			<property name="$name" value=" "/>
+			<link uin="id4tg7xcko4qme4cko4swuu.node146.link226.operation">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node146.link226:id4tg7xcko4qme4cko4swuu.node146" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:AircraftManagementDatabase.setStatus:setStatus~I~I" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node146" role="Client"></participant>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149" role="Supplier"></participant>
+		</link>
+		<node uin="id4tg7xcko4qme4cko4swuu.node146.node">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation9"/>
+			<property name="messageUid" value="design:link:::id4tg7xcko4qme4cko4swuu.node1.link:id4tg7xcko4qme4cko4swuu.node1"/>
+		</node>
+		<node uin="id4tg7xcko4qme4cko4swuu.node146.node5">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::id4tg7xcko4qme4cko4swuu.node1.link4:id4tg7xcko4qme4cko4swuu.node1"/>
+		</node>
+		<link uin="L1b7x3ieida4c0e34cqow">
+			<property name="$metaclass" value="Messages Link"/>
+			<property name="$name" value="Messages Link"/>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node146" role="Client"></participant>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node1" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id4tg7xcko4qme4cko4swuu.node149">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="aircraftDB"/>
+		<property name="$persistence" value="transient"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:AircraftManagementDatabase"/>
+		<link uin="id4tg7xcko4qme4cko4swuu.node149.link">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:AircraftManagementDatabase" role="Supplier"></participant>
+		</link>
+		<node uin="id4tg7xcko4qme4cko4swuu.node149.node216">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation2"/>
+			<property name="messageUid" value="design:link:::id4tg7xcko4qme4cko4swuu.node146.link215:id4tg7xcko4qme4cko4swuu.node146"/>
+		</node>
+		<link uin="id4tg7xcko4qme4cko4swuu.node149.link218">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="arguments" value="description"/>
+			<property name="operationNameAsText" value="'faultsFound(String):void'"/>
+			<property name="normalizedIndex" value="0.3333333333333333"/>
+			<property name="predecessorUid" value="design:link:::id4tg7xcko4qme4cko4swuu.node146.link215:id4tg7xcko4qme4cko4swuu.node146"/>
+			<property name="activationUid" value="design:node:::id4tg7xcko4qme4cko4swuu.node152.node219:id4tg7xcko4qme4cko4swuu.node152"/>
+			<property name="diagram_uniqe_name" value="design:view:::id4tg7xcko4qme4cko4swuu"/>
+			<property name="$name" value=" "/>
+			<link uin="id4tg7xcko4qme4cko4swuu.node149.link218.operation">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149.link218:id4tg7xcko4qme4cko4swuu.node149" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:ManagementRecord.faultsFound:faultsFound~QString;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149" role="Client"></participant>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node152" role="Supplier"></participant>
+		</link>
+		<link uin="id4tg7xcko4qme4cko4swuu.node149.link220">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149" role="Client"></participant>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node152" role="Supplier"></participant>
+		</link>
+		<link uin="id4tg7xcko4qme4cko4swuu.node149.link221">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="Message2Self" value="yes"/>
+			<property name="$name" value="notifyObservers"/>
+			<property name="minProcessingDuration" value="20"/>
+			<property name="normalizedIndex" value="0.6666666666666666"/>
+			<property name="predecessorUid" value="design:link:::id4tg7xcko4qme4cko4swuu.node146.link215:id4tg7xcko4qme4cko4swuu.node146"/>
+			<property name="activationUid" value="design:node:::id4tg7xcko4qme4cko4swuu.node149.node222:id4tg7xcko4qme4cko4swuu.node149"/>
+			<property name="diagram_uniqe_name" value="design:view:::id4tg7xcko4qme4cko4swuu"/>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149" role="Client"></participant>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149" role="Supplier"></participant>
+		</link>
+		<node uin="id4tg7xcko4qme4cko4swuu.node149.node222">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation4"/>
+			<property name="messageUid" value="design:link:::id4tg7xcko4qme4cko4swuu.node149.link221:id4tg7xcko4qme4cko4swuu.node149"/>
+		</node>
+		<link uin="id4tg7xcko4qme4cko4swuu.node149.link223">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149" role="Client"></participant>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149" role="Supplier"></participant>
+		</link>
+		<node uin="id4tg7xcko4qme4cko4swuu.node149.node227">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation6"/>
+			<property name="messageUid" value="design:link:::id4tg7xcko4qme4cko4swuu.node146.link226:id4tg7xcko4qme4cko4swuu.node146"/>
+		</node>
+		<link uin="id4tg7xcko4qme4cko4swuu.node149.link228">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="arguments" value="ManagementRecord.READY_CLEAN_AND_MAINT"/>
+			<property name="predecessorUid" value="design:link:::id4tg7xcko4qme4cko4swuu.node146.link226:id4tg7xcko4qme4cko4swuu.node146"/>
+			<property name="activationUid" value="design:node:::id4tg7xcko4qme4cko4swuu.node152.node229:id4tg7xcko4qme4cko4swuu.node152"/>
+			<property name="diagram_uniqe_name" value="design:view:::id4tg7xcko4qme4cko4swuu"/>
+			<property name="$name" value=" "/>
+			<property name="normalizedIndex" value="0.33333334"/>
+			<link uin="id4tg7xcko4qme4cko4swuu.node149.link228.operation">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149.link228:id4tg7xcko4qme4cko4swuu.node149" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:ManagementRecord.setStatus:setStatus~I" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149" role="Client"></participant>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node152" role="Supplier"></participant>
+		</link>
+		<link uin="id4tg7xcko4qme4cko4swuu.node149.link230">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="Message2Self" value="yes"/>
+			<property name="$name" value="notifyObservers"/>
+			<property name="minProcessingDuration" value="20"/>
+			<property name="predecessorUid" value="design:link:::id4tg7xcko4qme4cko4swuu.node146.link226:id4tg7xcko4qme4cko4swuu.node146"/>
+			<property name="activationUid" value="design:node:::id4tg7xcko4qme4cko4swuu.node149.node231:id4tg7xcko4qme4cko4swuu.node149"/>
+			<property name="diagram_uniqe_name" value="design:view:::id4tg7xcko4qme4cko4swuu"/>
+			<property name="normalizedIndex" value="0.6666667"/>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149" role="Client"></participant>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149" role="Supplier"></participant>
+		</link>
+		<node uin="id4tg7xcko4qme4cko4swuu.node149.node231">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation8"/>
+			<property name="messageUid" value="design:link:::id4tg7xcko4qme4cko4swuu.node149.link230:id4tg7xcko4qme4cko4swuu.node149"/>
+		</node>
+		<link uin="L1b7x3iekmp0d956lbb97">
+			<property name="$metaclass" value="Messages Link"/>
+			<property name="$name" value="Messages Link"/>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149" role="Client"></participant>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node146" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id4tg7xcko4qme4cko4swuu.node152">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="MR"/>
+		<property name="$persistence" value="transient"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:ManagementRecord"/>
+		<link uin="id4tg7xcko4qme4cko4swuu.node152.link">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node152" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:ManagementRecord" role="Supplier"></participant>
+		</link>
+		<node uin="id4tg7xcko4qme4cko4swuu.node152.node219">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation3"/>
+			<property name="messageUid" value="design:link:::id4tg7xcko4qme4cko4swuu.node149.link218:id4tg7xcko4qme4cko4swuu.node149"/>
+		</node>
+		<node uin="id4tg7xcko4qme4cko4swuu.node152.node229">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation7"/>
+			<property name="messageUid" value="design:link:::id4tg7xcko4qme4cko4swuu.node149.link228:id4tg7xcko4qme4cko4swuu.node149"/>
+		</node>
+		<link uin="L1b7x3iekmp0d95-98z3sr">
+			<property name="$metaclass" value="Messages Link"/>
+			<property name="$name" value="Messages Link"/>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node152" role="Client"></participant>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node149" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id4tg7xcko4qme4cko4swuu.node1">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="Maintenance Inspector"/>
+		<property name="@stereotype" value="actor"/>
+		<property name="@url" value="element://model:project::SAAMS/design:view:::id3y5z3cko4qme4cko4sw81"/>
+		<link uin="id4tg7xcko4qme4cko4swuu.node1.link">
+			<property name="$description" value="The Inspector has selected the aircraft in which faults have been found (which determines the mCode), has entered a description of the problem, and now clicks a button to notify SAAMS that there are faults."/>
+			<property name="$metaclass" value="Message Link"/>
+			<property name="$name" value="Safety faults found in aircraft"/>
+			<property name="minProcessingDuration" value="47"/>
+			<property name="normalizedIndex" value="0.3333333333333333"/>
+			<property name="activationUid" value="design:node:::id4tg7xcko4qme4cko4swuu.node146.node:id4tg7xcko4qme4cko4swuu.node146"/>
+			<property name="diagram_uniqe_name" value="design:view:::id4tg7xcko4qme4cko4swuu"/>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node1" role="Client"></participant>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node146" role="Supplier"></participant>
+		</link>
+		<link uin="id4tg7xcko4qme4cko4swuu.node1.link4">
+			<property name="$description" value="The Inspector has selected the aircraft whose faults have been repaired (which determines the mCode), and clicks a button to notify SAAMS that the repairs have been done."/>
+			<property name="$metaclass" value="Message Link"/>
+			<property name="$name" value="Repair complete"/>
+			<property name="normalizedIndex" value="0.6666666666666666"/>
+			<property name="activationUid" value="design:node:::id4tg7xcko4qme4cko4swuu.node146.node5:id4tg7xcko4qme4cko4swuu.node146"/>
+			<property name="diagram_uniqe_name" value="design:view:::id4tg7xcko4qme4cko4swuu"/>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node1" role="Client"></participant>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node146" role="Supplier"></participant>
+		</link>
+		<link uin="L1b7x3iekmp0d95-n34v89">
+			<property name="$metaclass" value="Messages Link"/>
+			<property name="$name" value="Messages Link"/>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node1" role="Client"></participant>
+			<participant referencedUin="design:node:::id4tg7xcko4qme4cko4swuu.node146" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id28ykdcko4qme4cko4sx0e.node">
+		<property name="$metaclass" value="Actor"/>
+		<property name="$name" value="Passenger"/>
+		<link uin="id28ykdcko4qme4cko4sx0e.node.link">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::id28ykdcko4qme4cko4sx0e.node" role="Client"></participant>
+			<participant referencedUin="design:node:::id28ykdcko4qme4cko4sx0e.node155" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id28ykdcko4qme4cko4sx0e.node155">
+		<property name="$description" value="Passenger presents details at a gate and boards an aircraft - this use case is actually realized as an interaction between the gate staff and SAAMS."/>
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="BoardsAircraft"/>
+		<link uin="id28ykdcko4qme4cko4sx0e.node155.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::id28ykdcko4qme4cko4sx0e.node155" role="Client"></participant>
+			<participant referencedUin="design:node:::id28ykdcko4qme4cko4sx0e.node157" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id28ykdcko4qme4cko4sx0e.node157">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note1"/>
+		<property name="$note_text" value="Passenger presents details at a gate and boards an aircraft - this use case is actually realized as an interaction between the gate staff and SAAMS."/>
+	</node>
+	<node uin="id28ykdcko4qme4cko4sx0e.node159">
+		<property name="$metaclass" value="Actor"/>
+		<property name="$name" value="JoePublic"/>
+		<link uin="id28ykdcko4qme4cko4sx0e.node159.link">
+			<property name="$metaclass" value="Association Link"/>
+			<property name="@stereotype" value="communicate"/>
+			<participant referencedUin="design:node:::id28ykdcko4qme4cko4sx0e.node159" role="Client"></participant>
+			<participant referencedUin="design:node:::id28ykdcko4qme4cko4sx0e.node161" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id28ykdcko4qme4cko4sx0e.node161">
+		<property name="$description" value="Joe Public simply watches information screens - arrival and departure details."/>
+		<property name="$metaclass" value="Use Case"/>
+		<property name="$name" value="WatchesInfoScreens"/>
+		<link uin="id28ykdcko4qme4cko4sx0e.node161.link">
+			<property name="$metaclass" value="Note Link"/>
+			<participant referencedUin="design:node:::id28ykdcko4qme4cko4sx0e.node161" role="Client"></participant>
+			<participant referencedUin="design:node:::id28ykdcko4qme4cko4sx0e.node163" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id28ykdcko4qme4cko4sx0e.node163">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note2"/>
+		<property name="$note_text" value="Joe Public simply watches information screens - arrival and departure details."/>
+	</node>
+	<node uin="id28ykdcko4qme4cko4sx0e.node12">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note3"/>
+		<property name="$note_text" value="This use case diagram shows the ways in which ordinary members of the public interact with SAAMS."/>
+	</node>
+	<node uin="id3oolzcko4qme4cko4sx40.node">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note1"/>
+		<property name="$note_text" value="The aircraft is detected entering local airspace by the (simulated) Radar/Transceiver, downloads its flight descriptor, and a radarDetect event occurs. A ManagementRecord is set up for the aircraft.&#10;&#10;Note: This is the first stage in handling the two Aircraft use cases &quot;PassesBy&quot; and &quot;VisitsAirport&quot;, and includes &quot;DownloadsFlightInfo&quot;.&#10;&#10;Note: The messages following  &quot;notifyObservers&quot; are omitted, as they are (may be) &quot;broadcast&quot; very widely in the system."/>
+	</node>
+	<node uin="id3oolzcko4qme4cko4sx40.node167">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="Radar/transceiver interface"/>
+		<property name="$persistence" value="transient"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:RadarTransceiver"/>
+		<link uin="id3oolzcko4qme4cko4sx40.node167.link">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node167" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:RadarTransceiver" role="Supplier"></participant>
+		</link>
+		<link uin="id3oolzcko4qme4cko4sx40.node167.link234">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="arguments" value="fD"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<property name="predecessorUid" value="design:link:::id3oolzcko4qme4cko4sx40.node10.link:id3oolzcko4qme4cko4sx40.node10"/>
+			<property name="activationUid" value="design:node:::id3oolzcko4qme4cko4sx40.node169.node235:id3oolzcko4qme4cko4sx40.node169"/>
+			<property name="diagram_uniqe_name" value="design:view:::id3oolzcko4qme4cko4sx40"/>
+			<property name="$name" value=" "/>
+			<link uin="id3oolzcko4qme4cko4sx40.node167.link234.operation">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node167.link234:id3oolzcko4qme4cko4sx40.node167" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:AircraftManagementDatabase.radarDetect:radarDetect~QFlightDescriptor;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node167" role="Client"></participant>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node169" role="Supplier"></participant>
+		</link>
+		<link uin="id3oolzcko4qme4cko4sx40.node167.link236">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node167" role="Client"></participant>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node169" role="Supplier"></participant>
+		</link>
+		<node uin="id3oolzcko4qme4cko4sx40.node167.node">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation8"/>
+			<property name="messageUid" value="design:link:::id3oolzcko4qme4cko4sx40.node10.link:id3oolzcko4qme4cko4sx40.node10"/>
+		</node>
+		<link uin="L1b7x3ieida4cff-worwj6">
+			<property name="$metaclass" value="Messages Link"/>
+			<property name="$name" value="Messages Link"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node167" role="Client"></participant>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node10" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id3oolzcko4qme4cko4sx40.node169">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="aircraftDB"/>
+		<property name="$persistence" value="transient"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:AircraftManagementDatabase"/>
+		<link uin="id3oolzcko4qme4cko4sx40.node169.link">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node169" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:AircraftManagementDatabase" role="Supplier"></participant>
+		</link>
+		<node uin="id3oolzcko4qme4cko4sx40.node169.node235">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation2"/>
+			<property name="messageUid" value="design:link:::id3oolzcko4qme4cko4sx40.node167.link234:id3oolzcko4qme4cko4sx40.node167"/>
+		</node>
+		<link uin="id3oolzcko4qme4cko4sx40.node169.link237">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="arguments" value="fD"/>
+			<property name="predecessorUid" value="design:link:::id3oolzcko4qme4cko4sx40.node167.link234:id3oolzcko4qme4cko4sx40.node167"/>
+			<property name="activationUid" value="design:node:::id3oolzcko4qme4cko4sx40.node171.node238:id3oolzcko4qme4cko4sx40.node171"/>
+			<property name="diagram_uniqe_name" value="design:view:::id3oolzcko4qme4cko4sx40"/>
+			<property name="$name" value=" "/>
+			<property name="condition" value="MR is FREE"/>
+			<property name="normalizedIndex" value="0.33333334"/>
+			<link uin="id3oolzcko4qme4cko4sx40.node169.link237.operation">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node169.link237:id3oolzcko4qme4cko4sx40.node169" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:ManagementRecord.radarDetect:radarDetect~QFlightDescriptor;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node169" role="Client"></participant>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node171" role="Supplier"></participant>
+		</link>
+		<link uin="id3oolzcko4qme4cko4sx40.node169.link239">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node169" role="Client"></participant>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node171" role="Supplier"></participant>
+		</link>
+		<link uin="id3oolzcko4qme4cko4sx40.node169.link247">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="Message2Self" value="yes"/>
+			<property name="$name" value="notifyObservers"/>
+			<property name="minProcessingDuration" value="20"/>
+			<property name="predecessorUid" value="design:link:::id3oolzcko4qme4cko4sx40.node167.link234:id3oolzcko4qme4cko4sx40.node167"/>
+			<property name="activationUid" value="design:node:::id3oolzcko4qme4cko4sx40.node169.node248:id3oolzcko4qme4cko4sx40.node169"/>
+			<property name="diagram_uniqe_name" value="design:view:::id3oolzcko4qme4cko4sx40"/>
+			<property name="normalizedIndex" value="0.6666667"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node169" role="Client"></participant>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node169" role="Supplier"></participant>
+		</link>
+		<node uin="id3oolzcko4qme4cko4sx40.node169.node248">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation7"/>
+			<property name="messageUid" value="design:link:::id3oolzcko4qme4cko4sx40.node169.link247:id3oolzcko4qme4cko4sx40.node169"/>
+		</node>
+		<link uin="id3oolzcko4qme4cko4sx40.node169.link249">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node169" role="Client"></participant>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node169" role="Supplier"></participant>
+		</link>
+		<link uin="L1b7x3iekmp0d7r-wa8m1d">
+			<property name="$metaclass" value="Messages Link"/>
+			<property name="$name" value="Messages Link"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node169" role="Client"></participant>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node167" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id3oolzcko4qme4cko4sx40.node171">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="MR"/>
+		<property name="$persistence" value="transient"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:ManagementRecord"/>
+		<link uin="id3oolzcko4qme4cko4sx40.node171.link">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node171" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:ManagementRecord" role="Supplier"></participant>
+		</link>
+		<node uin="id3oolzcko4qme4cko4sx40.node171.node238">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation3"/>
+			<property name="messageUid" value="design:link:::id3oolzcko4qme4cko4sx40.node169.link237:id3oolzcko4qme4cko4sx40.node169"/>
+		</node>
+		<link uin="id3oolzcko4qme4cko4sx40.node171.link240">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="controlFlowType" value="call"/>
+			<property name="$name" value="getItinerary"/>
+			<property name="predecessorUid" value="design:link:::id3oolzcko4qme4cko4sx40.node169.link237:id3oolzcko4qme4cko4sx40.node169"/>
+			<property name="activationUid" value="design:node:::id3oolzcko4qme4cko4sx40.node173.node241:id3oolzcko4qme4cko4sx40.node173"/>
+			<property name="diagram_uniqe_name" value="design:view:::id3oolzcko4qme4cko4sx40"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node171" role="Client"></participant>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node173" role="Supplier"></participant>
+		</link>
+		<link uin="id3oolzcko4qme4cko4sx40.node171.link242">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node171" role="Client"></participant>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node173" role="Supplier"></participant>
+		</link>
+		<link uin="id3oolzcko4qme4cko4sx40.node171.link243">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="$name" value="getPassengerList"/>
+			<property name="predecessorUid" value="design:link:::id3oolzcko4qme4cko4sx40.node169.link237:id3oolzcko4qme4cko4sx40.node169"/>
+			<property name="activationUid" value="design:node:::id3oolzcko4qme4cko4sx40.node173.node244:id3oolzcko4qme4cko4sx40.node173"/>
+			<property name="diagram_uniqe_name" value="design:view:::id3oolzcko4qme4cko4sx40"/>
+			<property name="normalizedIndex" value="0.75"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node171" role="Client"></participant>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node173" role="Supplier"></participant>
+		</link>
+		<link uin="id3oolzcko4qme4cko4sx40.node171.link245">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="$name" value="getFlightCode"/>
+			<property name="predecessorUid" value="design:link:::id3oolzcko4qme4cko4sx40.node169.link237:id3oolzcko4qme4cko4sx40.node169"/>
+			<property name="activationUid" value="design:node:::id3oolzcko4qme4cko4sx40.node173.node246:id3oolzcko4qme4cko4sx40.node173"/>
+			<property name="diagram_uniqe_name" value="design:view:::id3oolzcko4qme4cko4sx40"/>
+			<property name="normalizedIndex" value="0.25"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node171" role="Client"></participant>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node173" role="Supplier"></participant>
+		</link>
+		<link uin="L1b7x3iekmp0d7r-5q7931">
+			<property name="$metaclass" value="Messages Link"/>
+			<property name="$name" value="Messages Link"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node171" role="Client"></participant>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node169" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id3oolzcko4qme4cko4sx40.node173">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="fD"/>
+		<property name="$persistence" value="transient"/>
+		<property name="@url" value="element://model:project::SAAMS/jdt:e_class:src:FlightDescriptor"/>
+		<link uin="id3oolzcko4qme4cko4sx40.node173.link">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node173" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:FlightDescriptor" role="Supplier"></participant>
+		</link>
+		<node uin="id3oolzcko4qme4cko4sx40.node173.node241">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation4"/>
+			<property name="messageUid" value="design:link:::id3oolzcko4qme4cko4sx40.node171.link240:id3oolzcko4qme4cko4sx40.node171"/>
+		</node>
+		<node uin="id3oolzcko4qme4cko4sx40.node173.node244">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation5"/>
+			<property name="messageUid" value="design:link:::id3oolzcko4qme4cko4sx40.node171.link243:id3oolzcko4qme4cko4sx40.node171"/>
+		</node>
+		<node uin="id3oolzcko4qme4cko4sx40.node173.node246">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation6"/>
+			<property name="messageUid" value="design:link:::id3oolzcko4qme4cko4sx40.node171.link245:id3oolzcko4qme4cko4sx40.node171"/>
+		</node>
+		<link uin="L1b7x3iekmp0d7rqqn7cz">
+			<property name="$metaclass" value="Messages Link"/>
+			<property name="$name" value="Messages Link"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node173" role="Client"></participant>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node171" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id3oolzcko4qme4cko4sx40.node10">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="Aircraft"/>
+		<property name="@stereotype" value="actor"/>
+		<property name="@url" value="element://model:project::SAAMS/design:view:::idwwyucko4qme4cko4sgxi"/>
+		<link uin="id3oolzcko4qme4cko4sx40.node10.link">
+			<property name="$description" value="The radar has detected an aircraft, the transceiver has downloaded the aircraft's flight descriptor. The information is passed to the interface and the Detected event occurs."/>
+			<property name="$metaclass" value="Message Link"/>
+			<property name="$name" value="Detected"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<property name="activationUid" value="design:node:::id3oolzcko4qme4cko4sx40.node167.node:id3oolzcko4qme4cko4sx40.node167"/>
+			<property name="diagram_uniqe_name" value="design:view:::id3oolzcko4qme4cko4sx40"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node10" role="Client"></participant>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node167" role="Supplier"></participant>
+		</link>
+		<link uin="L1b7x3iekmp0d7r-i43qp5">
+			<property name="$metaclass" value="Messages Link"/>
+			<property name="$name" value="Messages Link"/>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node10" role="Client"></participant>
+			<participant referencedUin="design:node:::id3oolzcko4qme4cko4sx40.node167" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="id3vdzccko4qme4cko4sv53.nodeid7sltxekbp1ah5ekbq6xjd">
+		<property name="$metaclass" value="Note"/>
+		<property name="$name" value="Note1"/>
+		<property name="$note_text" value="Please read the information in the Introduction to SAAMS use case diagram (right-mouse click the background of this diagram and follow the hyperlink)."/>
+	</node>
+</nodeSet>
