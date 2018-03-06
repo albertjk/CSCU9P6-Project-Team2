@@ -18,7 +18,9 @@ public class Itinerary {
    * where it is going to now, and where next after that.
    */
   public Itinerary(String from, String to, String next){
-	  
+	  this.from = from;
+	  this.to = to;
+	  this.next = next;
   }
 
   /**
@@ -32,7 +34,7 @@ public class Itinerary {
    *  Return the to attribute.
    * @tgGet*/
   public String getTo(){
-	return from;
+	return to;
   }
 
   /**
@@ -44,7 +46,7 @@ public class Itinerary {
    * Return the next attribute.
    * @tgGet*/
   public String getNext(){
-	return from;
+	return next;
   }
 
   /**
