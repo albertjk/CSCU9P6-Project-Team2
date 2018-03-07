@@ -25,7 +25,7 @@ public class FlightDescriptor {
    * @supplierCardinality 1
    * @label contains
    * @directed*/
-  private PassengerList lnkUnnamed1;
+  private PassengerList pList;
 
   /**
    * Each Flight Descriptor contains a flight Itinerary..

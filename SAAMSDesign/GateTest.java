@@ -12,7 +12,6 @@ import org.junit.Test;
  * Date: 05/03/2018
  */
 public class GateTest {
-	
 	Gate gate1;
 	Gate gate2;
 	

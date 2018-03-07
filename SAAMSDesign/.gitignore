@@ -16,3 +16,6 @@
 /RadarTransceiver.class
 /RefuellingSupervisor.class
 /ItineraryTest.class
+/GateTest.class
+/PassengerListTest.class
+/PassengerDetailsTest.class

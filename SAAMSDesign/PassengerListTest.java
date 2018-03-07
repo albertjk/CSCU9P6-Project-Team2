@@ -11,7 +11,7 @@ public class PassengerListTest {
 	PassengerList passList1;
 	PassengerList passList2;
 	
-	
+
 	public void setUp() {
 		
 		passList1 = new PassengerList();
@@ -19,9 +19,8 @@ public class PassengerListTest {
 		
 	}
 	
+
 	public void testAdd() {
-		
-		@SuppressWarnings("rawtypes")
 		ArrayList testList = new ArrayList(); //to store the return function
 		
 		for(int i = 0; i < 10; i++) { //adds 10 passengers called mark to the ArrayList		
