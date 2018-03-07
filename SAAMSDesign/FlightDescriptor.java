@@ -10,12 +10,19 @@
  * @url element://model:project::SAAMS/design:view:::id3oolzcko4qme4cko4sx40
  * @url element://model:project::SAAMS/design:view:::id15rnfcko4qme4cko4swib
  */
-public class FlightDescriptor {
+public class FlightDescriptor  {
   /**
    * Constructor: A new FlightDescriptor must be given a flightCode (String), an Itinerary,
    * and the current PassengerList.
    */
+	
+	
   public FlightDescriptor(String flightCode, Itinerary itinerary, PassengerList list){
+	  
+	  this.flightCode = flightCode;
+	  itinerary = new Itinerary(itinerary.getFrom(), itinerary.getTo(), itinerary.getNext());
+	  pList.addAllP(list);	  
+	  
   }
 
   /**
@@ -25,6 +32,8 @@ public class FlightDescriptor {
    * @supplierCardinality 1
    * @label contains
    * @directed*/
+   
+   
   private PassengerList pList;
 
   /**
@@ -34,7 +43,9 @@ public class FlightDescriptor {
    * @supplierCardinality 1
    * @label contains
    * @directed*/
-  private Itinerary lnkUnnamed;
+   
+   
+  private Itinerary itinerary;
 
 /**
  * A short string identifying the flight:
@@ -43,6 +54,9 @@ public class FlightDescriptor {
  * Obtained from flight descriptor when aircraft is first detected.
  *
  * This is the code used in timetables, and is useful to show on public information screens.*/
+  
   private String flightCode;
+  
+
 
 }
