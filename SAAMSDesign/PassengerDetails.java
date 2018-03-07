@@ -10,17 +10,20 @@
  * @url element://model:project::SAAMS/design:view:::id15rnfcko4qme4cko4swib
  * @url element://model:project::SAAMS/design:view:::id1jkohcko4qme4cko4svww
  */
+
 public class PassengerDetails {
   /**
    * Constructor: Just a name required.
    */
   public PassengerDetails(String name){
+	  this.name = name;
   }
 
   /**
    * Return the name of this passenger.
    */
   public String getName(){
+	  return name;
   }
 
   /**
