@@ -41,6 +41,12 @@ public class PassengerList {
 	  
 	  return this.details;
   }
+ 
+  public PassengerDetails getDetails(int r) {
+	  
+	 return details.get(r);
+  }
+  
   
   public void addAllP(PassengerList p)
   {

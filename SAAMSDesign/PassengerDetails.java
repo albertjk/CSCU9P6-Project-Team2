@@ -25,6 +25,12 @@ public class PassengerDetails {
   public String getName(){
 	  return name;
   }
+  
+  @Override
+  public String toString() { //sorry had to add this to get the names to output from the array! :D
+	
+	  return this.name;
+  }
 
   /**
    * The passenger's name!
