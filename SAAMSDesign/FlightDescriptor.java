@@ -19,9 +19,9 @@ public class FlightDescriptor  {
 	
   public FlightDescriptor(String flightCode, Itinerary itinerary, PassengerList list){
 	  
-	  this.flightCode = flightCode;
-	  itinerary = new Itinerary(itinerary.getFrom(), itinerary.getTo(), itinerary.getNext());
-	  pList.addAllP(list);	  
+	  fCode = flightCode;
+	  it = new Itinerary(itinerary.getFrom(), itinerary.getTo(), itinerary.getNext());
+	  pList = list;
 	  
   }
 
@@ -45,7 +45,7 @@ public class FlightDescriptor  {
    * @directed*/
    
    
-  private Itinerary itinerary;
+  private Itinerary it;
 
 /**
  * A short string identifying the flight:
@@ -55,7 +55,7 @@ public class FlightDescriptor  {
  *
  * This is the code used in timetables, and is useful to show on public information screens.*/
   
-  private String flightCode;
+  private String fCode;
   
 
 
