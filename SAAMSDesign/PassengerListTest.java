@@ -45,7 +45,7 @@ public class PassengerListTest {
 		
 		ArrayList testList = new ArrayList(); //to store the return function
 		
-		for(int i = 0; i < 100; i++) { //adds 10 passengers called mark to the ArrayList		
+		for(int i = 0; i < 1000; i++) { //adds 1000 passengers called mark to the ArrayList		
 			
 			PassengerDetails test = new PassengerDetails("Mark"); //Creates a new test object called mark
 			passList1.addPassenger(test); //adds and new passenger to the array
@@ -58,7 +58,7 @@ public class PassengerListTest {
 		
 		System.out.println(count); //print list to console
 		
-		assertEquals(100, count); //checks that 100 items have been added to the arraylist if true test passes
+		assertEquals(1000, count); //checks that 1000 items have been added to the arraylist if true test passes
 		
 	}
 }
