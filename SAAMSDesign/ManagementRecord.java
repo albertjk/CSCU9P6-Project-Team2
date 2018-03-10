@@ -27,7 +27,7 @@ public class ManagementRecord {
 
 /** Status code
  *
- * See MRState diagram.*/
+ * See MRState diagram.*/	
   public static int IN_TRANSIT = 1;
 
 /** Status code
@@ -292,14 +292,34 @@ public class ManagementRecord {
 	  }
   }
 
-/** Return the entire current PassengerList.*/
-  public PassengerList getPassengerList(){
+ 
+/** @JP
+ * Return the entire current PassengerList.*/
+  public PassengerList getPassengerList() throws NullPointerException{
+	  if(passengerList != null) 
+	  {
 		  return passengerList;  
+	  }
+	  else
+	  {
+		  System.out.println("ERROR: No passenger list");
+		  throw new NullPointerException();
+	  }
+		  
   }
 
-/** Return the aircraft's Itinerary.*/
-  public Itinerary getItinerary(){
-	  return itinerary;
+/** @JP
+ * Return the aircraft's Itinerary.*/
+  public Itinerary getItinerary() throws NullPointerException{
+	  if(itinerary != null)
+	  {
+		  return itinerary;
+	  }
+	  else
+	  {
+		  System.out.println("ERROR: No itinerary");
+		  throw new NullPointerException();
+	  }
   }
 
 }
