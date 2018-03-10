@@ -175,12 +175,14 @@ public class ManagementRecord {
    * Return the status code of this MR.
    */
   public int getStatus(){
+	return status;
   }
 
   /**
    * Return the flight code of this MR.
    */
   public String getFlightCode(){
+	return faultDescription;
   }
 
 /** Sets up the MR with details of newly detected flight
@@ -188,6 +190,23 @@ public class ManagementRecord {
   * Status must be FREE now, and becomes either IN_TRANSIT or WANTING_TO_LAND depending on the details in the flight descriptor.
   * @preconditions Status is FREE*/
   public void radarDetect(FlightDescriptor fd){
+	  if(status == FREE)
+	  {
+		  if(fd.getIT().getTo() == "Stirling")
+		  {
+			  flightCode = fd.getfCode();
+			  passengerList = fd.getPassList();
+			  itinerary = fd.getIT();
+			  this.status = WANTING_TO_LAND;
+		  }
+		  else if(fd.getIT().getTo() != "Stirling")
+		  {
+			  flightCode = fd.getfCode();
+			  passengerList = fd.getPassList();
+			  itinerary = fd.getIT();
+			  this.status = IN_TRANSIT;
+		  }
+	  }
   }
 
 /** This aircraft has departed from local airspace.
@@ -195,6 +214,17 @@ public class ManagementRecord {
   * Status must have been either IN_TRANSIT or DEPARTING_THROUGH_LOCAL_AIRSPACE, and becomes FREE (and the flight details are cleared).
   * @preconditions Status is IN_TRANSIT or DEPARTING_THROUGH_LOCAL_AIRSPACE*/
   public void radarLostContact(){
+	  if(status == IN_TRANSIT || status == DEPARTING_THROUGH_LOCAL_AIRSPACE)
+	  {
+		  status = FREE;
+		  flightCode = null;
+		  passengerList = null;
+		  itinerary = null;
+	  }
+	  else
+	  {
+		  System.out.println("ERROR: Cannot Delete record unless status is IN_TRANSIT or DEPARTING_THROUGH_LOCAL_AIRSPACE");
+	  }
   }
 
 /** GOC has allocated the given gate for unloading passengers.
@@ -202,6 +232,7 @@ public class ManagementRecord {
   * The gate number is recorded.The status must have been LANDED and becomes TAXIING.
   * @preconditions Status is LANDED*/
   public void taxiTo(int gateNumber){
+	  this.gateNumber = gateNumber;
   }
 
 /** The Maintenance Supervisor has reported faults.
