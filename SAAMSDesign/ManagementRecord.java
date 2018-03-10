@@ -169,6 +169,7 @@ public class ManagementRecord {
   * [Special status changers are, for example, "taxiTo", where a gate number is supplied.]
   * @preconditions Valid transition requested*/
   public void setStatus(int newStatus){
+	  this.status = newStatus;
   }
 
   /**
