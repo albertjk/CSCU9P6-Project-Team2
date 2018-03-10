@@ -228,38 +228,78 @@ public class ManagementRecord {
 	  }
   }
 
-/** GOC has allocated the given gate for unloading passengers.
-  *
+  
+/** @JP
+  * GOC has allocated the given gate for unloading passengers.
   * The gate number is recorded.The status must have been LANDED and becomes TAXIING.
   * @preconditions Status is LANDED*/
   public void taxiTo(int gateNumber){
-	  this.gateNumber = gateNumber;
+	  if(status == LANDED)
+	  {
+		  status = TAXIING;
+		  this.gateNumber = gateNumber;
+	  }
+	  else
+	  {
+		  System.out.println("ERROR: Cannot assign gate number unless status is LANDED(5)");
+	  }
+	  
   }
 
-/** The Maintenance Supervisor has reported faults.
+/** @JP
+ *  The Maintenance Supervisor has reported faults.
   *
   * The problem description is recorded.
   *
-  * The status must have been READY_FOR_CLEAN_MAINT or CLEAN_AWAIT_MAINT and becomes FAULTY_AWAIT_CLEAN or AWAIT_REPAIR respectively.
+  * The status must have been READY_CLEAN_AND_MAINT or CLEAN_AWAIT_MAINT and becomes FAULTY_AWAIT_CLEAN or AWAIT_REPAIR respectively.
+  * 
+  * READY_CLEAN_AND_MAINT > FAULTY_AWAIT CLEAN
+  * CLEAN_AWAIT_MAINT     > AWAIT_REPAIR
+  * 
   * @preconditions Status is READY_FOR_CLEAN_MAINT or CLEAN_AWAIT_MAINT*/
   public void faultsFound(String description){
+	  if(status == READY_CLEAN_AND_MAINT)
+	  {
+		  status = FAULTY_AWAIT_CLEAN;
+		  faultDescription = description;
+	  }
+	  else if(status == CLEAN_AWAIT_MAINT)
+	  {
+		  status = AWAIT_REPAIR;
+		  faultDescription = description;
+	  }
+	  else
+	  {
+		  System.out.println("ERROR: Cannot record fault description unless status is READY_CLEAN_AND_MAINT(10) or CLEAN_AWAIT_MAINT(8)");
+	  }
   }
 
-/** The given passenger is boarding this aircraft.
+  
+/** @JP
+ * The given passenger is boarding this aircraft.
   *
   * Their details are recorded in the passengerList.
   *
   * For this operation to be applicable, the status must be READY_PASSENGERS, and it doesn't change.
   * @preconditions Status is READY_PASSENGERS*/
   public void addPassenger(PassengerDetails details){
+	  if(status == READY_PASSENGERS) {
+		  passengerList.addPassenger(details);
+	  }
+	  else
+	  {
+		  System.out.println("ERROR: Cannot add a passenger unless status is READY_PASSENGERS");
+	  }
   }
 
 /** Return the entire current PassengerList.*/
   public PassengerList getPassengerList(){
+		  return passengerList;  
   }
 
 /** Return the aircraft's Itinerary.*/
   public Itinerary getItinerary(){
+	  return itinerary;
   }
 
 }
