@@ -225,26 +225,43 @@ public class ManagementRecordTest {
 		assertEquals(mr2.getGateNumber(), 25);
 	}
 	
-	/*
+	
 	@Test
 	public void testFaultsFound() {
-		fail("Not yet implemented"); // TODO
+		mr1.setStatus(8); // set the status to READY_CLEAN_AND_MAINT
+		assertEquals(mr1.getStatus(),8);
+		mr1.faultsFound("Not Enough Beer");
+		assertEquals(mr1.getStatus(),9); //the status code should now be 10
+		mr2.setStatus(10); // set the status to CLEAN_AWAIT_MAINT
+		assertEquals(mr2.getStatus(), 10);
+		mr2.faultsFound("Too Much Beer");//The status should be set to AWAIT_REPAIR
+		assertEquals(mr2.getStatus(), 12);
 	}
 
 	@Test
 	public void testAddPassenger() {
-		fail("Not yet implemented"); // TODO
+		 PassengerDetails test1 = new PassengerDetails("Martha");
+		 PassengerDetails test2 = new PassengerDetails("Sammy");
+		 mr1.setStatus(14);
+		 assertEquals(mr1.getStatus(), 14);
+		 mr1.addPassenger(test1);
+		 mr1.addPassenger(test2);
+		 //these two attempts will cause a error message which is what is expected
+		 mr2.addPassenger(test1);
+		 mr2.addPassenger(test2);
 	}
 
 	@Test
 	public void testGetPassengerList() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(mr2.getPassengerList(), PL2);
 	}
 
 	@Test
 	public void testGetItinerary() {
-		fail("Not yet implemented"); // TODO
+		FlightDescriptor FD3 = new FlightDescriptor(flightCode1, it1, PL1);
+		ManagementRecord MR3 = new ManagementRecord();
+		MR3.radarDetect(FD3);
+		assertEquals(MR3.getItinerary(), it1);
 	}
-	*/
 
 }
