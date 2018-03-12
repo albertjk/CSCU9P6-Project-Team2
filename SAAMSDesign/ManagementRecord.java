@@ -116,7 +116,7 @@ public class ManagementRecord {
   public static int DEPARTING_THROUGH_LOCAL_AIRSPACE = 18;
 
 /** The status code for this ManagementRecord.*/
-  private int status;
+  private int status = FREE;
 
   /**
    * The gate number allocated to this aircraft, when there is one.
@@ -191,7 +191,7 @@ public class ManagementRecord {
   * Status must be FREE now, and becomes either IN_TRANSIT or WANTING_TO_LAND depending on the details in the flight descriptor.
   * @preconditions Status is FREE*/
   public void radarDetect(FlightDescriptor fd){
-	  if(status == FREE)
+	  if(this.status == FREE)
 	  {
 		  if(fd.getIT().getTo() == "Stirling")
 		  {
@@ -207,6 +207,10 @@ public class ManagementRecord {
 			  itinerary = fd.getIT();
 			  this.status = IN_TRANSIT;
 		  }
+	  }
+	  else
+	  {
+		  System.out.println("ERROR: Cannot write over a MR that is not currently set to free");
 	  }
   }
 
