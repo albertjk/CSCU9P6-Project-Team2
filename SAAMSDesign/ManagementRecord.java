@@ -183,7 +183,10 @@ public class ManagementRecord {
    * Return the flight code of this MR.
    */
   public String getFlightCode(){
-	return faultDescription;
+	 if(flightCode == null) {
+		 System.out.println("ERROR: No flight code");
+	 }
+	 return flightCode;
   }
 
 /** Sets up the MR with details of newly detected flight
@@ -228,7 +231,7 @@ public class ManagementRecord {
 	  }
 	  else
 	  {
-		  System.out.println("ERROR: Cannot Delete record unless status is IN_TRANSIT or DEPARTING_THROUGH_LOCAL_AIRSPACE");
+		  System.out.println("ERROR: Cannot Delete record unless status is IN_TRANSIT(1) or DEPARTING_THROUGH_LOCAL_AIRSPACE(18)");
 	  }
   }
 
@@ -296,9 +299,10 @@ public class ManagementRecord {
 	  }
   }
 
- 
+
 /** @JP
  * Return the entire current PassengerList.*/
+  
   public PassengerList getPassengerList() throws NullPointerException{
 	  if(passengerList != null) 
 	  {
@@ -308,8 +312,7 @@ public class ManagementRecord {
 	  {
 		  System.out.println("ERROR: No passenger list");
 		  throw new NullPointerException();
-	  }
-		  
+	  }	  
   }
 
 /** @JP
@@ -325,5 +328,12 @@ public class ManagementRecord {
 		  throw new NullPointerException();
 	  }
   }
+
+  /**@JP
+   * Return Aircraft's Gate Number */
+  public int getGateNumber() {
+	  return gateNumber;
+  }
+  
 
 }
