@@ -219,7 +219,7 @@ public class ManagementRecord {
   * Status must have been either IN_TRANSIT or DEPARTING_THROUGH_LOCAL_AIRSPACE, and becomes FREE (and the flight details are cleared).
   * @preconditions Status is IN_TRANSIT or DEPARTING_THROUGH_LOCAL_AIRSPACE*/
   public void radarLostContact(){
-	  if(status == IN_TRANSIT || status == DEPARTING_THROUGH_LOCAL_AIRSPACE)
+	  if(this.status == IN_TRANSIT || this.status == DEPARTING_THROUGH_LOCAL_AIRSPACE || this.status == FREE)
 	  {
 		  status = FREE;
 		  flightCode = null;

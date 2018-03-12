@@ -94,7 +94,35 @@ public class ManagementRecordTest {
 	@Test
 	public void testRadarLostContact()
 	{
-		
-		System.out.println("Current status of MR " + 0 + " " + MR[0].getStatus());
+		for(int i = 0; i < MR.length;i++) //This should set the records that 
+		{
+			MR[i].radarLostContact();
+			System.out.println("Current status of MR " + i + " " + MR[i].getStatus());
+		}
+	}
+	
+	@Test
+	public void testTaxiTo()
+	{
+		int counter = 1;
+		for(int i = 0; i < MR.length;i++) {
+			System.out.println("Statis of MR " + i + " at the start of taxiTo Test is " + MR[i].getStatus());
+		}
+		for(int i = 0; i < MR.length;i++)
+		{
+			if(counter > 5)
+			{
+				MR[i].setStatus(5);
+				counter++;
+				System.out.println("Current status of MR " + i + " " + MR[i].getStatus());
+				
+			}
+			counter++;
+		}
+		for(int i = 0;i < MR.length;i++)
+		{
+			MR[i].taxiTo(i);
+			System.out.println("Current status of MR " + i + " " + MR[i].getStatus());
+		}
 	}
 }
