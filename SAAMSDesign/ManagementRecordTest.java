@@ -258,10 +258,7 @@ public class ManagementRecordTest {
 
 	@Test
 	public void testGetItinerary() {
-		FlightDescriptor FD3 = new FlightDescriptor(flightCode1, it1, PL1);
-		ManagementRecord MR3 = new ManagementRecord();
-		MR3.radarDetect(FD3);
-		assertEquals(MR3.getItinerary(), it1);
+		assertEquals(mr1.getItinerary().getFrom(), "Glasgow");
 	}
 
 }
