@@ -1,8 +1,11 @@
 import static org.junit.Assert.*;
+import static org.junit.Assume.assumeNoException;
+
 import org.junit.Before;
 import org.junit.Test;
-public class ManagementRecordTest {
 
+public class ManagementRecordTest {
+	
 	ManagementRecord[] MR;
 	ManagementRecord mr1;
 	ManagementRecord mr2;
@@ -16,16 +19,17 @@ public class ManagementRecordTest {
 	FlightDescriptor FD2;
 	
 	@Before
-	public void setUp()
-	{
+	public void setUp() {
 		MR = new ManagementRecord[10];
+		//	FROM / TO / NEXT
 		it1 = new Itinerary("Glasgow", "Stirling", "London");
 		it2 = new Itinerary("Paris", "Glasgow", "London");
 		flightCode1 = "L33T";
 		flightCode2 = "BH34";
 		PL1 = new PassengerList();
 		PL2 = new PassengerList();
-		for(int i = 0; i < 30; i++) //Creates a bunch of entries in the first and second PL. They are each flipped so that you can tell which is which
+		
+		for(int i = 0; i < 5; i++) //Creates a bunch of entries in the first and second PL. They are each flipped so that you can tell which is which
 		{
 			PassengerDetails testS = new PassengerDetails("Sally");
 			PassengerDetails testM = new PassengerDetails("Marty");
@@ -34,96 +38,213 @@ public class ManagementRecordTest {
 			PL2.addPassenger(testM);
 			PL2.addPassenger(testS);
 		}
+		
+
+		
 		FD1 = new FlightDescriptor(flightCode1, it1, PL1);
 		FD2 = new FlightDescriptor(flightCode2, it2, PL2);
 		mr1 = new ManagementRecord();
-		mr2 = new ManagementRecord();
 		mr1.radarDetect(FD1);
+		mr2 = new ManagementRecord();
 		mr2.radarDetect(FD2);
-		int counter = 1;
-		for(int i = 0;i < MR.length;i++)//So this fills the array with instances of mr1 and 2. At this point they all have the status of FREE
-		{
-			if(counter == 2 || counter == 4 || counter == 6)
-			{
-			MR[i] = mr1;
-			counter++;
-			}
-			else
-			{
-				MR[i] = mr2;
-				counter++;
-			}
-		}
-		//This then goes through and tries to overwrite entries. It should be blocked by all of them.
-		for(int i = 0; i < MR.length;i++)
-		{
-			System.out.println("Current status of MR " + i + " " + MR[i].getStatus());
-			MR[i].radarDetect(FD1);
-			System.out.println("Current status of MR " + i + " " + MR[i].getStatus());
-		}
+		
+
 	}
-	//@Test
-	//public void testRadarDetect()
-	//{	
-		//int counter = 1;
-		//for(int i = 0;i < MR.length;i++)//So this fills the array with instances of mr1 and 2. At this point they all have the status of FREE
-		//{
-		//	if(counter == 2)
-		//	{
-		//	MR[i] = mr1;
-		//	counter++;
-		//	}
-			//else
-			//{
-		//		MR[i] = mr2;
-			//	counter++;
-			//}
-		//}
-		//for(int i = 0; i < MR.length;i++)//This loop then steps through and changes the status of some of the entries.
-		//{
-		//		MR[i].setStatus(0);	
-		//}
-		//Now that half of the entries are set to something other than free we can test the rejection. We should expect 5 error messages to be printed out on screen. 
-		//for(int i = 0; i < MR.length;i++)
-		//{
-		//	System.out.println("Current status of MR " + i + " " + MR[i].getStatus());
-		//	MR[i].radarDetect(FD1);
-		//}
-//	}
+
+	  /*
+	  0 = free / 1 = in transit / 2 = wanting to land / 3 = ground clearance granted /
+	  4 = landing / 5 = landed / 6 = taxiing / 7 = unloading/ 8 = ready for clean and maintainance /
+	  9 = faulty awaiting clean / 10 = clean and maintenance / 11 = ??? / 12 = awaiting repair /
+	  13 = Ready, refuel / 14 = ready for passengers / 15 = ready to depart / 16 = awaiting taxi / 
+	  17 = awaiting take off / 18 = departing through local airspace 
+	  */
+	  
 	
 	@Test
-	public void testRadarLostContact()
-	{
-		for(int i = 0; i < MR.length;i++) //This should set the records that have the correct values to null.
-		{
-			MR[i].radarLostContact();
-			System.out.println("Current status of MR " + i + " " + MR[i].getStatus());
-		}
+	public void testGetStatus() {
+
+		//MR1 is going TO Stirling. Status should be 2 (WANTING TO LAND)
+		
+		int MR1status = mr1.getStatus();
+		assertEquals(MR1status, 2);
+		
+		//MR2 is NOT going to Stirling. Status should be 1 (IN TRANSIT)
+		
+		int MR2status = mr2.getStatus();
+		assertEquals(MR2status, 1);
 	}
 	
+	
+	
 	@Test
-	public void testTaxiTo()
-	{
-		int counter = 1;
-		for(int i = 0; i < MR.length;i++) //This first loop is just so that you can be sure of the status of everything before the tests begin.
-		{
-			System.out.println("Statis of MR " + i + " at the start of taxiTo Test is " + MR[i].getStatus());
-		}
-		for(int i = 0; i < MR.length;i++) // Changing the status of half the entries so that they will go through the taxi proccess
-		{
-			if(counter > 5)
-			{
-				MR[i].setStatus(5);
-				counter++;
-				System.out.println("Current status of MR " + i + " " + MR[i].getStatus());
+	public void testSetStatus() {
+		
+		//Set status to 17
+		int newStatus = 17;
+		mr1.setStatus(newStatus);
+		
+		//check returned status is 17
+		int status = mr1.getStatus();
+		assertEquals(newStatus, status);
+	}
+	
+	
+	@Test
+	public void testGetFlightCode() {
+		//Flight codes set to below in @Before
+		
+		//flightCode1 = "L33T";
+		//flightCode2 = "BH34";
+		
+		//retrieve flight codes
+		
+		String FC1 = mr1.getFlightCode();
+		String FC2 = mr2.getFlightCode();
+		
+		//check retrieved flight codes are correct.
+		
+		assertEquals(FC1, "L33T");
+		assertEquals(FC2, "BH34");
+
+	}
+	
+	
+	@Test
+	public void testRadarDetect() {
+		 
+		ManagementRecord mr3;
+		mr3 = new ManagementRecord();
+		
+		ManagementRecord mr4;
+		mr4 = new ManagementRecord();
+		
+		//FD1 = new FlightDescriptor(flightCode1, it1, PL1);
+		//flightCode1 = "L33T";
+		//								FROM / TO / NEXT
+		//it1 = new Itinerary("Glasgow", "Stirling", "London");
+		//PL1 = Sally / Marty / Sally / Marty ...
+		
+		//SHOULD add Flight Code, Passenger List, Itinerary to the Management Record
+		mr3.radarDetect(FD1);
+		
+		//Check that some Flight Code, Passenger List and Itinerary have been added to Management Record
+		assertNotNull(mr3.getPassengerList().getPassengerList());
+		assertNotNull(mr3.getFlightCode());
+		assertNotNull(mr3.getItinerary());
+		
+		//This flight is going TO Stirling -- RadarDetect should change status to WANTING TO LAND (2)
+		assertEquals(mr3.getStatus(), 2);
+		
+		
+		//FD2 = new FlightDescriptor(flightCode2, it2, PL2);
+		//flightCode2 = "BH34";
+		//							FROM / TO / NEXT
+		//it2 = new Itinerary("Paris", "Glasgow", "London");
+		//PL2 = Marty / Sally / Marty / Sally ...
+		
+		mr4.radarDetect(FD2);
+		
+		//Check that some Flight Code, Passenger List and Itinerary have been added to Management Record
+		assertNotNull(mr4.getPassengerList().getPassengerList());
+		assertNotNull(mr4.getFlightCode());
+		assertNotNull(mr4.getItinerary());
+		
+		//This flight is NOT going to Stirling -- RadarDetect should change status to IN TRANSIT (1)
+		assertEquals(mr4.getStatus(), 1);
+		
+	}
+	
+
+	@Test
+	public void testRadarLostContact() {
+		//Status must be either IN_TRANSIT(1) or DEPARTING_THROUGH_LOCAL_AIRSPACE(18), 
+		//and becomes FREE (and the flight details are cleared).
+		
+		//MR2 should be IN TRANSIT (1)
+		assertEquals(mr2.getStatus(), 1);
+		
+		//therefore, radarLostContact should change the status to FREE(0), and clear passenger list, itinerary, flight code	
+		mr2.radarLostContact();
+		assertEquals(mr2.getStatus(), 0);
 				
-			}
-			counter++;
-		}
-		for(int i = 0;i < MR.length;i++) //this then actually tests the taxiTo method. All those that it works on should have a status code of 6 when it is printed on screen
-		{
-			MR[i].taxiTo(i);
-			System.out.println("Current status of MR " + i + " " + MR[i].getStatus());
-		}
+		assertNull(mr2.getFlightCode());	
+		
+		//PassengerList + Itinerary should be NULL after radar lost contacts
+		try {
+			assertNull(mr2.getPassengerList().getPassengerList());
+		} catch(NullPointerException e) {
+			
+		};
+		
+		try {
+			assertNull(mr2.getItinerary());
+		} catch(NullPointerException e) {	
+		};
+		
+		
+		//MR1 should not be IN TRANSIT(1) or DEPAIRTING THROUGH LOCAL AIRSPACE(18)
+		//assertNotEquals(mr1.getStatus(), 1);
+		//assertNotEquals(mr1.getStatus(), 18);
+		
+		//status SHOULD be WANTING TO LAND (2)
+		assertEquals(mr1.getStatus(), 2);
+		
+		//therefore, radarLostContact should output an error message -- and leave the status and flight details alone.
+		mr1.radarLostContact();
+		assertNotNull(mr1.getPassengerList().getPassengerList());
+		assertNotNull(mr1.getFlightCode());
+		assertNotNull(mr1.getItinerary());
+		
+		//status should still be WANTING TO LAND (2)
+		assertEquals(mr1.getStatus(), 2);
+			
 	}
+	
+	
+	@Test
+	public void testTaxiTo() {
+		//  Status must be LANDED (5) -- Assign a gate number and set status to TAXIING (6)
+		
+		//mr1 status is not LANDED (5)
+		//assertNotEquals(mr1.getStatus(), 5);
+		//therefore, TaxiTo should output an error, and not assign a gate number 
+		mr1.taxiTo(4);
+		//status should NOT be taxiing (6)
+		//assertNotEquals(mr1.getStatus(), 6);
+		//gate number should be 0
+		assertEquals(mr1.getGateNumber(), 0);
+		
+		//set mr2's status to LANDED(5)
+		mr2.setStatus(5);
+		assertEquals(mr2.getStatus(),5);
+		
+		//mr2's status is LANDED(5)
+		//therefore, TaxiTo should set status to TAXIING (6), and assign the gate number (25).
+		mr2.taxiTo(25);
+		assertEquals(mr2.getStatus(), 6);
+		assertEquals(mr2.getGateNumber(), 25);
+	}
+	
+	/*
+	@Test
+	public void testFaultsFound() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public void testAddPassenger() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public void testGetPassengerList() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public void testGetItinerary() {
+		fail("Not yet implemented"); // TODO
+	}
+	*/
+
 }
