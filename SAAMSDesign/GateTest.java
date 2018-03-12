@@ -6,8 +6,8 @@ import org.junit.Test;
 /**
  * This is a class containing methods for unit testing the methods of the Gate class.
  * Each method from the Gate class has a tester method in this class. 
- * The getStatus method is being tested as part of the other test methods 
- * as we repeatedly check the status.
+ * The getStatus method is tested as part of the other test methods 
+ * as we repeatedly check the status of the gates.
  * @author Albert Jozsa-Kiraly
  * Date: 05/03/2018
  */
@@ -27,6 +27,9 @@ public class GateTest {
 	public void testAllocate() {
 		
 		// Test the gate allocation to a plane:
+		
+		/* Without allocation, the status code should remain 0 (FREE). */
+		assertEquals(0, gate1.getStatus());
 		
 		// Allocate a gate to the plane. This mCode is a dummy code.
 		gate1.allocate(5);
