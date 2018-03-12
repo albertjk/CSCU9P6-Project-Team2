@@ -94,7 +94,7 @@ public class ManagementRecordTest {
 	@Test
 	public void testRadarLostContact()
 	{
-		for(int i = 0; i < MR.length;i++) //This should set the records that 
+		for(int i = 0; i < MR.length;i++) //This should set the records that have the correct values to null.
 		{
 			MR[i].radarLostContact();
 			System.out.println("Current status of MR " + i + " " + MR[i].getStatus());
@@ -105,10 +105,11 @@ public class ManagementRecordTest {
 	public void testTaxiTo()
 	{
 		int counter = 1;
-		for(int i = 0; i < MR.length;i++) {
+		for(int i = 0; i < MR.length;i++) //This first loop is just so that you can be sure of the status of everything before the tests begin.
+		{
 			System.out.println("Statis of MR " + i + " at the start of taxiTo Test is " + MR[i].getStatus());
 		}
-		for(int i = 0; i < MR.length;i++)
+		for(int i = 0; i < MR.length;i++) // Changing the status of half the entries so that they will go through the taxi proccess
 		{
 			if(counter > 5)
 			{
@@ -119,7 +120,7 @@ public class ManagementRecordTest {
 			}
 			counter++;
 		}
-		for(int i = 0;i < MR.length;i++)
+		for(int i = 0;i < MR.length;i++) //this then actually tests the taxiTo method. All those that it works on should have a status code of 6 when it is printed on screen
 		{
 			MR[i].taxiTo(i);
 			System.out.println("Current status of MR " + i + " " + MR[i].getStatus());
