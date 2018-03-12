@@ -46,10 +46,4 @@ public class PassengerList {
 	  
 	 return details.get(r);
   }
-  
-  
-  public void addAllP(PassengerList p)
-  {
-	  details.addAll(0, getPassengerList());
-  }
 }

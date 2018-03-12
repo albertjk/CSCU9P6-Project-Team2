@@ -27,7 +27,7 @@ public class ManagementRecord {
 
 /** Status code
  *
- * See MRState diagram.*/
+ * See MRState diagram.*/	
   public static int IN_TRANSIT = 1;
 
 /** Status code
@@ -169,18 +169,21 @@ public class ManagementRecord {
   * [Special status changers are, for example, "taxiTo", where a gate number is supplied.]
   * @preconditions Valid transition requested*/
   public void setStatus(int newStatus){
+	  this.status = newStatus;
   }
 
   /**
    * Return the status code of this MR.
    */
   public int getStatus(){
+	return status;
   }
 
   /**
    * Return the flight code of this MR.
    */
   public String getFlightCode(){
+	return faultDescription;
   }
 
 /** Sets up the MR with details of newly detected flight
@@ -188,6 +191,23 @@ public class ManagementRecord {
   * Status must be FREE now, and becomes either IN_TRANSIT or WANTING_TO_LAND depending on the details in the flight descriptor.
   * @preconditions Status is FREE*/
   public void radarDetect(FlightDescriptor fd){
+	  if(status == FREE)
+	  {
+		  if(fd.getIT().getTo() == "Stirling")
+		  {
+			  flightCode = fd.getfCode();
+			  passengerList = fd.getPassList();
+			  itinerary = fd.getIT();
+			  this.status = WANTING_TO_LAND;
+		  }
+		  else if(fd.getIT().getTo() != "Stirling")
+		  {
+			  flightCode = fd.getfCode();
+			  passengerList = fd.getPassList();
+			  itinerary = fd.getIT();
+			  this.status = IN_TRANSIT;
+		  }
+	  }
   }
 
 /** This aircraft has departed from local airspace.
@@ -195,39 +215,111 @@ public class ManagementRecord {
   * Status must have been either IN_TRANSIT or DEPARTING_THROUGH_LOCAL_AIRSPACE, and becomes FREE (and the flight details are cleared).
   * @preconditions Status is IN_TRANSIT or DEPARTING_THROUGH_LOCAL_AIRSPACE*/
   public void radarLostContact(){
+	  if(status == IN_TRANSIT || status == DEPARTING_THROUGH_LOCAL_AIRSPACE)
+	  {
+		  status = FREE;
+		  flightCode = null;
+		  passengerList = null;
+		  itinerary = null;
+	  }
+	  else
+	  {
+		  System.out.println("ERROR: Cannot Delete record unless status is IN_TRANSIT or DEPARTING_THROUGH_LOCAL_AIRSPACE");
+	  }
   }
 
-/** GOC has allocated the given gate for unloading passengers.
-  *
+  
+/** @JP
+  * GOC has allocated the given gate for unloading passengers.
   * The gate number is recorded.The status must have been LANDED and becomes TAXIING.
   * @preconditions Status is LANDED*/
   public void taxiTo(int gateNumber){
+	  if(status == LANDED)
+	  {
+		  status = TAXIING;
+		  this.gateNumber = gateNumber;
+	  }
+	  else
+	  {
+		  System.out.println("ERROR: Cannot assign gate number unless status is LANDED(5)");
+	  }
+	  
   }
 
-/** The Maintenance Supervisor has reported faults.
+/** @JP
+ *  The Maintenance Supervisor has reported faults.
   *
   * The problem description is recorded.
   *
-  * The status must have been READY_FOR_CLEAN_MAINT or CLEAN_AWAIT_MAINT and becomes FAULTY_AWAIT_CLEAN or AWAIT_REPAIR respectively.
+  * The status must have been READY_CLEAN_AND_MAINT or CLEAN_AWAIT_MAINT and becomes FAULTY_AWAIT_CLEAN or AWAIT_REPAIR respectively.
+  * 
+  * READY_CLEAN_AND_MAINT > FAULTY_AWAIT CLEAN
+  * CLEAN_AWAIT_MAINT     > AWAIT_REPAIR
+  * 
   * @preconditions Status is READY_FOR_CLEAN_MAINT or CLEAN_AWAIT_MAINT*/
   public void faultsFound(String description){
+	  if(status == READY_CLEAN_AND_MAINT)
+	  {
+		  status = FAULTY_AWAIT_CLEAN;
+		  faultDescription = description;
+	  }
+	  else if(status == CLEAN_AWAIT_MAINT)
+	  {
+		  status = AWAIT_REPAIR;
+		  faultDescription = description;
+	  }
+	  else
+	  {
+		  System.out.println("ERROR: Cannot record fault description unless status is READY_CLEAN_AND_MAINT(10) or CLEAN_AWAIT_MAINT(8)");
+	  }
   }
 
-/** The given passenger is boarding this aircraft.
+  
+/** @JP
+ * The given passenger is boarding this aircraft.
   *
   * Their details are recorded in the passengerList.
   *
   * For this operation to be applicable, the status must be READY_PASSENGERS, and it doesn't change.
   * @preconditions Status is READY_PASSENGERS*/
   public void addPassenger(PassengerDetails details){
+	  if(status == READY_PASSENGERS) {
+		  passengerList.addPassenger(details);
+	  }
+	  else
+	  {
+		  System.out.println("ERROR: Cannot add a passenger unless status is READY_PASSENGERS");
+	  }
   }
 
-/** Return the entire current PassengerList.*/
-  public PassengerList getPassengerList(){
+ 
+/** @JP
+ * Return the entire current PassengerList.*/
+  public PassengerList getPassengerList() throws NullPointerException{
+	  if(passengerList != null) 
+	  {
+		  return passengerList;  
+	  }
+	  else
+	  {
+		  System.out.println("ERROR: No passenger list");
+		  throw new NullPointerException();
+	  }
+		  
   }
 
-/** Return the aircraft's Itinerary.*/
-  public Itinerary getItinerary(){
+/** @JP
+ * Return the aircraft's Itinerary.*/
+  public Itinerary getItinerary() throws NullPointerException{
+	  if(itinerary != null)
+	  {
+		  return itinerary;
+	  }
+	  else
+	  {
+		  System.out.println("ERROR: No itinerary");
+		  throw new NullPointerException();
+	  }
   }
 
 }

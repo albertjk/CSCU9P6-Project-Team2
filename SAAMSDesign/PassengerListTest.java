@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class PassengerListTest {
 
+
 	PassengerList passList1;
 	PassengerList passList2;
 	
