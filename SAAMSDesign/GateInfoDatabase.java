@@ -30,7 +30,17 @@ public class GateInfoDatabase {
   /**
    *  A constant: the number of aircraft gates at the airport.
    */
-  public int maxGateNumber = 2;
+  public static final int MAX_GATE_NUMBER = 2;
+  
+  /**
+   * Constructor which creates a new GateInfoDatabase object, initialises the gates array,
+   * and adds two Gate objects to it.
+   */
+  public GateInfoDatabase() {
+	  gates = new Gate[MAX_GATE_NUMBER];
+	  gates[0] = new Gate();
+	  gates[1] = new Gate();
+  }
 
 /**
  * Obtain and return the status of the given gate identified by the gateNumber parameter.
@@ -46,7 +56,7 @@ public class GateInfoDatabase {
   public int[] getStatuses(){
 	  
 	  // This array will store the statuses of all gates
-	  int[] statuses = new int[maxGateNumber];
+	  int[] statuses = new int[MAX_GATE_NUMBER];
 	  
 	  // Get the statuses of the Gate objects in the gates array, and copy these to the statuses array
 	  for(int i = 0; i < gates.length; i++) {
