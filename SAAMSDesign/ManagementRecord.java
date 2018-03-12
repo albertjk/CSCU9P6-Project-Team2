@@ -314,7 +314,7 @@ public class ManagementRecord {
 		  throw new NullPointerException();
 	  }	  
   }
-
+ 
 /** @JP
  * Return the aircraft's Itinerary.*/
   public Itinerary getItinerary() throws NullPointerException{

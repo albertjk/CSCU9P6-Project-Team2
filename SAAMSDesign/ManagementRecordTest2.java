@@ -111,7 +111,7 @@ public class ManagementRecordTest2 {
 	
 	@Test
 	public void testRadarDetect() {
-		
+		 
 		ManagementRecord mr3;
 		mr3 = new ManagementRecord();
 		
@@ -169,10 +169,11 @@ public class ManagementRecordTest2 {
 				
 		assertNull(mr2.getFlightCode());	
 		
-		//PassengerList + Itinerary should be NULL after radar lost contact
+		//PassengerList + Itinerary should be NULL after radar lost contacts
 		try {
 			assertNull(mr2.getPassengerList().getPassengerList());
 		} catch(NullPointerException e) {
+			
 		};
 		
 		try {
