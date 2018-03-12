@@ -28,7 +28,7 @@ public class GateTest {
 		
 		// Test the gate allocation to a plane:
 		
-		/* Without allocation, the status code should remain 0 (FREE). */
+		// Without allocation, the returned status code should be 0 (FREE)
 		assertEquals(0, gate1.getStatus());
 		
 		// Allocate a gate to the plane. This mCode is a dummy code.
@@ -44,7 +44,7 @@ public class GateTest {
 		// Test what happens if the docked method is called without calling the allocate method first (bad scenario):
 		
 		/* Without allocation, the docked method should not change anything.
-		The status code should remain 0 (FREE). */
+		The returned status code should be 0 (FREE) */
 		gate1.docked();
 		assertEquals(0, gate1.getStatus());
 		
@@ -66,19 +66,19 @@ public class GateTest {
 		// Test what happens in three different bad scenarios:
 		
 		/* Without allocation and docking, the departed method should not change anything.
-		The status code should remain 0 (FREE). */ 
+		The returned status code should be 0 (FREE) */ 
 		gate1.departed();
 		assertEquals(0, gate1.getStatus());
 		
 		/* Without allocation first, the departed method should not change anything.
-		The status code should remain 0 (FREE). */ 
+		The returned status code should be 0 (FREE) */ 
 		gate1.docked();
 		gate1.departed();
 		assertEquals(0, gate1.getStatus());		
 		
 		/* Without docking after allocation, the departed method should not change anything.
 		The mCode is a dummy code here.
-		The status code should remain 1 (RESERVED) after the allocation is done. */
+		The returned status code should be 1 (RESERVED) after the allocation is done. */
 		gate1.allocate(5);
 		gate1.departed();
 		assertEquals(1, gate1.getStatus());
