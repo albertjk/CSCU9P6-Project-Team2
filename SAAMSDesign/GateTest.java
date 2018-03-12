@@ -70,7 +70,7 @@ public class GateTest {
 		gate1.departed();
 		assertEquals(0, gate1.getStatus());
 		
-		/* Without allocation first, the departed method should not change anything.
+		/* Without allocation first, the docked and departed methods should not change anything.
 		The returned status code should be 0 (FREE) */ 
 		gate1.docked();
 		gate1.departed();
@@ -83,13 +83,12 @@ public class GateTest {
 		gate1.departed();
 		assertEquals(1, gate1.getStatus());
 		
-		// Test what happens if the methods are executed in the correct order:
+		// Test what happens if the methods of GateTest are executed in the correct order:
 		
 		/* The gate is first allocated to the plane, then the plane is docked, 
-		and, finally, it is departed.
-		The returned status code should be 0 (FREE), since the plane has already departed.
-		Use gate2 to test this case because gate1 was already allocated in the previous case.
-		The mCode is a dummy code here. */
+		and, finally, it is departed. After these steps, the returned status code should be 0 (FREE),
+		since the plane has already departed. Use gate2 to test this case because gate1 was already
+		allocated in the previous case.	The mCode is a dummy code here. */
 		gate2.allocate(3);
 		gate2.docked();
 		gate2.departed();
