@@ -43,7 +43,7 @@ public class ManagementRecordTest {
 		int counter = 1;
 		for(int i = 0;i < MR.length;i++)//So this fills the array with instances of mr1 and 2. At this point they all have the status of FREE
 		{
-			if(counter == 2)
+			if(counter == 2 || counter == 4 || counter == 6)
 			{
 			MR[i] = mr1;
 			counter++;
@@ -54,15 +54,12 @@ public class ManagementRecordTest {
 				counter++;
 			}
 		}
-		//for(int i = 0; i < MR.length;i++)//This loop then steps through and changes the status of some of the entries.
-		//{
-		//		MR[i].setStatus(0);	
-		//}
-		//Now that half of the entries are set to something other than free we can test the rejection. We should expect 5 error messages to be printed out on screen. 
+		//This then goes through and tries to overwrite entries. It should be blocked by all of them.
 		for(int i = 0; i < MR.length;i++)
 		{
 			System.out.println("Current status of MR " + i + " " + MR[i].getStatus());
 			MR[i].radarDetect(FD1);
+			System.out.println("Current status of MR " + i + " " + MR[i].getStatus());
 		}
 	}
 	//@Test
@@ -97,6 +94,7 @@ public class ManagementRecordTest {
 	@Test
 	public void testRadarLostContact()
 	{
+		
 		System.out.println("Current status of MR " + 0 + " " + MR[0].getStatus());
 	}
 }
