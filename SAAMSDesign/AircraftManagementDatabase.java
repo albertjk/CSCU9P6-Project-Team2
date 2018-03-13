@@ -69,7 +69,7 @@ public class AircraftManagementDatabase {
   public String getFlightCode(int mCode){
 	  
 	   
-	  return MRs[mCode].toString();
+	  return MRs[mCode].getFlightCode();
 	  
 	  
   }
@@ -83,6 +83,7 @@ public class AircraftManagementDatabase {
 	  
 	  
 	return null;
+
 	
 	  
   }
@@ -93,13 +94,15 @@ public class AircraftManagementDatabase {
  * This operation finds a currently FREE MR and forwards the radarDetect request to it for recording.*/
   public void radarDetect(FlightDescriptor fd){
 	  
-	 
+	  
   }
 
 /**
  * The aircraft in the MR given by mCode supplied as a parameter has departed from the local airspace. The message is forwarded to the MR, which can then delete/archive its contents and become FREE.
  */
   public void radarLostContact(int mCode){
+	  
+	  MRs[mCode].radarLostContact();
   }
 
 /**
