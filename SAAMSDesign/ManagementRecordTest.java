@@ -240,10 +240,13 @@ public class ManagementRecordTest {
 
 	@Test
 	public void testAddPassenger() {
+		//These are two new Passengers being created to test the field
 		 PassengerDetails test1 = new PassengerDetails("Martha");
 		 PassengerDetails test2 = new PassengerDetails("Sammy");
+		 //This sets the status to READY_PASSENGER
 		 mr1.setStatus(14);
 		 assertEquals(mr1.getStatus(), 14);
+		 //These two should pass
 		 mr1.addPassenger(test1);
 		 mr1.addPassenger(test2);
 		 //these two attempts will cause a error message which is what is expected
