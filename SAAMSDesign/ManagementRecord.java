@@ -338,8 +338,10 @@ public class ManagementRecord {
   public int getGateNumber() {
 	  return gateNumber;
   }
-  
-  public void unloading(int mCode)
+  /**
+   * Clears the passengerList without deleting it
+   */
+  public void unloading()
   {
 	  passengerList.unloadPassengers();
 	  status = UNLOADING;
