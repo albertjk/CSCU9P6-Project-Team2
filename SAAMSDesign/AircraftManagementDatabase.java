@@ -150,9 +150,9 @@ public class AircraftManagementDatabase implements Observable {
 	  return MRs[mCode].getItinerary();
   }
   
-  public void unloadPass() {
+  public void unloadPass(int mCode) {
 	  
-	  
+	  MRs[mCode].unloading();
   }
 
 @Override
