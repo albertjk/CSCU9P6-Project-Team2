@@ -179,6 +179,10 @@ public class ManagementRecord {
 	return status;
   }
 
+  public void setGateNumber(int gN)
+  {
+	  gateNumber = gN;
+  }
   /**
    * Return the flight code of this MR.
    */
@@ -333,6 +337,14 @@ public class ManagementRecord {
    * Return Aircraft's Gate Number */
   public int getGateNumber() {
 	  return gateNumber;
+  }
+  /**
+   * Clears the passengerList without deleting it
+   */
+  public void unloading()
+  {
+	  passengerList.unloadPassengers();
+	  status = UNLOADING;
   }
   
 

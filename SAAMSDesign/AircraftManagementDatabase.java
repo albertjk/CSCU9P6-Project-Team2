@@ -69,11 +69,7 @@ public class AircraftManagementDatabase implements Observable {
  * The request is forwarded to the MR.
  */
   public String getFlightCode(int mCode){
-	  
-	   
 	  return MRs[mCode].getFlightCode();
-	  
-	  
   }
 
 /**
@@ -92,9 +88,6 @@ public class AircraftManagementDatabase implements Observable {
 		}
 	}
 	return searchResults;
-
-	
-	  
   }
 
 /**
@@ -147,10 +140,7 @@ public class AircraftManagementDatabase implements Observable {
 /**
  *  Return the PassengerList of the aircraft with the given mCode.*/
   public PassengerList getPassengerList(int mCode){
-	  
-	  
 	  return MRs[mCode].getPassengerList();
-	  
   }
 
 /**
