@@ -6,8 +6,8 @@ import org.junit.Test;
 /**
  * This is a class containing methods for unit testing the methods of the Gate class.
  * Each method from the Gate class has a tester method in this class. 
- * The getStatus method is being tested as part of the other test methods 
- * as we repeatedly check the status.
+ * The getStatus method is tested as part of the other test methods 
+ * as we repeatedly check the status of the gates.
  * @author Albert Jozsa-Kiraly
  * Date: 05/03/2018
  */
@@ -28,6 +28,9 @@ public class GateTest {
 		
 		// Test the gate allocation to a plane:
 		
+		// Without allocation, the returned status code should be 0 (FREE)
+		assertEquals(0, gate1.getStatus());
+		
 		// Allocate a gate to the plane. This mCode is a dummy code.
 		gate1.allocate(5);
 		
@@ -41,7 +44,7 @@ public class GateTest {
 		// Test what happens if the docked method is called without calling the allocate method first (bad scenario):
 		
 		/* Without allocation, the docked method should not change anything.
-		The status code should remain 0 (FREE). */
+		The returned status code should be 0 (FREE) */
 		gate1.docked();
 		assertEquals(0, gate1.getStatus());
 		
@@ -63,30 +66,29 @@ public class GateTest {
 		// Test what happens in three different bad scenarios:
 		
 		/* Without allocation and docking, the departed method should not change anything.
-		The status code should remain 0 (FREE). */ 
+		The returned status code should be 0 (FREE) */ 
 		gate1.departed();
 		assertEquals(0, gate1.getStatus());
 		
-		/* Without allocation first, the departed method should not change anything.
-		The status code should remain 0 (FREE). */ 
+		/* Without allocation first, the docked and departed methods should not change anything.
+		The returned status code should be 0 (FREE) */ 
 		gate1.docked();
 		gate1.departed();
 		assertEquals(0, gate1.getStatus());		
 		
 		/* Without docking after allocation, the departed method should not change anything.
 		The mCode is a dummy code here.
-		The status code should remain 1 (RESERVED) after the allocation is done. */
+		The returned status code should be 1 (RESERVED) after the allocation is done. */
 		gate1.allocate(5);
 		gate1.departed();
 		assertEquals(1, gate1.getStatus());
 		
-		// Test what happens if the methods are executed in the correct order:
+		// Test what happens if the methods of GateTest are executed in the correct order:
 		
 		/* The gate is first allocated to the plane, then the plane is docked, 
-		and, finally, it is departed.
-		The returned status code should be 0 (FREE), since the plane has already departed.
-		Use gate2 to test this case because gate1 was already allocated in the previous case.
-		The mCode is a dummy code here. */
+		and, finally, it is departed. After these steps, the returned status code should be 0 (FREE),
+		since the plane has already departed. Use gate2 to test this case because gate1 was already
+		allocated in the previous case.	The mCode is a dummy code here. */
 		gate2.allocate(3);
 		gate2.docked();
 		gate2.departed();
