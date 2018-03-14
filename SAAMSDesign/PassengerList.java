@@ -46,4 +46,9 @@ public class PassengerList {
 	  
 	 return details.get(r);
   }
+  
+  public void unloadPassengers() {
+	  
+	  details.clear();
+  }
 }
