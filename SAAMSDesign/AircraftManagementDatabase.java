@@ -79,10 +79,17 @@ public class AircraftManagementDatabase {
  * Just the mCodes of those MRs with the given status supplied as a parameter.
  * Principally for call by the various interface screens.
  */
-  public int[] getWithStatus(int statusCode){
-	  
-	  
-	return null;
+  public int[] getWithStatus(int statusCode)
+  {
+	  int[] searchResults = new int[10];
+	for(int i = 0; i < MRs.length;i++)
+	{
+		if(MRs[i].getStatus() == statusCode)
+		{
+			searchResults[i] = i;
+		}
+	}
+	return searchResults;
 
 	
 	  
