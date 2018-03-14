@@ -93,7 +93,13 @@ public class AircraftManagementDatabase {
  *
  * This operation finds a currently FREE MR and forwards the radarDetect request to it for recording.*/
   public void radarDetect(FlightDescriptor fd){
-	  
+	  for(int i = 0; i < MRs.length; i++)
+	  {
+		  if(MRs[i].getStatus() == 0)
+		  {
+			  MRs[i].radarDetect(fd);
+		  }
+	  }
 	  
   }
 
