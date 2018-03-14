@@ -51,4 +51,15 @@ public class PassengerList {
 	  
 	  details.clear();
   }
+  
+  public Boolean emptyCheck() {
+	  
+	  if (details.isEmpty() == true) {
+		  return true;
+	  }
+	  else {
+		  
+		  return false;
+	  }
+  }
 }
