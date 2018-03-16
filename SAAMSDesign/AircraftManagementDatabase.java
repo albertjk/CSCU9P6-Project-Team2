@@ -132,9 +132,7 @@ public class AircraftManagementDatabase implements Observable {
 /**
  *  The given passenger is boarding the aircraft with the given mCode. Forward the message to the given MR for recording in the passenger list.*/
   public void addPassenger(int mCode, PassengerDetails details){
-	
 	  MRs[mCode].addPassenger(details); 
-	 
   }
 
 /**

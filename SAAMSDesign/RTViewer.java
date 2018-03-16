@@ -7,15 +7,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
-public class RDViewer extends JPanel implements Observer {
+public class RTViewer extends JPanel {
 	  private AircraftManagementDatabase airCraftDB;
 	  private RadarTransceiver RDT;
 	  private JTextField display;
 	  
 	  //This is the constructor
-	public RDViewer(RadarTransceiver rd, AircraftManagementDatabase airCraftDB)
+	public RTViewer(RadarTransceiver rd, AircraftManagementDatabase airCraftDB)
 	{
-		//Sets refences to the controller and the AirCraftDB
+		//Sets references to the controller and the AirCraftDB
 		this.RDT = rd;
 		this.airCraftDB = airCraftDB;
 		
@@ -24,11 +24,5 @@ public class RDViewer extends JPanel implements Observer {
 		add(new JLabel("Last Created Entry"));
 		display = new JTextField(" ", 15);
 		add(display);
-	}
-	
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		
-		
 	}
 }

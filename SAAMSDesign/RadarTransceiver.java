@@ -45,7 +45,7 @@ public void radarTransceiver(AircraftManagementDatabase airCraftDB,int locationX
     this.airCraftDB = airCraftDB;
     
     // Configure the window
-    setTitle("Radar Transiver");
+    setTitle("Radar Transceiver");
     setLocation(locationX, locationY);
     setSize(350,150);
     setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -64,11 +64,27 @@ public void radarTransceiver(AircraftManagementDatabase airCraftDB,int locationX
     setVisible(true);
 }
 
+	int randNum = 0;
+	String randName;
+	String randFCode;
+	Itinerary randIT;
+	PassengerDetails randPD;
+	PassengerList randPL;
+	
+
 @Override
 public void actionPerformed(ActionEvent e) {
 	if(e.getSource() == generateInboundFlight)
 	{
-		
+		randPL = new PassengerList();
+		for(int i = 0; i < 100;i++)
+		{
+			randNum = randNum + i;
+			randName = "Bill" + randNum;
+			randPD = new PassengerDetails(randName);
+			randPL.addPassenger(randPD);
+		}
+		randIT = new Itinerary("Glasgow", "Stirling","London");
 	}
 }
 
