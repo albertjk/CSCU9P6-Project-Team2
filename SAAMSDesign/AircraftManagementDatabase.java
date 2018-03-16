@@ -37,7 +37,7 @@ public class AircraftManagementDatabase implements Observable {
 
   /**
  * The array of ManagementRecords. Attribute maxMRs specifies how large this array should be.
- * Initialize to a collection of MRs each in the FREE state.
+ * Initialise to a collection of MRs each in the FREE state.
  * Note: This array could be replaced by another other suitable collection data structure.
  * @byValue
  * @clientCardinality 1
@@ -154,15 +154,17 @@ public class AircraftManagementDatabase implements Observable {
 	  
 	  MRs[mCode].unloading();
   }
+	
+
 
 @Override
-public void addListener(InvalidationListener arg0) {
+public void addListener(InvalidationListener listener) {
 	// TODO Auto-generated method stub
 	
 }
 
 @Override
-public void removeListener(InvalidationListener arg0) {
+public void removeListener(InvalidationListener listener) {
 	// TODO Auto-generated method stub
 	
 }
