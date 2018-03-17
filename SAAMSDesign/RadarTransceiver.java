@@ -74,6 +74,7 @@ public RadarTransceiver(AircraftManagementDatabase airCraftDB,int locationX, int
 public void actionPerformed(ActionEvent e) {
 	if(e.getSource() == generateInboundFlight)
 	{
+		randPL = new PassengerList();
 		for(int i = 0; i < 100;i++)
 		{
 			randNum = randNum + i;
@@ -88,6 +89,7 @@ public void actionPerformed(ActionEvent e) {
 	}
 	if(e.getSource() == generateIntransitFlight)
 	{
+		randPL = new PassengerList();
 		for(int i = 0; i < 100;i++)
 		{
 			randNum = randNum + i;

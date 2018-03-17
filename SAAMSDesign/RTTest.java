@@ -9,6 +9,7 @@ public class RTTest {
 	public static void main(String args[])
 	{
 		AircraftManagementDatabase airDB = new AircraftManagementDatabase();
+		@SuppressWarnings("unused")
 		RadarTransceiver RTTest = new RadarTransceiver(airDB, 250, 250);
 	}
 	

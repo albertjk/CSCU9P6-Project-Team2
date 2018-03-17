@@ -25,6 +25,18 @@ import javafx.beans.Observable;
  * @url element://model:project::SAAMS/design:view:::id3oolzcko4qme4cko4sx40
  */
 public class AircraftManagementDatabase implements Observable {
+	
+	/**
+	 * Constructor for aircraftMDB
+	 */
+	public AircraftManagementDatabase()
+	{
+		MRs = new ManagementRecord[maxMRs];
+		for(int i = 0; i < MRs.length;i++)
+		{
+			MRs[i] = new ManagementRecord();
+		}
+	}
 
 /**
  * Return the status of the MR with the given mCode supplied as a parameter.
