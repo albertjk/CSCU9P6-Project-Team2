@@ -39,7 +39,7 @@ public class RadarTransceiver extends JFrame implements ActionListener{
   * @directed*/
   private AircraftManagementDatabase airCraftDB;
   
-public void radarTransceiver(AircraftManagementDatabase airCraftDB,int locationX, int locationY)
+public RadarTransceiver(AircraftManagementDatabase airCraftDB,int locationX, int locationY)
 {
 	 // Record reference to the DB
     this.airCraftDB = airCraftDB;
@@ -58,9 +58,6 @@ public void radarTransceiver(AircraftManagementDatabase airCraftDB,int locationX
     window.add(generateIntransitFlight);
     generateIntransitFlight.addActionListener(this);
     
-    RD = new RadarTransceiver();
-    window.add(RD);
-    
     setVisible(true);
 }
 
@@ -70,13 +67,13 @@ public void radarTransceiver(AircraftManagementDatabase airCraftDB,int locationX
 	Itinerary randIT;
 	PassengerDetails randPD;
 	PassengerList randPL;
+	FlightDescriptor randFD;
 	
 
 @Override
 public void actionPerformed(ActionEvent e) {
 	if(e.getSource() == generateInboundFlight)
 	{
-		randPL = new PassengerList();
 		for(int i = 0; i < 100;i++)
 		{
 			randNum = randNum + i;
@@ -84,7 +81,24 @@ public void actionPerformed(ActionEvent e) {
 			randPD = new PassengerDetails(randName);
 			randPL.addPassenger(randPD);
 		}
+		randFCode = "F" + Math.random() + "GZ";
 		randIT = new Itinerary("Glasgow", "Stirling","London");
+		randFD = new FlightDescriptor(randFCode, randIT, randPL);
+		airCraftDB.radarDetect(randFD);
+	}
+	if(e.getSource() == generateIntransitFlight)
+	{
+		for(int i = 0; i < 100;i++)
+		{
+			randNum = randNum + i;
+			randName = "Bill" + randNum;
+			randPD = new PassengerDetails(randName);
+			randPL.addPassenger(randPD);
+		}
+		randFCode = "F" + Math.random() + "GZ";
+		randIT = new Itinerary("Glasgow", "New York","London");
+		randFD = new FlightDescriptor(randFCode, randIT, randPL);
+		airCraftDB.radarDetect(randFD);
 	}
 }
 
