@@ -17,8 +17,15 @@ public class Main {
  */
 
 public static void main(String[] args) {
-    // Instantiate databases
+	
+	// Instantiate databases
+	AircraftManagementDatabase DB = new AircraftManagementDatabase(); //create shared database
+    
     // Instantiate and show all interfaces as Frames
+    // Instantiate and show all interfaces as Frames
+    MaintenanceInspector MI1 = new MaintenanceInspector(DB);
+    MI1.setTitle("Maintenance Inspector");
+    MI1.setLocation(50,50);
   }
 
 }
