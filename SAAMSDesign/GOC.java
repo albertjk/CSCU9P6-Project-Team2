@@ -53,11 +53,11 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	* @directed*/
 	private AircraftManagementDatabase aircraftManagementDatabase;
 	
-	private JButton showflightDetailsButton;
-	
+	private JButton showFlightDetailsButton;
 	private JButton grantGroundClearanceButton;
 	private JButton allocateGateButton;
 	private JButton quitButton;
+	private JButton showGateStatusButton;
 	
 	// The display panel for aircrafts and flight details
 	private JPanel flightsDisplayPanel;
@@ -81,8 +81,11 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	private JTextArea flightDescriptionTextArea = new JTextArea(5,20);
 	private JTextArea gateDescriptionTextArea = new JTextArea(5,20);
 	
-	// Aircraft number to display details of. None initially. 
+	// The number of the selected flight to display details of. None initially. 
 	private int showingDetailsOfFlight = -1;
+	
+	// The number of the selected gate to display details of. None initially. 
+	private int showingDetailsOfGate = -1;
   
 	/**
 	 * Constructor of the GOC user interface
@@ -92,18 +95,11 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		this.gateInfoDatabase = gateInfoDatabase;
 		this.aircraftManagementDatabase = aircraftManagementDatabase;
 		
-		// Set up the GUI
-		
-		
-		
+		// Set up the GUI	
 		setTitle("Ground Operations Controller");
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
 		Container window = getContentPane();
-		window.setLayout(new FlowLayout());
-		
-		showflightDetailsButton = new JButton("Show flight details");
-		window.add(showflightDetailsButton);
-		showflightDetailsButton.addActionListener(this);
+		window.setLayout(new FlowLayout());		
 		
 		grantGroundClearanceButton = new JButton("Grant ground clearance");
 		window.add(grantGroundClearanceButton);
@@ -112,6 +108,10 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		allocateGateButton = new JButton("Allocate gate"); // WHICH GATE???
 		window.add(allocateGateButton);
 		allocateGateButton.addActionListener(this);
+		
+		showFlightDetailsButton = new JButton("Show flight details");
+		
+		showFlightDetailsButton.addActionListener(this);
 		
 		quitButton = new JButton("Quit");
 		window.add(quitButton);
@@ -129,13 +129,15 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		aircraftList.setVisibleRowCount(5);
 		flightsDisplayPanel.add(aircraftScrollList);
 		flightsDisplayPanel.add(flightDescriptionTextArea);
+		flightsDisplayPanel.add(showFlightDetailsButton);
 		
 		window.add(flightsDisplayPanel);
 		
-		updateFlightList();
+		showGateStatusButton = new JButton("Show gate status");
+		showGateStatusButton.addActionListener(this);
 		
 		// Set the gates in the gate list
-		Vector gates = new Vector();
+		Vector<String> gates = new Vector();
 		gates.add("Gate 1");
 		gates.add("Gate 2");
 		gateList.setListData(gates);
@@ -147,14 +149,17 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		gateList.setVisibleRowCount(2); // There are only two gates at the airport
 		gatesDisplayPanel.add(gateList);
 		gatesDisplayPanel.add(gateDescriptionTextArea);	
+		gatesDisplayPanel.add(showGateStatusButton);
 		
 		
 		window.add(gatesDisplayPanel);
 		
+		// Set up the flight display
+		updateFlightList();
 		
 		// Display the frame
 		// TODO: CHANGE NUMBERS TO CONSTANTS
-		setSize(550, 300);
+		setSize(550, 290);
 		setLocation(200, 200);
 		setVisible(true);
 		
@@ -163,22 +168,25 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		aircraftManagementDatabase.addObserver(this);
 	}
 	
-	Vector flightList = new Vector();
+	Vector<String> flightList = new Vector();
 	
-	// Re-populate the displayed flight list from the AircraftManagementDatabase
+	/**
+	 *  Re-populate the displayed flight list from the AircraftManagementDatabase.
+	 */
 	private void updateFlightList() {
 		// FOR NOW: THIS IS JUST A LIST WITH DUMMY VALUES
 		
-		
-		
-		flightList.add("Flight code: BA123" + "   mCode: " + "5");
+		flightList.add("WR443");
+		flightList.add("WW5423");
 		flightList.add("WE543");
 		flightList.add("GGE789");
 		flightList.add("EE123");
 		flightList.add("WIZZ435");
 		flightList.add("BA5167");
 		
-		aircraftList.setListData(flightList);;
+		aircraftList.setListData(flightList);
+		
+		// TODO: GET AN ARRAY OF THE ACTUAL FLIGHT CODES
 	}
 	
 	/**
@@ -192,7 +200,6 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	public boolean checkIfWantingToLand(int mCode) {
 		if(aircraftManagementDatabase.getStatus(mCode) == 2) {
 			flightList.add(aircraftManagementDatabase.getFlightCode(mCode));
-			//flightList.add("Flight code: " + aircraftManagementDatabase.getFlightCode(mCode) + "   mCode: " + mCode);
 			return true;
 		}
 		return false;
@@ -209,34 +216,37 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	}
 	
 	/**
-	 * Update the details of a flight to be displayed in the flightsDisplayPanel.
-	 * @param mCode
+	 * Show the details of the selected flight in the flightsDisplayPanel.
 	 */
-	private void showFlightDetails(int mCode) {
-		// If no flight is selected, nothing is displayed.
+	private void showFlightDetails() {
+		
 		if(showingDetailsOfFlight == -1) {
 			flightDescriptionTextArea.setText("");
-		} else {
-			flightDescriptionTextArea.setText("Flight code: " + aircraftManagementDatabase.getFlightCode(mCode) + "\n"
-					+ "mCode: " + mCode + "\n"
-					+ "Flight status: " + aircraftManagementDatabase.getStatus(mCode) + "\n"
-					+ "From: " + aircraftManagementDatabase.getItinerary(mCode).getFrom() + "\n"
-					+ "To: " + aircraftManagementDatabase.getItinerary(mCode).getTo());
-			
-			
-			// TODO: CHECK WHAT ELSE TO DISPLAY
-			
-		} 
+		}
+		/* If a flight was selected, get the data associated with it. 
+		We can use showingDetailsOfFlight to get the data as this variable is equal to the mCode of the selected flight.
+		(It was assigned after the showFlightDetailsButton was clicked in actionPerformed.) */
+		else {			
+			flightDescriptionTextArea.setText("Flight code: " + aircraftManagementDatabase.getFlightCode(showingDetailsOfFlight) + "\n"
+					+ "mCode: " + showingDetailsOfFlight + "\n"
+					+ "Flight status: " + aircraftManagementDatabase.getStatus(showingDetailsOfFlight) + "\n"
+					+ "From: " + aircraftManagementDatabase.getItinerary(showingDetailsOfFlight).getFrom() + "\n"
+					+ "To: " + aircraftManagementDatabase.getItinerary(showingDetailsOfFlight).getTo());	
+		}
 	}
 	
 	public void actionPerformed(ActionEvent e) {
+	
+		// Grant ground clearance (permission to land) to the currently selected aircraft
 		if(e.getSource() == grantGroundClearanceButton) {
 			
 			// Get the mCode of the aircraft, and give permission to it to land
 			int mCode = getSelectedFlightMCode();
 			givePermissionToLand(mCode);
 			
-		} else if(e.getSource() == allocateGateButton) {
+		}
+		// Allocate a gate to the currently selected aircraft
+		else if(e.getSource() == allocateGateButton) {
 			
 			// If there is a free gate, allocate that to the selected flight			
 			int gateNumber = findFreeGates();			
@@ -249,6 +259,38 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 				gateDescriptionTextArea.setText("Unfortunately, there are no free gates.");
 			}
 			
+		}
+		// Show the details of the currently selected flight
+		else if(e.getSource() == showFlightDetailsButton) {
+			int mCode = getSelectedFlightMCode();
+			
+			// If -1: nothing is selected
+			if(mCode != -1) {
+				showingDetailsOfFlight = mCode;
+			}			
+		} 
+		else if(e.getSource() == quitButton) {
+			System.exit(0);
+		}
+		
+		updateFlightList();  // Repopulate the flight list so it remains up-to-date
+		showFlightDetails(); // Update the flight details display
+		
+		showGateStatus();  // Update the gate status display
+	}
+	
+	/**
+	 * Show the status of the selected gate in the gatesDisplayPanel.
+	 */
+	private void showGateStatus() {
+		if(showingDetailsOfGate == -1) {
+			gateDescriptionTextArea.setText("");
+		}
+		/* If a gate was selected, get its status.
+		We can use showingDetailsOfGate to get the status as this variable is equal to the array index of the selected gate in the list.
+		(It was assigned after the showGateStatusButton was clicked in actionPerformed.) */
+		else {
+			gateDescriptionTextArea.setText("Status: " + gateInfoDatabase.getStatus(showingDetailsOfGate));
 		}
 	}
 	
@@ -264,8 +306,6 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		return -1;
 	}
 
-	// TODO: BEFORE ALLOCATION: NEED TO CHECK THAT A GATE IS AVAILABLE
-	
 	/**
 	 * This method checks the statuses of all gates, and finds the first free gate. 
 	 * If none are free, -1 is returned.
@@ -293,6 +333,9 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	 */
 	public void allocateGate(int gateNumber, int mCode) {
 		gateInfoDatabase.allocate(gateNumber, mCode);
+		taxiTo(mCode, gateNumber);
+		
+		// TODO: MAKE THE AIRCRAFT APPEAR ON THE GATECONSOLE DISPLAY
 		
 	}
 	
