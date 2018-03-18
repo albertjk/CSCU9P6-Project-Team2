@@ -86,6 +86,9 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	
 	// The number of the selected gate to display details of. None initially. 
 	private int showingDetailsOfGate = -1;
+	
+	// Stores the flight codes of the aircrafts in the airport (not those which are free or are in transit or have departed through local airspace).
+	private Vector<String> flightList = new Vector();
   
 	/**
 	 * Constructor of the GOC user interface
@@ -105,7 +108,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		window.add(grantGroundClearanceButton);
 		grantGroundClearanceButton.addActionListener(this);
 		
-		allocateGateButton = new JButton("Allocate gate"); // WHICH GATE???
+		allocateGateButton = new JButton("Allocate gate");
 		window.add(allocateGateButton);
 		allocateGateButton.addActionListener(this);
 		
@@ -168,25 +171,70 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		aircraftManagementDatabase.addObserver(this);
 	}
 	
-	Vector<String> flightList = new Vector();
+	public void actionPerformed(ActionEvent e) {
+		
+		// Grant ground clearance (permission to land) to the currently selected aircraft
+		if(e.getSource() == grantGroundClearanceButton) {
+			
+			// Get the mCode of the aircraft, and give permission to it to land
+			int mCode = getSelectedFlightMCode();
+			givePermissionToLand(mCode);
+			
+		}
+		// Allocate a gate to the currently selected aircraft
+		else if(e.getSource() == allocateGateButton) {
+			
+			// If there is a free gate, allocate that to the selected flight			
+			int gateNumber = findFreeGates();			
+			if(gateNumber != -1) {
+				int mCode = getSelectedFlightMCode();
+				allocateGate(gateNumber, mCode);
+			} else {
+				
+				// If there are no free gates, display a message on the text area on the JPanel.
+				gateDescriptionTextArea.setText("Unfortunately, there are no free gates.");
+			}
+			
+		}
+		// Show the details of the currently selected flight
+		else if(e.getSource() == showFlightDetailsButton) {
+			int mCode = getSelectedFlightMCode();
+			
+			// If -1: nothing is selected
+			if(mCode != -1) {
+				showingDetailsOfFlight = mCode;
+			}			
+		} 
+		else if(e.getSource() == quitButton) {
+			System.exit(0);
+		}
+		
+		updateFlightList();  // Repopulate the flight list so it remains up-to-date
+		showFlightDetails(); // Update the flight details display
+		
+		showGateStatus();  // Update the gate status display
+	}
 	
 	/**
 	 *  Re-populate the displayed flight list from the AircraftManagementDatabase.
 	 */
 	private void updateFlightList() {
-		// FOR NOW: THIS IS JUST A LIST WITH DUMMY VALUES
 		
-		flightList.add("WR443");
-		flightList.add("WW5423");
-		flightList.add("WE543");
-		flightList.add("GGE789");
-		flightList.add("EE123");
-		flightList.add("WIZZ435");
-		flightList.add("BA5167");
-		
+		/* If an aircraft's status code is between 2 (WANTING_TO_LAND) and 17 (AWAITING_TAKEOFF) inclusive, 
+		display its flight code on the GOC screen, and also the details on selecting the aircraft. 
+		Aircrafts with statuses FREE, IN_TRANSIT, and DEPARTING_THROUGH_LOCAL_AIRSPACE are not displayed. */
+		for(int i = 2; i <= 17; i++) {
+			// Get the aircrafts with the current status code and store their mCodes.			
+			int[] mCodes = aircraftManagementDatabase.getWithStatus(i);
+			
+			/* Use the mCodes of the aircrafts to identify them and get their flight codes. 
+			Add the flight codes to the flight list. This list will be displayed on the GOC screen. */
+			for(int j = 0; j < mCodes.length; j++) {
+				flightList.add(aircraftManagementDatabase.getFlightCode(mCodes[j]));
+			}
+		}
+		// Update the entire content of aircraftList
 		aircraftList.setListData(flightList);
-		
-		// TODO: GET AN ARRAY OF THE ACTUAL FLIGHT CODES
 	}
 	
 	/**
@@ -233,50 +281,6 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 					+ "From: " + aircraftManagementDatabase.getItinerary(showingDetailsOfFlight).getFrom() + "\n"
 					+ "To: " + aircraftManagementDatabase.getItinerary(showingDetailsOfFlight).getTo());	
 		}
-	}
-	
-	public void actionPerformed(ActionEvent e) {
-	
-		// Grant ground clearance (permission to land) to the currently selected aircraft
-		if(e.getSource() == grantGroundClearanceButton) {
-			
-			// Get the mCode of the aircraft, and give permission to it to land
-			int mCode = getSelectedFlightMCode();
-			givePermissionToLand(mCode);
-			
-		}
-		// Allocate a gate to the currently selected aircraft
-		else if(e.getSource() == allocateGateButton) {
-			
-			// If there is a free gate, allocate that to the selected flight			
-			int gateNumber = findFreeGates();			
-			if(gateNumber != -1) {
-				int mCode = getSelectedFlightMCode();
-				allocateGate(gateNumber, mCode);
-			} else {
-				
-				// If there are no free gates, display a message on the text area on the JPanel.
-				gateDescriptionTextArea.setText("Unfortunately, there are no free gates.");
-			}
-			
-		}
-		// Show the details of the currently selected flight
-		else if(e.getSource() == showFlightDetailsButton) {
-			int mCode = getSelectedFlightMCode();
-			
-			// If -1: nothing is selected
-			if(mCode != -1) {
-				showingDetailsOfFlight = mCode;
-			}			
-		} 
-		else if(e.getSource() == quitButton) {
-			System.exit(0);
-		}
-		
-		updateFlightList();  // Repopulate the flight list so it remains up-to-date
-		showFlightDetails(); // Update the flight details display
-		
-		showGateStatus();  // Update the gate status display
 	}
 	
 	/**
