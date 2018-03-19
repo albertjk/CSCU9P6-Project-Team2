@@ -27,6 +27,7 @@ public static void main(String[] args) {
     MI1.setTitle("Maintenance Inspector");
     MI1.setLocation(50,50);
     RadarTransceiver RT1 = new RadarTransceiver(DB, 250, 250);
+    PublicInfo PI1 = new PublicInfo(DB);
   }
 
 }

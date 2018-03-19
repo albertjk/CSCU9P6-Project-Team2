@@ -47,7 +47,7 @@ public class PublicInfo extends JFrame implements Observer{
 	  this.setLayout(new BorderLayout());
 	     setTitle("Public Information Display");
 	     setLocation(200,100);
-	     setSize(300,800);  
+	     setSize(800,200);  
 	     setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 	     Container window = getContentPane();
 	     window.setLayout(new FlowLayout()); 
@@ -56,12 +56,15 @@ public class PublicInfo extends JFrame implements Observer{
 	     scrollPane.setViewportView(flightList);
 	     flightList.setFixedCellWidth(250);
 	     flightList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-	     flightList.setBorder(BorderFactory.createTitledBorder("FLIGHT CODE || STATUS || COMMENTS"));
+	     flightList.setBorder(BorderFactory.createTitledBorder("FLIGHT CODE || STATUS || GATE NUMBER"));
 	     
 	     getFlightInfo();
 	     window.add(scrollPane);
+	     setVisible(true);
   }
-
+/**
+ * 
+ */
 private void getFlightInfo() {
 	//clear list first
     flightListModel.removeAllElements();
@@ -69,13 +72,13 @@ private void getFlightInfo() {
     //re-populate but only with the entries that have the correct codes
     for(int i = 0; i < airCraftDB.maxMRs; i++) {
         if(airCraftDB.getStatus(i) == 2) {
-            flightListModel.addElement(airCraftDB.getFlightCode(i) + " " + "Inbound");  
+            flightListModel.addElement(airCraftDB.getFlightCode(i) + "              " + "Inbound");  
         }
         else if(airCraftDB.getStatus(i) == 3 || airCraftDB.getStatus(i) == 4 || airCraftDB.getStatus(i) == 5) {
-            flightListModel.addElement(airCraftDB.getFlightCode(i) + " " + "Landing");   
+            flightListModel.addElement(airCraftDB.getFlightCode(i) + "          " + "Landing");   
         }
         else if(airCraftDB.getStatus(i) == 14) {
-            flightListModel.addElement(airCraftDB.getFlightCode(i) + " " + "Loading Passengers" + " " + airCraftDB.getGateNum(i));   
+            flightListModel.addElement(airCraftDB.getFlightCode(i) + "        " + "Loading Passengers" + "       " + airCraftDB.getGateNum(i));   
         }
     }
 	
@@ -83,7 +86,6 @@ private void getFlightInfo() {
 
 @Override
 public void update(Observable arg0, Object arg1) {
-	// TODO Auto-generated method stub
-	
+	getFlightInfo();
 }
 }

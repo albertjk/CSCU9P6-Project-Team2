@@ -43,7 +43,6 @@ public class MaintenanceInspector extends JFrame
   * @supplierCardinality 1
   * @label accesses/observes
   * @directed*/
-private AircraftManagementDatabase lnkUnnamed;
     
     
 //variables
