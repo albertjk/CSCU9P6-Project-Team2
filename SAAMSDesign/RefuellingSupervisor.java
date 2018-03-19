@@ -39,7 +39,6 @@ public class RefuellingSupervisor extends JFrame implements ActionListener, Obse
   * @clientCardinality 1
   * @label accesses/observes
   * @directed*/
-  private AircraftManagementDatabase lnkUnnamed; // REMOVE MAYBE
   private AircraftManagementDatabase AMD;
   
   //buttons
