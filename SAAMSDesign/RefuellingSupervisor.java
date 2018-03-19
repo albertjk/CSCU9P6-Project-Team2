@@ -39,6 +39,7 @@ public class RefuellingSupervisor extends JFrame implements ActionListener, Obse
   * @clientCardinality 1
   * @label accesses/observes
   * @directed*/
+  private AircraftManagementDatabase lnkUnnamed; // REMOVE MAYBE
   private AircraftManagementDatabase AMD;
   
   //buttons
@@ -108,10 +109,6 @@ public class RefuellingSupervisor extends JFrame implements ActionListener, Obse
 	    for(int i = 0; i < AMD.maxMRs; i++) { // iterate through array, condition of under max amount of MR 
 	        if(AMD.getStatus(i) == 13) { // if the status is equal to 13, do below
 	            flightListModel.addElement(AMD.getFlightCode(i) + " " + AMD.getStatus(i) + " REFUEL READY ");  
-	        }
-	       
-	        else { // unsure if required 
-	            flightListModel.addElement(AMD.getFlightCode(i) + " " + AMD.getStatus(i));   /// adds flightcode without "REFUEL READY" 
 	        }
 	    }
 	}
