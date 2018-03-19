@@ -1,5 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -60,7 +61,7 @@ public RadarTransceiver(AircraftManagementDatabase airCraftDB,int locationX, int
     
     setVisible(true);
 }
-
+	//The values for creating FDs to pas to the DB
 	int randNum = 0;
 	String randName;
 	String randFCode;
@@ -69,7 +70,9 @@ public RadarTransceiver(AircraftManagementDatabase airCraftDB,int locationX, int
 	PassengerList randPL;
 	FlightDescriptor randFD;
 	
-
+/**
+ * These generate semi-random flights that are either going to arrive at the airport or pass by it. 
+ */
 @Override
 public void actionPerformed(ActionEvent e) {
 	if(e.getSource() == generateInboundFlight)
@@ -77,12 +80,13 @@ public void actionPerformed(ActionEvent e) {
 		randPL = new PassengerList();
 		for(int i = 0; i < 100;i++)
 		{
-			randNum = randNum + i;
-			randName = "Bill" + randNum;
+			randNum = i;
+			randName = "Mary" + randNum;
 			randPD = new PassengerDetails(randName);
 			randPL.addPassenger(randPD);
 		}
-		randFCode = "F" + Math.random() + "GZ";
+		Random rand = new Random();
+		randFCode = "F" + rand.nextInt(100) + "GZ";
 		randIT = new Itinerary("Glasgow", "Stirling","London");
 		randFD = new FlightDescriptor(randFCode, randIT, randPL);
 		airCraftDB.radarDetect(randFD);
@@ -92,12 +96,13 @@ public void actionPerformed(ActionEvent e) {
 		randPL = new PassengerList();
 		for(int i = 0; i < 100;i++)
 		{
-			randNum = randNum + i;
+			randNum = i;
 			randName = "Bill" + randNum;
 			randPD = new PassengerDetails(randName);
 			randPL.addPassenger(randPD);
 		}
-		randFCode = "F" + Math.random() + "GZ";
+		Random rand = new Random();
+		randFCode = "F" + rand.nextInt(100) + "GZ";
 		randIT = new Itinerary("Glasgow", "New York","London");
 		randFD = new FlightDescriptor(randFCode, randIT, randPL);
 		airCraftDB.radarDetect(randFD);

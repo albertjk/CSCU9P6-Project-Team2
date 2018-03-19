@@ -4,12 +4,13 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 public class RTTest {
+	AircraftManagementDatabase airDB;
+	RadarTransceiver RTTest;
 	
-	
-	public static void main(String args[])
+	@Before
+	public void main(String args[])
 	{
-		AircraftManagementDatabase airDB = new AircraftManagementDatabase();
-		@SuppressWarnings("unused")
+		airDB = new AircraftManagementDatabase();
 		RadarTransceiver RTTest = new RadarTransceiver(airDB, 250, 250);
 	}
 	

@@ -19,6 +19,6 @@ public class PublicInfo {
   * @clientCardinality 0..*
   * @label accesses/observes
   * @directed*/
-  private AircraftManagementDatabase lnkUnnamed;
+  private AircraftManagementDatabase airCraftDB;
 
 }
