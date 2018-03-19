@@ -144,6 +144,15 @@ public class AircraftManagementDatabase extends Observable {
 	  notifyObservers();
 
   }
+  
+  /**
+   * Returns the gateNumber of the given MR
+   */
+  public int getGateNum(int mCode)
+  {
+	  int GC = MRs[mCode].getGateNumber();
+	  return GC;
+  }
 
 /**
  *  The Maintenance Supervisor has reported faults with the given description in the aircraft with the given mCode. The message is forwarded to the given MR for status update.*/
