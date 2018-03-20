@@ -149,7 +149,7 @@ private void getFlightInfo() {
 	//scan through the list fills in the needed entries to the list.
 	for(int i = 0; i < airDB.maxMRs;i++)
 	{
-		if(airDB.getStatus(i) == 3 || airDB.getStatus(i) == 1)
+		if(airDB.getStatus(i) == 3 || airDB.getStatus(i) == 1 || airDB.getStatus(i) == 18)
 		{
 			incomingFlightModel.addElement(airDB.getFlightCode(i) + "      " + airDB.getStatus(i));
 			indexL = i;
@@ -193,12 +193,23 @@ public void actionPerformed(ActionEvent e) {
 			airDB.setStatus(trace, 5);
 		}
 	}
-	else if(e.getSource().equals(lostContact)) {
+	else if(e.getSource().equals(lostContact) && waitForLanding.isSelectionEmpty() == false) {
 		
 		indexT = waitForLanding.getSelectedIndex();
 		int trace = trackerT.get(indexT);
 		
 		airDB.radarLostContact(trace);
+	}
+	else if(e.getSource().equals(takeOff) && awaitTakeoff.isSelectionEmpty() == false) {
+		
+		indexT = waitForLanding.getSelectedIndex();
+		int trace = trackerT.get(indexT);
+		
+		if(airDB.getStatus(trace) == 17) {
+			
+			airDB.setStatus(trace, 18);
+		}
+		
 	}
 }
 
