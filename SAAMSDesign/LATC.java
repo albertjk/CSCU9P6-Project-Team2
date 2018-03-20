@@ -11,6 +11,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.ListSelectionModel;
@@ -186,6 +187,10 @@ public void actionPerformed(ActionEvent e) {
 			
 			airDB.setStatus(trace, 5);
 		}
+	}
+	else {
+		
+		JOptionPane.showMessageDialog(this, "No Ground Clearance");
 	}
 }
 
