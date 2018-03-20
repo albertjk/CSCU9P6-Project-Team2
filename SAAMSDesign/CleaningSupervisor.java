@@ -75,11 +75,6 @@ public class CleaningSupervisor extends JFrame implements Observer, ActionListen
 	  quit.addActionListener(this);
 	  content.add(quit);
 	  
-	  //change button and listener
-	  changeStat = new JButton("Set Cleaned");
-	  changeStat.addActionListener(this);
-	  content.add(changeStat);
-	  
 	  
 	  //adding the list to the interface
 	  displayDirty = new JList(dirtyModel);
@@ -87,13 +82,18 @@ public class CleaningSupervisor extends JFrame implements Observer, ActionListen
 	  viewDirty.setViewportView(displayDirty);
 	  viewDirty.setPreferredSize(new Dimension(350,300));
 	  displayDirty.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-	  displayDirty.setBackground(Color.RED);
+	  displayDirty.setBackground(Color.WHITE);
 	  displayDirty.setVisibleRowCount(10);
 	  
 	  //getting list items from airDB
 	  checkList();
 	   
 	  content.add(viewDirty);
+	  
+	  //change button and listener
+	  changeStat = new JButton("Set Cleaned");
+	  changeStat.addActionListener(this);
+	  content.add(changeStat);
 	 
 	  
 	  setVisible(true);
