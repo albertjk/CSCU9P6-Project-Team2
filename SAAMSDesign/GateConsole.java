@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -72,10 +73,17 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	private JPanel aircraftPanel;
 	
 	// Stores the flight code of the aircraft at the current gate. Can be updated.
-	private Vector<String> currentFlight = new Vector();
+	
+	// Data!!
+	private DefaultListModel<String> currentFlight = new DefaultListModel();
 	
 	// Displays the current aircraft. Can be updated.
-	private JList aircraftList = new JList(new DefaultListModel());
+	
+	// Structure!!
+	private JList<String> aircraftList;
+	
+	// Show the list!!!
+	private JScrollPane scrollPane = new JScrollPane();
 	
 	// Buttons for changing the status of the aircraft allocated to the nearby gate
 	private JButton aircraftReadyCleanAndMaintButton;
@@ -164,9 +172,9 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		aircraftPanel.setPreferredSize(new Dimension(500, 160));
 		aircraftPanel.add(new JLabel("Manage the aircraft allocated to this gate:"));
 		currentFlight.addElement("LA 342"); // TODO: THIS SHOULD BE JUST A JLABEL. I NEED AN MCODE. THEN  I CAN GET THE FLIGHT CODE USING THE MCODE.
-		aircraftList.setListData(currentFlight);
-		aircraftList.setVisibleRowCount(1);
-		aircraftPanel.add(aircraftList);		
+		//aircraftList.setListData(currentFlight);
+		//aircraftList.setVisibleRowCount(1);
+		//aircraftPanel.add(aircraftList);		
 		
 		showFlightDetailsButton = new JButton("Show flight details");
 		aircraftPanel.add(showFlightDetailsButton);
@@ -330,7 +338,7 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	 */
 	public int getSelectedFlightMCode() {		
 		if(aircraftList.getSelectedValue() != null) {
-			return (int) aircraftList.getSelectedValue();
+			return aircraftList.getSelectedIndex();
 		}
 		return -1;
 	}
