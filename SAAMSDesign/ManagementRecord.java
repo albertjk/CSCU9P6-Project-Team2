@@ -346,6 +346,4 @@ public class ManagementRecord {
 	  passengerList.unloadPassengers();
 	  status = UNLOADING;
   }
-  
-
 }
