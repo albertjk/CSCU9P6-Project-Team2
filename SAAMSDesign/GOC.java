@@ -292,17 +292,8 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 				
 				// Add the list item
 				flightList.addElement(aircraftManagementDatabase.getFlightCode(i));
-				
-				
 			}
-			
-			
 		}
-<<<<<<< HEAD
-		
-		//aircraftList.setListData(flightList);
-=======
->>>>>>> 17687632b0b2ee392e1d2cef39764c2ea938c023
 	}
 		
 		
