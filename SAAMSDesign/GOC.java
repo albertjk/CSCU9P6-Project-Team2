@@ -89,6 +89,11 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	// Stores the flight codes of the aircrafts in the airport (not those which are free or are in transit or have departed through local airspace).
 	private Vector<String> flightList = new Vector();
   
+	// Stores the position where a list item is in the MR array
+	private ArrayList<Integer> tracker = new ArrayList();
+	
+	private int trackerIndex;
+	
 	/**
 	 * Constructor of the GOC user interface
 	 */
@@ -250,22 +255,55 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		// First clear the list of previous elements, then update the list.
 		flightList.removeAllElements();
 		
+		tracker.clear(); // Reset the tracker array list		
+		trackerIndex = 0; // Reset the tracker index
+		
+		for(int i = 0; i < aircraftManagementDatabase.maxMRs; i++) {
+			
+			if(aircraftManagementDatabase.getStatus(i) >= 2 || aircraftManagementDatabase.getStatus(i) <= 17) {
+				
+				trackerIndex = i; // Set the index to the current index in the MR array
+				// Adds the current index to the tracker
+				tracker.add(trackerIndex);
+				
+				// Add the list item
+				flightList.addElement(aircraftManagementDatabase.getFlightCode(i));
+				
+				
+			}
+			
+			
+		}
+		
+		aircraftList.setListData(flightList);
+	}
+		
+		
+		
+		
 		/* If an aircraft's status code is between 2 (WANTING_TO_LAND) and 17 (AWAITING_TAKEOFF) inclusive, 
 		display its flight code on the GOC screen, and also the details on selecting the aircraft. 
 		Aircrafts with statuses FREE, IN_TRANSIT, and DEPARTING_THROUGH_LOCAL_AIRSPACE are not displayed. */
-		for(int i = 2; i <= 17; i++) {
+		/*
+		ArrayList<Integer> mCodes = new ArrayList<>();
+		for(int i = 2; i <= 17; i++) { */
 			// Get the aircrafts with the current status code and store their mCodes.			
-			int[] mCodes = aircraftManagementDatabase.getWithStatus(i);
+			
+			/*
+			int updatedMCode = aircraftManagementDatabase.getStatus(i);
+			*/
 			
 			/* Use the mCodes of the aircrafts to identify them and get their flight codes. 
 			Add the flight codes to the flight list. This list will be displayed on the GOC screen. */
-			for(int j = 0; j < mCodes.length; j++) {
-				flightList.add(aircraftManagementDatabase.getFlightCode(mCodes[j]));
+		/*
+			for(int j = 0; j < aircraftManagementDatabase.maxMRs; j++) {
+				flightList.add(aircraftManagementDatabase.getFlightCode(mCodes.get(j)));
 			}
 		}
 		// Update the entire content of aircraftList
 		aircraftList.setListData(flightList);
 	}
+	*/
 	
 	/**
 	 * This method checks if an aircraft wants to land at Stirling Airport.
@@ -397,8 +435,8 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	 */
 	public void update(Observable o, Object arg) {
 		updateFlightList(); 
-		showFlightDetails(); // Update the flight details display		
-		showGateStatus();
+		//showFlightDetails(); // Update the flight details display		
+		//showGateStatus();
 	}
   
   
