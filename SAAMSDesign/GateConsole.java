@@ -392,8 +392,9 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
   	 */
 	public void update(Observable o, Object arg) {
 		// Update the flight status
-		//updateFlight();
-		
+		updateFlight();
+		showFlightDetails();
+		showGateStatus();
 	}
 
 	
