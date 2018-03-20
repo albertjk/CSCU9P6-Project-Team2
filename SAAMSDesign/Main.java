@@ -34,6 +34,8 @@ public static void main(String[] args) {
     CleaningSupervisor CS1 = new CleaningSupervisor(ADB);
     
     GateConsole gateConsole = new GateConsole(GDB, ADB, 500, 200);
+    
+    LATC latc = new LATC(ADB);
   }
 
 }
