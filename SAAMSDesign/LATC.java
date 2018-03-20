@@ -172,9 +172,9 @@ public void actionPerformed(ActionEvent e) {
 		indexL = waitForLanding.getSelectedIndex();
 		int trace = trackerL.get(indexL);
 		
-		if(airDB.getStatus(trace) == 3) //GOC has given ground clearance
+		if(airDB.getStatus(trace) == 2) //GOC has given ground clearance
 		{
-			airDB.setStatus(trace, 4); //LATC gives approach clearance
+			airDB.setStatus(trace, 3); //LATC gives approach clearance
 		}
 	}
 	else if(e.getSource().equals(confirmLanding) && waitForLanding.isSelectionEmpty() == false) {
@@ -182,9 +182,9 @@ public void actionPerformed(ActionEvent e) {
 		indexT = waitForLanding.getSelectedIndex();
 		int trace = trackerT.get(indexT);
 		
-		if(airDB.getStatus(trace) == 4) {
+		if(airDB.getStatus(trace) == 3) {
 			
-			airDB.setStatus(trace, 5);
+			airDB.setStatus(trace, 4);
 		}
 	}
 }
