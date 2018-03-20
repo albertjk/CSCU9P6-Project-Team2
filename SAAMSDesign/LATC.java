@@ -121,6 +121,8 @@ public class LATC extends JFrame implements Observer, ActionListener {
 	  content.add(landingPane);
 	  content.add(TransitPane);
 	  content.add(TakeoffPane);
+	  
+	  setVisible(true);
   }
 
   /**
