@@ -143,7 +143,7 @@ private void getFlightInfo() {
 	//scan through the list fills in the needed entries to the list.
 	for(int i = 0; i < airDB.maxMRs;i++)
 	{
-		if(airDB.getStatus(i) == 2 || airDB.getStatus(i) == 1)
+		if(airDB.getStatus(i) == 3 || airDB.getStatus(i) == 1)
 		{
 			incomingFlightModel.addElement(airDB.getFlightCode(i) + "      " + airDB.getStatus(i));
 			indexL = i;
@@ -172,9 +172,9 @@ public void actionPerformed(ActionEvent e) {
 		indexL = waitForLanding.getSelectedIndex();
 		int trace = trackerL.get(indexL);
 		
-		if(airDB.getStatus(trace) == 2) //GOC has given ground clearance
+		if(airDB.getStatus(trace) == 3) //GOC has given ground clearance
 		{
-			airDB.setStatus(trace, 3); //LATC gives approach clearance
+			airDB.setStatus(trace, 4); //LATC gives approach clearance
 		}
 	}
 	else if(e.getSource().equals(confirmLanding) && waitForLanding.isSelectionEmpty() == false) {
@@ -182,9 +182,9 @@ public void actionPerformed(ActionEvent e) {
 		indexT = waitForLanding.getSelectedIndex();
 		int trace = trackerT.get(indexT);
 		
-		if(airDB.getStatus(trace) == 3) {
+		if(airDB.getStatus(trace) == 4) {
 			
-			airDB.setStatus(trace, 4);
+			airDB.setStatus(trace, 5);
 		}
 	}
 }
