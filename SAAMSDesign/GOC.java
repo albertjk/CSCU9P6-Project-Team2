@@ -74,10 +74,10 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	private JScrollPane aircraftScrollList = new JScrollPane();
 	
 	
-	private DefaultListModel<String> gatesList = new DefaultListModel();
+	private DefaultListModel<Gate> gatesList = new DefaultListModel();
 	
 	// The list displaying the two gates
-	private JList<String> gateList;
+	private JList<Gate> gateList;
 	
 	private JScrollPane gateScrollList = new JScrollPane();
 	
@@ -125,7 +125,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		window.add(aircraftScrollList);
 		
 		
-		gateList = new JList<String>(gatesList);
+		gateList = new JList<Gate>(gatesList);
 		gateScrollList.setViewportView(gateList);
 		gateScrollList.setPreferredSize(new Dimension(200, 100));
 		gateList.setFixedCellWidth(250);
@@ -159,7 +159,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		// Set up the display panel
 		flightsDisplayPanel = new JPanel();
 		flightsDisplayPanel.setBackground(Color.cyan);
-		flightsDisplayPanel.setPreferredSize(new Dimension(600, 400));
+		flightsDisplayPanel.setPreferredSize(new Dimension(400, 200));
 		flightsDisplayPanel.add(new JLabel("Aircraft:"));
 		aircraftList.setVisibleRowCount(5);
 		flightsDisplayPanel.add(aircraftScrollList);
@@ -172,17 +172,20 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		showGateStatusButton.addActionListener(this);
 		
 		// Set the gates in the gate list
-		/*
-		Vector<String> gates = new Vector();
-		gates.add("Gate 1");
-		gates.add("Gate 2");
-		gateList.setListData(gates); */
+		
+		Gate[] gates = new Gate[2];
+		Gate gate1 = new Gate(0);
+		Gate gate2 = new Gate(1);
+		
+		gates[0] = gate1;
+		gates[1] = gate2;
+		gateList.setListData(gates);
 		
 		
 		
 		gatesDisplayPanel = new JPanel();
 		gatesDisplayPanel.setBackground(Color.green);
-		gatesDisplayPanel.setPreferredSize(new Dimension(600, 400));
+		gatesDisplayPanel.setPreferredSize(new Dimension(400, 200));
 		gatesDisplayPanel.add(new JLabel("Gate:"));
 		gateList.setVisibleRowCount(2); // There are only two gates at the airport
 		gatesDisplayPanel.add(gateList);
@@ -261,15 +264,11 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		else if(e.getSource() == showGateStatusButton && !gateList.isSelectionEmpty()) {
 		
 			trackerIndex = gateList.getSelectedIndex();
-			int trace = tracker.get(trackerIndex);
+			int trace = tracker.get(trackerIndex);			
 			
-			if(showingDetailsOfGate == -1) {
-				gateDescriptionTextArea.setText("");
-			}
-			else {
-				gateDescriptionTextArea.setText("Status: " 
-				+ gateInfoDatabase.getStatus(showingDetailsOfGate));
-			}
+		
+			gateDescriptionTextArea.setText("Status: " + gateInfoDatabase.getStatus(trace));
+			
 			
 		}
 	}
@@ -294,14 +293,32 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 				tracker.add(trackerIndex);
 				
 				// Add the list item
-				flightList.addElement(aircraftDB.getFlightCode(i));
-				
-				
-			}
-			
-			
+				flightList.addElement(aircraftDB.getFlightCode(i));				
+			}			
 		}
 	}
+	
+	private void updateGateList() {
+			
+			// First clear the list of previous elements, then update the list.
+			flightList.removeAllElements();
+			
+			tracker.clear(); // Reset the tracker array list		
+			trackerIndex = 0; // Reset the tracker index
+			
+			for(int i = 0; i < aircraftDB.maxMRs; i++) {
+				
+				if(aircraftDB.getStatus(i) >= 2 || aircraftDB.getStatus(i) <= 17) {
+					
+					trackerIndex = i; // Set the index to the current index in the MR array
+					// Adds the current index to the tracker
+					tracker.add(trackerIndex);
+					
+					// Add the list item
+					flightList.addElement(aircraftDB.getFlightCode(i));				
+				}			
+			}
+		}
 		
 		
 		
@@ -381,15 +398,15 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	 * Show the status of the selected gate in the gatesDisplayPanel.
 	 */
 	private void showGateStatus() {
-		if(showingDetailsOfGate == -1) {
-			gateDescriptionTextArea.setText("");
-		}
+		//if(showingDetailsOfGate == -1) {
+		//	gateDescriptionTextArea.setText("");
+		//}
 		/* If a gate was selected, get its status.
 		We can use showingDetailsOfGate to get the status as this variable is equal to the array index of the selected gate in the list.
 		(It was assigned after the showGateStatusButton was clicked in actionPerformed.) */
-		else {
+		//else {
 			gateDescriptionTextArea.setText("Status: " + gateInfoDatabase.getStatus(showingDetailsOfGate));
-		}
+		//}
 	}
 	
 	
@@ -472,6 +489,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	 */
 	public void update(Observable o, Object arg) {
 		updateFlightList(); 
+		updateGateList();
 		//showFlightDetails(); // Update the flight details display		
 		//showGateStatus();
 	}
