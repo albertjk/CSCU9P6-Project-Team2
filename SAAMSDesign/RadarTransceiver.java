@@ -78,7 +78,7 @@ public void actionPerformed(ActionEvent e) {
 	if(e.getSource() == generateInboundFlight)
 	{
 		randPL = new PassengerList();
-		for(int i = 0; i < 100;i++)
+		for(int i = 0; i < 5;i++)
 		{
 			randNum = i;
 			randName = "Mary" + randNum;
@@ -94,7 +94,7 @@ public void actionPerformed(ActionEvent e) {
 	if(e.getSource() == generateIntransitFlight)
 	{
 		randPL = new PassengerList();
-		for(int i = 0; i < 100;i++)
+		for(int i = 0; i < 5;i++)
 		{
 			randNum = i;
 			randName = "Bill" + randNum;
