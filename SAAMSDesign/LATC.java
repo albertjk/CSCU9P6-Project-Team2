@@ -193,10 +193,10 @@ public void actionPerformed(ActionEvent e) {
 			airDB.setStatus(trace, 5);
 		}
 	}
-	else if(e.getSource().equals(lostContact) && awaitTakeoff.isSelectionEmpty() == false) {
+	else if(e.getSource().equals(lostContact) && waitForLanding.isSelectionEmpty() == false) {
 		
-		indexT = awaitTakeoff.getSelectedIndex();
-		int trace = trackerT.get(indexT);
+		indexL = waitForLanding.getSelectedIndex();
+		int trace = trackerL.get(indexT);
 		
 		airDB.radarLostContact(trace);
 	}
@@ -209,7 +209,6 @@ public void actionPerformed(ActionEvent e) {
 			
 			airDB.setStatus(trace, 18);
 		}
-		
 	}
 }
 
