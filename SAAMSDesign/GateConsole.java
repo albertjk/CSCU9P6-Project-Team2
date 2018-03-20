@@ -120,8 +120,6 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	
 	// These are the GUI elements on the addPassengerPanel
 	private JPanel addPassengerPanel;
-	private JLabel addPassengerLabel;
-	private JLabel nameLabel;
 	private JTextField nameTextField;
 	private JButton addPassengerButton;
 	
@@ -208,18 +206,23 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		// Update the flight status
 		//updateFlight();
 		
-		// Put the aircraftPanel and gatePanel together in a JPanel
-		
+		// Put the aircraftPanel and gatePanel together in a JPanel and add them to a tab		
 		JPanel aircraftAndGatePanel = new JPanel();
 		aircraftAndGatePanel.add(aircraftPanel);
 		aircraftAndGatePanel.add(gatePanel);
-		
-		//--
 		
 		tabbedPane.addTab("Manage aircraft and gate status", null, aircraftAndGatePanel, "Click here to see and change the status of the nearby aircraft and the nearby gate.");
 		
 		// Set up the passenger tab
 		addPassengerPanel = new JPanel();
+		addPassengerPanel.setBackground(Color.orange);
+		addPassengerPanel.setPreferredSize(new Dimension(400, 160));
+		addPassengerPanel.add(new JLabel("Enter passenger name:"));
+		nameTextField = new JTextField(20);
+		addPassengerPanel.add(nameTextField);
+		addPassengerButton = new JButton("Add passenger to current flight");
+		addPassengerPanel.add(addPassengerButton);
+		addPassengerButton.addActionListener(this);
 		
 		tabbedPane.addTab("Add passenger to flight", null, addPassengerPanel, "Click here to add a passenger to the departing flight.");
 		
