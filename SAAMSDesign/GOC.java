@@ -92,7 +92,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	/**
 	 * Constructor of the GOC user interface
 	 */
-	public GOC(GateInfoDatabase gateInfoDatabase, AircraftManagementDatabase aircraftManagementDatabase) {
+	public GOC(GateInfoDatabase gateInfoDatabase, AircraftManagementDatabase aircraftManagementDatabase, int locationX, int locationY) {
 		
 		this.gateInfoDatabase = gateInfoDatabase;
 		this.aircraftManagementDatabase = aircraftManagementDatabase;
@@ -165,7 +165,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		// Display the frame
 		// TODO: CHANGE NUMBERS TO CONSTANTS
 		setSize(560, 290);
-		setLocation(200, 200);
+		setLocation(locationX, locationY);
 		setVisible(true);
 		
 		// Subscribe to the GateInfoDatabase and AircraftManagementDatabase models
@@ -241,6 +241,9 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	 *  Re-populate the displayed flight list from the AircraftManagementDatabase.
 	 */
 	private void updateFlightList() {
+		
+		// First clear the list of previous elements, then update the list.
+		flightList.removeAllElements();
 		
 		/* If an aircraft's status code is between 2 (WANTING_TO_LAND) and 17 (AWAITING_TAKEOFF) inclusive, 
 		display its flight code on the GOC screen, and also the details on selecting the aircraft. 
@@ -382,11 +385,10 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	}
   
 	/**
-	 * Notified by the model when it is altered. Fetch information about the aircrafts and gates.
+	 * This method gets called when AircraftMangementDatabase updates its observers. Fetches information about the aircrafts and gates.	 * 
 	 */
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
+		updateFlightList();
 	}
   
   
