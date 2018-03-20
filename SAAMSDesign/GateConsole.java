@@ -14,7 +14,6 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -79,7 +78,6 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	private JList aircraftList = new JList(new DefaultListModel());
 	
 	// Buttons for changing the status of the aircraft allocated to the nearby gate
-	private JButton aircraftUnloadingButton;
 	private JButton aircraftReadyCleanAndMaintButton;
 	private JButton closeFlightButton;
 	
@@ -100,11 +98,11 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	private JPanel gatePanel;
 	
 	// This vector will store the current nearby gate. Can be updated.
-	Vector<String> currentGate = new Vector();
+	//Vector<String> currentGate = new Vector();
 	
 	
 	// Displays the current gate. Can be updated.
-	private JList gateList = new JList(new DefaultListModel());
+	//private JList gateList = new JList(new DefaultListModel());
 	
 	
 	
@@ -157,7 +155,7 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		aircraftPanel.setBackground(Color.cyan);
 		aircraftPanel.setPreferredSize(new Dimension(500, 160));
 		aircraftPanel.add(new JLabel("Manage the aircraft allocated to this gate:"));
-		currentFlight.addElement("LA 342");
+		currentFlight.addElement("LA 342"); // TODO: THIS SHOULD BE JUST A JLABEL. I NEED AN MCODE. THEN  I CAN GET THE FLIGHT CODE USING THE MCODE.
 		aircraftList.setListData(currentFlight);
 		aircraftList.setVisibleRowCount(1);
 		aircraftPanel.add(aircraftList);		
@@ -165,10 +163,6 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		showFlightDetailsButton = new JButton("Show flight details");
 		aircraftPanel.add(showFlightDetailsButton);
 		showFlightDetailsButton.addActionListener(this);
-		
-		//aircraftUnloadingButton = new JButton("Set to Unloading");
-		//aircraftPanel.add(aircraftUnloadingButton);
-		//aircraftUnloadingButton.addActionListener(this);
 
 		aircraftReadyCleanAndMaintButton = new JButton("Set to Clean and Maintain");
 		aircraftPanel.add(aircraftReadyCleanAndMaintButton);
@@ -189,10 +183,9 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		gatePanel.setBackground(Color.yellow);
 		gatePanel.setPreferredSize(new Dimension(400, 160));
 		gatePanel.add(new JLabel("Manage the gate:"));
-		currentGate.addElement("Gate 1"); // DUMMY VALUE FOR TESTING
-		gateList.setListData(currentGate);
-		gateList.setVisibleRowCount(1);
-		gatePanel.add(gateList);
+		JLabel gateLabel = new JLabel("Gate " + gateNumber);
+		gateLabel.setOpaque(true);
+		gatePanel.add(gateLabel);
 		
 		showGateStatusButton = new JButton("Show gate status");
 		gatePanel.add(showGateStatusButton);
@@ -399,7 +392,7 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
   	 */
 	public void update(Observable o, Object arg) {
 		// Update the flight status
-		updateFlight();
+		//updateFlight();
 		
 	}
 
