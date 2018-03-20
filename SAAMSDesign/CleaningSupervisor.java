@@ -41,6 +41,8 @@ public class CleaningSupervisor extends JFrame implements Observer, ActionListen
   * @supplierCardinality 1
   * @label accesses/observes
   * @directed*/
+	
+  // Global variables for use in the class
   private AircraftManagementDatabase airDB;
   private JScrollPane viewDirty;
   private JList displayDirty;
@@ -50,7 +52,7 @@ public class CleaningSupervisor extends JFrame implements Observer, ActionListen
   private int index;
   private DefaultListModel dirtyModel = new DefaultListModel();
   
-  public CleaningSupervisor(AircraftManagementDatabase DB) {
+  public CleaningSupervisor(AircraftManagementDatabase DB) { //constructor sets up the window and sets DB
 	  
 	  this.airDB = DB;
 	  DB.addObserver(this);
@@ -103,7 +105,7 @@ public class CleaningSupervisor extends JFrame implements Observer, ActionListen
 @Override
 public void update(Observable arg0, Object arg1) {
 	// TODO Auto-generated method stub
-	checkList();
+	checkList(); //updates the list with the most up to data cleaning requirements
 	
 }
 
@@ -111,17 +113,17 @@ public void update(Observable arg0, Object arg1) {
 public void checkList() {
 	
 	dirtyModel.removeAllElements(); //clears current content of the list
-	tracker.removeAll(tracker);
-	index = 0;
+	tracker.removeAll(tracker); //reset the tracker
+	index = 0; //reset the index
 	
 	for(int i = 0; i < airDB.maxMRs; i++) { //loops through the MR's and finds the matching status codes
 		
 		if(airDB.getStatus(i) == 11 || airDB.getStatus(i) == 9 && airDB.getGateNum(i) != 0) { //only adds planes with a gate assigned, to the list
 			
-			index = i;
-			tracker.add(index);
+			index = i; //sets index to current index in the array
+			tracker.add(index); //adds current index to the tracker
 			
-			dirtyModel.addElement(index + " Flight " + airDB.getFlightCode(i) + " at Gate " + airDB.getGateNum(i) + "  Awating Cleaning");
+			dirtyModel.addElement(index + " Flight " + airDB.getFlightCode(i) + " at Gate " + airDB.getGateNum(i) + "  Awating Cleaning"); //adds the list item
 			
 		}
 	}
@@ -160,7 +162,7 @@ public void actionPerformed(ActionEvent e) {
 	}
 	else if(e.getSource().equals(changeStat) && displayDirty.isSelectionEmpty() == true) {
 		
-		JOptionPane message = new JOptionPane("Somethings wrong!");
+		JOptionPane message = new JOptionPane("Select a list item please");
 		message.showMessageDialog(null, message);
 		
 		checkList();

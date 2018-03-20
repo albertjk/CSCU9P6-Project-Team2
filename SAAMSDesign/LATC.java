@@ -22,6 +22,8 @@ public class LATC {
   * @clientCardinality 1
   * @label accesses/observes
   * @directed*/
-  private AircraftManagementDatabase lnkUnnamed;
+  private AircraftManagementDatabase airDB;
+  
+  
 
 }
