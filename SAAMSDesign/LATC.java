@@ -102,14 +102,14 @@ public class LATC extends JFrame implements Observer, ActionListener {
 	  landingPane.setViewportView(waitForLanding);
 	  waitForLanding.setFixedCellWidth(250);
 	  waitForLanding.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-	  waitForLanding.setBorder(BorderFactory.createTitledBorder("FLIGHT CODE || STATUS || LOOKING TO LAND"));
+	  waitForLanding.setBorder(BorderFactory.createTitledBorder("FLIGHT CODE || STATUS || IN THE AIR"));
 	  
 	  //inTransitPanel
 	  inTransit = new JList<String>(inTransitFlightModel);
 	  TransitPane.setViewportView(inTransit);
 	  inTransit.setFixedCellWidth(250);
 	  inTransit.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-	  inTransit.setBorder(BorderFactory.createTitledBorder("FLIGHT CODE || STATUS || IN TRANSIT"));
+	  inTransit.setBorder(BorderFactory.createTitledBorder("FLIGHT CODE || STATUS || LANDING"));
 	  
 	  //Takeoff Panel
 	  awaitTakeoff = new JList<String>(outGoingFlightModel);
