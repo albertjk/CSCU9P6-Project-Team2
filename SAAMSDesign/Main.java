@@ -30,7 +30,7 @@ public static void main(String[] args) {
     RadarTransceiver RT1 = new RadarTransceiver(DB, 250, 250);
     PublicInfo PI1 = new PublicInfo(DB);
     RefuellingSupervisor RS1 = new RefuellingSupervisor(DB);
-    GOC GC1 = new GOC(GDB, DB);
+    GOC GC1 = new GOC(GDB, DB, 200, 200);
     CleaningSupervisor CS1 = new CleaningSupervisor(DB);
   }
 
