@@ -48,9 +48,9 @@ public class LATC extends JFrame implements Observer, ActionListener {
   private JList<String> waitForLanding;
   private JList<String> inTransit;
   private JList<String> awaitTakeoff;
-  private JScrollPane landingPane;
-  private JScrollPane TransitPane;
-  private JScrollPane TakeoffPane;
+  private JScrollPane landingPane = new JScrollPane();
+  private JScrollPane TransitPane = new JScrollPane();
+  private JScrollPane TakeoffPane = new JScrollPane();
   
   
   //Variables
@@ -121,7 +121,6 @@ public class LATC extends JFrame implements Observer, ActionListener {
 	  content.add(landingPane);
 	  content.add(TransitPane);
 	  content.add(TakeoffPane);
-	  
 	  setVisible(true);
   }
 
