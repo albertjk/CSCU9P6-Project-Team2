@@ -92,7 +92,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	/**
 	 * Constructor of the GOC user interface
 	 */
-	public GOC(GateInfoDatabase gateInfoDatabase, AircraftManagementDatabase aircraftManagementDatabase) {
+	public GOC(GateInfoDatabase gateInfoDatabase, AircraftManagementDatabase aircraftManagementDatabase, int locationX, int locationY) {
 		
 		this.gateInfoDatabase = gateInfoDatabase;
 		this.aircraftManagementDatabase = aircraftManagementDatabase;
@@ -165,7 +165,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		// Display the frame
 		// TODO: CHANGE NUMBERS TO CONSTANTS
 		setSize(560, 290);
-		setLocation(200, 200);
+		setLocation(locationX, locationY);
 		setVisible(true);
 		
 		// Subscribe to the GateInfoDatabase and AircraftManagementDatabase models
@@ -202,17 +202,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 			}
 			
 		}
-		// Show the details of the currently selected flight
-		else if(e.getSource() == showFlightDetailsButton) {
-			int mCode = getSelectedFlightMCode();
-			
-			// If -1: nothing is selected
-			if(mCode != -1) {
-				showingDetailsOfFlight = mCode;
-			} else {
-				JOptionPane.showMessageDialog(this, "No aircraft is selected.");
-			}		
-		} 
+
 		/* Grant taxiing permission to the currently selected departing aircraft.
 		This permission is determined by the user observing the airport.  */
 		else if(e.getSource() == grantTaxiingPermissionButton) {
@@ -224,11 +214,26 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 			} else {
 				JOptionPane.showMessageDialog(this, "The aircraft is not awaiting taxi yet.");
 			}
-			
 		}
 		// Close the GOC window
 		else if(e.getSource() == quitButton) {
 			System.exit(0);
+		}
+		// Show the details of the currently selected flight
+		else if(e.getSource() == showFlightDetailsButton) {
+			int mCode = getSelectedFlightMCode();
+			
+			// If -1: nothing is selected
+			if(mCode != -1) {
+				showingDetailsOfFlight = mCode;
+			} else {
+				JOptionPane.showMessageDialog(this, "No aircraft is selected.");
+			}		
+		} 
+		// Show the details of the currently selected gate
+		else if(e.getSource() == showGateStatusButton) {
+			showingDetailsOfGate = (int) gateList.getSelectedValue();
+			showGateStatus();		
 		}
 		
 		updateFlightList();  // Repopulate the flight list so it remains up-to-date
@@ -241,6 +246,9 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	 *  Re-populate the displayed flight list from the AircraftManagementDatabase.
 	 */
 	private void updateFlightList() {
+		
+		// First clear the list of previous elements, then update the list.
+		flightList.removeAllElements();
 		
 		/* If an aircraft's status code is between 2 (WANTING_TO_LAND) and 17 (AWAITING_TAKEOFF) inclusive, 
 		display its flight code on the GOC screen, and also the details on selecting the aircraft. 
@@ -320,6 +328,8 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		}
 	}
 	
+	
+	
 	/**
 	 * This method returns the mCode of the selected flight in the flight list.
 	 * If no flight is selected, -1 is returned.
@@ -382,11 +392,10 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	}
   
 	/**
-	 * Notified by the model when it is altered. Fetch information about the aircrafts and gates.
+	 * This method gets called when AircraftMangementDatabase updates its observers. Fetches information about the aircrafts and gates.	 * 
 	 */
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
+		//updateFlightList(); // THROWS AN EXCEPTION!!
 	}
   
   
