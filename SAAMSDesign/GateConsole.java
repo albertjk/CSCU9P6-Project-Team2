@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -65,6 +66,9 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	// These are the GUI elements on the aircraftPanel
 	private JPanel aircraftPanel;
 	
+	// Stores the flight code of the aircraft at the current gate. Can be updated.
+	private Vector<String> currentFlight = new Vector();
+	
 	// Displays the current aircraft. Can be updated.
 	private JList aircraftList = new JList(new DefaultListModel());
 	
@@ -80,8 +84,7 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	// Column: enough space for data display
 	private JTextArea flightDescriptionTextArea = new JTextArea(5,20);
 	
-	// Stores the flight code of the aircraft at the current gate. Can be updated.
-	private Vector<String> flightList = new Vector();
+	
 	
 	
 	
@@ -89,6 +92,10 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	private int showingDetailsOfFlight = -1;	
 	
 	private JPanel gatePanel;
+	
+	// This vector will store the current nearby gate. Can be updated.
+	Vector<String> currentGate = new Vector();
+	
 	
 	// Displays the current gate. Can be updated.
 	private JList gateList = new JList(new DefaultListModel());
@@ -131,14 +138,22 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		setTitle("Gate Console");
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
 		Container window = getContentPane();
-		window.setLayout(new GridLayout());		
+		window.setLayout(new FlowLayout());		
+		
+		quitButton = new JButton("Quit");
+		window.add(quitButton);
+		quitButton.addActionListener(this);
 		
 		// Set up the aircraft and gate tab
 		// Set up the aircraft JPanel
 		aircraftPanel = new JPanel();
 		aircraftPanel.setBackground(Color.cyan);
-		aircraftPanel.setPreferredSize(new Dimension(500, 200));
+		aircraftPanel.setPreferredSize(new Dimension(500, 160));
 		aircraftPanel.add(new JLabel("Manage the aircraft allocated to this gate:"));
+		currentFlight.addElement("LA 342");
+		aircraftList.setListData(currentFlight);
+		aircraftList.setVisibleRowCount(1);
+		aircraftPanel.add(aircraftList);		
 		
 		showFlightDetailsButton = new JButton("Show flight details");
 		aircraftPanel.add(showFlightDetailsButton);
@@ -159,15 +174,22 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		// The user is not able to edit flight details by typing text in the text area
 		flightDescriptionTextArea.setEditable(false);
 		
-		aircraftPanel.add(aircraftList);
 		aircraftPanel.add(flightDescriptionTextArea);
 		window.add(aircraftPanel);
 		
 		// Set up the gate JPanel
 		gatePanel = new JPanel();
-		gatePanel.setBackground(Color.red);
-		gatePanel.setPreferredSize(new Dimension(500, 200));
+		gatePanel.setBackground(Color.yellow);
+		gatePanel.setPreferredSize(new Dimension(400, 160));
 		gatePanel.add(new JLabel("Manage the gate:"));
+		currentGate.addElement("Gate 1"); // DUMMY VALUE FOR TESTING
+		gateList.setListData(currentGate);
+		gateList.setVisibleRowCount(1);
+		gatePanel.add(gateList);
+		
+		showGateStatusButton = new JButton("Show gate status");
+		gatePanel.add(showGateStatusButton);
+		showGateStatusButton.addActionListener(this);
 		
 		gateOccupiedButton = new JButton("Gate occupied");
 		gatePanel.add(gateOccupiedButton);
@@ -177,14 +199,9 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		gatePanel.add(gateFreedButton);
 		gateFreedButton.addActionListener(this);
 		
-		showGateStatusButton = new JButton("Show gate status");
-		gatePanel.add(showGateStatusButton);
-		showGateStatusButton.addActionListener(this);
-		
 		// The user is not able to edit gate status by typing text in the text area
 		gateDescriptionTextArea.setEditable(false);
 		
-		gatePanel.add(gateList);
 		gatePanel.add(gateDescriptionTextArea);
 		window.add(gatePanel);
 		
@@ -199,7 +216,7 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		
 		//--
 		
-		tabbedPane.addTab("Aircraft and gate status", null, aircraftAndGatePanel, "Click here to see and change the status of the nearby aircraft and the nearby gate.");
+		tabbedPane.addTab("Manage aircraft and gate status", null, aircraftAndGatePanel, "Click here to see and change the status of the nearby aircraft and the nearby gate.");
 		
 		// Set up the passenger tab
 		addPassengerPanel = new JPanel();
@@ -217,7 +234,7 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		
 		// Display the frame
 		// TODO: CHANGE NUMBERS TO CONSTANTS
-		setSize(550, 490);
+		setSize(945, 300);
 		setLocation(locationX, locationY);
 		setVisible(true);
 		
@@ -228,7 +245,9 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if(e.getSource() == quitButton) {
+			System.exit(0);
+		}
 		
 	}
 
