@@ -46,6 +46,7 @@ public class LATC extends JFrame implements Observer, ActionListener {
   private JButton confirmLanding; //switches a plane from LANDING to LANDED
   private JButton allocateAirSlot;
   private JButton takeOff;
+  private JButton lostContact;
   private JList<String> waitForLanding;
   private JList<String> inTransit;
   private JList<String> awaitTakeoff;
@@ -94,7 +95,11 @@ public class LATC extends JFrame implements Observer, ActionListener {
 	  
 	  takeOff = new JButton("Take Off");
 	  content.add(takeOff);
-	  takeOff.addActionListener(this); 
+	  takeOff.addActionListener(this);
+	  
+	  lostContact = new JButton("Lost Contact");
+	  content.add(lostContact);
+	  lostContact.addActionListener(this);
 	  
 	  //Adding Panels 
 	  //landing panel
@@ -188,9 +193,12 @@ public void actionPerformed(ActionEvent e) {
 			airDB.setStatus(trace, 5);
 		}
 	}
-	else {
+	else if(e.getSource().equals(lostContact)) {
 		
-		JOptionPane.showMessageDialog(this, "No Ground Clearance");
+		indexT = waitForLanding.getSelectedIndex();
+		int trace = trackerT.get(indexT);
+		
+		airDB.radarLostContact(trace);
 	}
 }
 
