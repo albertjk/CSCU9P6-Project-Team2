@@ -333,6 +333,11 @@ public class ManagementRecord {
 	  }
   }
 
+  //return aicraft's fault description
+  public String getFaultDescription() {
+	  return faultDescription;
+  }
+ 
   /**@JP
    * Return Aircraft's Gate Number */
   public int getGateNumber() {

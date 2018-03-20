@@ -175,9 +175,13 @@ public class AircraftManagementDatabase extends Observable {
 
 /**
  *  Return the Itinerary of the aircraft with the given mCode.*/
-  public Itinerary getItinerary(int mCode){
-	  
+  public Itinerary getItinerary(int mCode){ 
 	  return MRs[mCode].getItinerary();
+  }
+  
+  //return the fault description of a flight
+  public String getFaultDescription(int mCode) {
+	  return MRs[mCode].getFaultDescription();
   }
   
   public void unloadPass(int mCode) {

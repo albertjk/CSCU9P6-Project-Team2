@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
  
@@ -37,27 +38,26 @@ import javax.swing.ListSelectionModel;
  */
 public class MaintenanceInspector extends JFrame
                                   implements ActionListener, Observer {
-    
+   
 /**  The Maintenance Inspector Screen interface has access to the AircraftManagementDatabase.
   * @clientCardinality 1
   * @supplierCardinality 1
   * @label accesses/observes
   * @directed*/
-    
-    
+   
+   
 //variables
 private AircraftManagementDatabase DB;
-private JButton quit; 
-private JButton test;
+private JButton quit;
 private JButton maintButton;
-private JButton faultButton;
+private JButton repairButton;
 String[] flights;
-DefaultListModel<String> flightListModel = new DefaultListModel<>(); 
+DefaultListModel<String> flightListModel = new DefaultListModel<>();
  
 JScrollPane scrollPane = new JScrollPane();
 JList<String> flightList;
  
-    
+   
 //constructor
  public MaintenanceInspector(AircraftManagementDatabase DB) {    
      //reference to database
@@ -70,10 +70,10 @@ JList<String> flightList;
      this.setLayout(new BorderLayout());
      setTitle("MaintenanceInspector");
      setLocation(40,40);
-     setSize(300,350);  
+     setSize(300,325);  
      setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
      Container window = getContentPane();
-     window.setLayout(new FlowLayout());     // The default is that JFrame uses BorderLayout   
+     window.setLayout(new FlowLayout());     // The default is that JFrame uses BorderLayout  
    
      //flightList stuff
      
@@ -88,26 +88,21 @@ JList<String> flightList;
      window.add(scrollPane);
      //window.add(flightList);
  
-     //maintain button 
-     maintButton = new JButton("REPORT OK");
+     //maintain button
+     maintButton = new JButton("MAINTAIN");
      window.add(maintButton);
      maintButton.addActionListener(this);
-     
-     //faults button
-     faultButton = new JButton("REPORT FAULT");
-     window.add(faultButton);
-     faultButton.addActionListener(this);
+   
+     //repair button
+     repairButton = new JButton("REPAIR");
+     window.add(repairButton);
+     repairButton.addActionListener(this);
      
      //quit button
      quit = new JButton("QUIT");
      window.add(quit, BorderLayout.SOUTH);
      quit.addActionListener(this);
      
-     //test button
-     test = new JButton("TEST");
-     window.add(test);
-     test.addActionListener(this);
- 
      //display the frame
      setVisible(true);
  
@@ -115,20 +110,21 @@ JList<String> flightList;
  
 //This method populates the JList -- called from update method too.
 public void getFlights() {
-    
+   
     //clear list first
     flightListModel.removeAllElements();
-    
+   
     //re-populate -- with comments for certain status codes
     for(int i = 0; i < DB.maxMRs; i++) {
         if(DB.getStatus(i) == 8 || DB.getStatus(i) == 10) {
             flightListModel.addElement(DB.getFlightCode(i) + " " + DB.getStatus(i) + " REQUIRES MAINTENANCE");  
         }
         else if(DB.getStatus(i) == 11 || DB.getStatus(i) == 13) {
-            flightListModel.addElement(DB.getFlightCode(i) + " " + DB.getStatus(i) + " REPORTED OK");   
+            flightListModel.addElement(DB.getFlightCode(i) + " " + DB.getStatus(i) + " REPORTED OK");  
         }
         else if(DB.getStatus(i) == 12 || DB.getStatus(i) == 9) {
-            flightListModel.addElement(DB.getFlightCode(i) + " " + DB.getStatus(i) + " REQUIRES REPAIR");   
+            String faultString = DB.getFaultDescription(i);
+            flightListModel.addElement(DB.getFlightCode(i) + " " + DB.getStatus(i) + " REQUIRES REPAIR "  +'"'+faultString+'"');  
         }
         else {
             flightListModel.addElement(DB.getFlightCode(i) + " " + DB.getStatus(i));    
@@ -139,58 +135,73 @@ public void getFlights() {
 //ACTIONS
 @Override
 public void actionPerformed(ActionEvent e) {
-    
+   
     //QUIT
     if (e.getSource() == quit) {    
-        System.exit(0); 
+        System.exit(0);
     }
-    
-    //Set some status stuff -- for testing purposes while this is standalone
-    else if (e.getSource() == test) {       
-        DB.setStatus(3, 12);
-        DB.setStatus(4, 8);
-        DB.setStatus(7,10);
-        getFlights();
-    }
-    
+       
     //maintenance button
     else if(e.getSource() == maintButton) {
-        //if something is selected
-        if(flightList.isSelectionEmpty() != true) {
-            //get selected item's position in list -- essentially the flight's position in MR array
-            int selection = flightList.getSelectedIndex();  
-            
-            //if status is 8 (READY CLEAN AND MAINT) or 10 (CLEAN AWAIT MAINT) -- set status to 11 (OK AWAIT CLEAN)
-            if(DB.getStatus(selection) == 8){
-                DB.setStatus(selection, 11);
-            }
-            
-            //if status is 10(CLEAN AWAIT MAIN) -- set status to 13 (READY FOR REFUEL)
-            if(DB.getStatus(selection) == 10){
-                DB.setStatus(selection, 13);
-            }
-        }   
-    }
-    
-//fault button
-else if(e.getSource() == faultButton) {
-        //if something is selected
-        if(flightList.isSelectionEmpty() != true) {
-            //get selected item's position in list -- essentially the flight's position in MR array
-            int selection = flightList.getSelectedIndex();
-                
-            //if status is 8 (READY CLEAN AND MAINT) or 10 (CLEAN AWAIT MAINT) -- report faults found
-            if(DB.getStatus(selection) == 8 || DB.getStatus(selection) == 10){
-                
-                //pop up window with text box for inputting fault description
-                String fault = JOptionPane.showInputDialog("FAULT DESCRIPTION");
-                
-                //call faultsFound method with message pop up
-                DB.faultsFound(selection, fault);
+            //if something is selected
+            if(flightList.isSelectionEmpty() != true) {
+                //get selected item's position in list -- essentially the flight's position in MR array
+                int selection = flightList.getSelectedIndex();  
+                String[] options = {"REPORT OK","REPORT FAULTY"};
+                JPanel panel = new JPanel();
+                //pop up a window with 2 options -- report flight OK -- report flight faulty
+                int selectedOption = JOptionPane.showOptionDialog(null, panel, "MAINTENANCE", JOptionPane.NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options , options[0]);
+               
+                //if user reports OK
+                if(selectedOption == 0) {
+                    //if status is 8 (READY CLEAN AND MAINT) or 10 (CLEAN AWAIT MAINT) -- set status to 11 (OK AWAIT CLEAN)
+                    if(DB.getStatus(selection) == 8){
+                        DB.setStatus(selection, 11);
+                    }
+                   
+                    //if status is 10(CLEAN AWAIT MAIN) -- set status to 13 (READY FOR REFUEL)
+                    if(DB.getStatus(selection) == 10){
+                        DB.setStatus(selection, 13);
+                    }
+                }
+               
+                //if user reports faulty
+                else if(selectedOption ==1) {
+                    if(DB.getStatus(selection) == 8 || DB.getStatus(selection) == 10){                 
+                        //pop up window with text box for inputting fault description
+                        String fault = JOptionPane.showInputDialog("FAULT DESCRIPTION");
+                        if(fault != null) {
+                            //call faultsFound method -- add the fault description that the user entered in pop up window
+                            DB.faultsFound(selection, fault);
+                        }
+                        else {
+                            //user must enter a fault description
+                            JOptionPane.showMessageDialog(null, "Please enter a fault description");
+                        }
+                    }
+                }
+            }  
+        }
+       
+        //repair button
+        else if(e.getSource() == repairButton) {
+            //if something is selected
+            if(flightList.isSelectionEmpty() != true) {
+                //get selected item's position in list -- essentially the flight's position in MR array
+                int selection = flightList.getSelectedIndex();
+               
+                //if status is 9(FAULTY AWAIT CLEAN) or 12 (AWAIT REPAIR) -- set status to 11 (OK_AWAIT_CLEAN)
+                if(DB.getStatus(selection) == 9 || DB.getStatus(selection) == 12){
+                    DB.setStatus(selection, 11);
+                }
+       
             }
         }
-    }       
+                       
 }
+       
+       
+ 
  
 //this method is called when AircraftMangementDatabase updates it's observers.
 @Override
@@ -198,6 +209,6 @@ public void update(Observable o, Object arg1) {
     // TODO Auto-generated method stub
     //populate flight list
     getFlights();
-    
+   
 }
 }
