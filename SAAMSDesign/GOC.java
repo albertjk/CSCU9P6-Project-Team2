@@ -175,6 +175,11 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	
 	public void actionPerformed(ActionEvent e) {
 		
+		updateFlightList();  // Repopulate the flight list so it remains up-to-date
+		showFlightDetails(); // Update the flight details display
+		
+		showGateStatus();  // Update the gate status display
+		
 		/* Grant ground clearance (permission to land) to the currently selected aircraft
 		This permission is determined by the user observing the airport. */
 		if(e.getSource() == grantGroundClearanceButton) {
@@ -199,8 +204,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 				
 				// If there are no free gates, show a message dialog.
 				JOptionPane.showMessageDialog(this, "Unfortunately, there are no free gates.");
-			}
-			
+			}			
 		}
 
 		/* Grant taxiing permission to the currently selected departing aircraft.
@@ -236,10 +240,6 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 			showGateStatus();		
 		}
 		
-		updateFlightList();  // Repopulate the flight list so it remains up-to-date
-		showFlightDetails(); // Update the flight details display
-		
-		showGateStatus();  // Update the gate status display
 	}
 	
 	/**
@@ -275,13 +275,14 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	 * 2 is the status code for WANTING_TO_LAND in ManagementRecord.
 	 * @param mCode
 	 */
+	/*
 	public boolean checkIfWantingToLand(int mCode) {
 		if(aircraftManagementDatabase.getStatus(mCode) == 2) {
 			flightList.add(aircraftManagementDatabase.getFlightCode(mCode));
 			return true;
 		}
 		return false;
-	}
+	}*/
 
 	/**
 	 * The user verifies from the information displayed on the GOC screen that enough space is available on the ground for a landing aircraft.
@@ -395,7 +396,9 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	 * This method gets called when AircraftMangementDatabase updates its observers. Fetches information about the aircrafts and gates.	 * 
 	 */
 	public void update(Observable o, Object arg) {
-		//updateFlightList(); // THROWS AN EXCEPTION!!
+		updateFlightList(); 
+		showFlightDetails(); // Update the flight details display		
+		showGateStatus();
 	}
   
   
