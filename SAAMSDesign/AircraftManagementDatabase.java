@@ -99,9 +99,6 @@ public class AircraftManagementDatabase extends Observable {
 			searchResults[i] = i;
 		}
 	}
-	
-	setChanged();
-	notifyObservers();
 	return searchResults;
   }
 
