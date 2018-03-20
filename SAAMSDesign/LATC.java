@@ -72,9 +72,9 @@ public class LATC extends JFrame implements Observer, ActionListener {
 	  airDB.addObserver(this);
 	  
 	  setTitle("LATC UI");
-	  setSize(400,400);
+	  setSize(700,400);
 	  setLocation(500,500);
-	  setResizable(false);
+	  setResizable(true);
 	  setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 	  Container content = getContentPane();
 	  content.setLayout(new FlowLayout());
