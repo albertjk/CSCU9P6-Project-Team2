@@ -40,8 +40,8 @@ public class GateInfoDatabase extends Observable {
 	*/
 	public GateInfoDatabase() {
 		gates = new Gate[MAX_GATE_NUMBER];
-		gates[0] = new Gate();
-		gates[1] = new Gate();
+		gates[0] = new Gate(0);
+		gates[1] = new Gate(1);
 	}
 
 	/**

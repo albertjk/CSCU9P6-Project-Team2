@@ -19,8 +19,8 @@ public class GateTest {
 	public void setUp() {
 	
 		// Set up the two Gate objects that are used in the tests.
-		gate1 = new Gate();
-		gate2 = new Gate();		
+		gate1 = new Gate(0);
+		gate2 = new Gate(1);		
 	}
 	
 	@Test
