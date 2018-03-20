@@ -183,9 +183,9 @@ public void actionPerformed(ActionEvent e) {
 			airDB.setStatus(trace, 4); //LATC gives approach clearance
 		}
 	}
-	else if(e.getSource().equals(confirmLanding) && waitForLanding.isSelectionEmpty() == false) {
+	else if(e.getSource().equals(confirmLanding) && inTransit.isSelectionEmpty() == false) {
 		
-		indexT = waitForLanding.getSelectedIndex();
+		indexT = inTransit.getSelectedIndex();
 		int trace = trackerT.get(indexT);
 		
 		if(airDB.getStatus(trace) == 4) {
@@ -193,9 +193,9 @@ public void actionPerformed(ActionEvent e) {
 			airDB.setStatus(trace, 5);
 		}
 	}
-	else if(e.getSource().equals(lostContact) && waitForLanding.isSelectionEmpty() == false) {
+	else if(e.getSource().equals(lostContact) && awaitTakeoff.isSelectionEmpty() == false) {
 		
-		indexT = waitForLanding.getSelectedIndex();
+		indexT = awaitTakeoff.getSelectedIndex();
 		int trace = trackerT.get(indexT);
 		
 		airDB.radarLostContact(trace);
