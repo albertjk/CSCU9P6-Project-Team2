@@ -60,6 +60,11 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	*/
 	private int gateNumber;
 	
+	/* 
+	 * Passenger list storing the names of passengers on the next departing flight from the current gate.
+	 */
+	PassengerList passengerList;
+	
 	private JTabbedPane tabbedPane = new JTabbedPane();
 	
 	private JButton quitButton;
@@ -107,9 +112,10 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	private int showingDetailsOfGate = -1;
 	
 	// Buttons for changing the status of the nearby gate
-	private JButton gateFreedButton;
+
 	//JButton gateReserved;
 	private JButton gateOccupiedAircraftUnloadingButton;
+	private JButton gateFreedButton;
 	private JButton showGateStatusButton;
 	
 	// Displays information about the nearby gate.
@@ -132,6 +138,8 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		
 		this.gateInfoDatabase = gateInfoDatabase;
 		this.aircraftManagementDatabase = aircraftManagementDatabase;
+		
+		passengerList = new PassengerList();
 
 		// Set up the GUI
 		setTitle("Gate Console");
@@ -295,6 +303,17 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		else if(e.getSource() == gateOccupiedAircraftUnloadingButton) {
 			gateInfoDatabase.docked(gateNumber);
 			aircraftManagementDatabase.setStatus(getSelectedFlightMCode(), 7);
+		}
+		// If the aircraft has departed and the user determines it is time to free the gate, then this button is clicked and the gate is freed.
+		else if(e.getSource() == gateFreedButton) {
+			gateInfoDatabase.departed(gateNumber);
+		}
+		// Add a passenger to the passenger list. Only add a passenger if the user has entered a name
+		else if(e.getSource() == addPassengerButton && !nameTextField.getText().isEmpty()) {
+		
+			String name = nameTextField.getText();
+			PassengerDetails passenger = new PassengerDetails(name);
+			passengerList.addPassenger(passenger);
 		}
 		
 		updateFlight();  // Update the selectable flight
