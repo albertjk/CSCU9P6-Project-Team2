@@ -135,6 +135,7 @@ public void actionPerformed(ActionEvent e) {
 	if(e.getSource().equals(quit)) {
 		System.exit(0); //exits the program
 		
+		
 	}
 	else if(e.getSource().equals(changeStat) && displayDirty.isSelectionEmpty() == false) {
 		
@@ -153,8 +154,7 @@ public void actionPerformed(ActionEvent e) {
 		else 
 		{
 			
-			JOptionPane message = new JOptionPane("Somethings wrong!");
-			message.showMessageDialog(null, message);
+			JOptionPane.showMessageDialog(this, "Please select an item from the list");
 			
 			checkList();
 		}
@@ -162,8 +162,8 @@ public void actionPerformed(ActionEvent e) {
 	}
 	else if(e.getSource().equals(changeStat) && displayDirty.isSelectionEmpty() == true) {
 		
-		JOptionPane message = new JOptionPane("Select a list item please");
-		message.showMessageDialog(null, message);
+		
+		JOptionPane.showMessageDialog(this, "Something's wrong!");
 		
 		checkList();
 	}
