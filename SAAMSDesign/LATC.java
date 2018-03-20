@@ -2,6 +2,7 @@ import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -56,13 +57,19 @@ public class LATC extends JFrame implements Observer, ActionListener {
   DefaultListModel<String> incomingFlightModel = new DefaultListModel<>();
   DefaultListModel<String> inTransitFlightModel = new DefaultListModel<>();
   DefaultListModel<String> outGoingFlightModel = new DefaultListModel<>();
+  private int indexL;
+  private int indexT;
+  private int indexTO;
+  private ArrayList<Integer> trackerL = new ArrayList<Integer>();
+  private ArrayList<Integer> trackerT = new ArrayList<Integer>();
+  private ArrayList<Integer> trackerTO = new ArrayList<Integer>();
   
   
   
   public LATC(AircraftManagementDatabase DB) {
 	  
 	  airDB = DB;
-	  DB.addObserver(this);
+	  airDB.addObserver(this);
 	  
 	  setTitle("LATC UI");
 	  setSize(400,400);
@@ -116,24 +123,63 @@ public class LATC extends JFrame implements Observer, ActionListener {
 	  content.add(TakeoffPane);
   }
 
+  /**
+   * Checks the current status of the AirDB and alocates the relavent entries to the correct view
+   */
 private void getFlightInfo() {
-	// TODO Auto-generated method stub
+	//clear the lists
+	incomingFlightModel.removeAllElements();
+	inTransitFlightModel.removeAllElements();
+	outGoingFlightModel.removeAllElements();
+	//clear trackers and indexs
+	trackerL.removeAll(trackerL);
+	trackerT.removeAll(trackerT);
+	trackerTO.removeAll(trackerTO);
+	indexL = 0;
+	indexT = 0;
+	indexTO = 0;
+	
+	//scan through the list fills in the needed entries to the list.
+	for(int i = 0; i < airDB.maxMRs;i++)
+	{
+		if(airDB.getStatus(i) == 2)
+		{
+			incomingFlightModel.addElement(airDB.getFlightCode(i) + "      " + airDB.getStatus(i));
+			indexL = i;
+			trackerL.add(indexL);
+		}
+		else if(airDB.getStatus(i) == 3 || airDB.getStatus(i) == 4 || airDB.getStatus(i) == 5)
+		{
+			inTransitFlightModel.addElement(airDB.getFlightCode(i) + "      " + airDB.getStatus(i));
+			indexT = i;
+			trackerT.add(indexT);
+		}
+		else if(airDB.getStatus(i) == 17)
+		{
+			outGoingFlightModel.addElement(airDB.getFlightCode(i) +  "       " + airDB.getStatus(i));
+			indexTO = i;
+			trackerTO.add(indexTO);
+		}
+	}
 	
 }
 
 @Override
-public void actionPerformed(ActionEvent arg0) {
-	// TODO Auto-generated method stub
-	
+public void actionPerformed(ActionEvent e) {
+	if(e.getSource().equals(landingPermission) && waitForLanding.isSelectionEmpty() == false)
+	{
+		indexL = waitForLanding.getSelectedIndex();
+		int trace = trackerL.get(indexL);
+		
+		if(airDB.getStatus(trace) == 2)
+		{
+			airDB.setStatus(trace, 3);
+		}
+	}
 }
 
 @Override
 public void update(Observable arg0, Object arg1) {
-	// TODO Auto-generated method stub
-	
+	getFlightInfo();
 }
-  
-  
-  
-
 }
