@@ -31,6 +31,7 @@ public static void main(String[] args) {
     PublicInfo PI1 = new PublicInfo(DB);
     RefuellingSupervisor RS1 = new RefuellingSupervisor(DB);
     GOC GC1 = new GOC(GDB, DB);
+    CleaningSupervisor CS1 = new CleaningSupervisor(DB);
   }
 
 }
