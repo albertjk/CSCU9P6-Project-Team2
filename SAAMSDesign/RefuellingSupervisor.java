@@ -108,7 +108,7 @@ public class RefuellingSupervisor extends JFrame implements ActionListener, Obse
 	    //re-populate based on the code given to certain scenarios. 13 being the refuel scenario
 	    for(int i = 0; i < AMD.maxMRs; i++) { // iterate through array, condition of under max amount of MR 
 	        if(AMD.getStatus(i) == 13) { // if the status is equal to 13, do below
-	            flightListModel.addElement(AMD.getFlightCode(i) + " " + AMD.getStatus(i) + " REFUEL READY ");  
+	            flightListModel.addElement(AMD.getFlightCode(i) + "           " + AMD.getStatus(i) + " REFUEL READY ");  
 	        }
 	    }
 	}
