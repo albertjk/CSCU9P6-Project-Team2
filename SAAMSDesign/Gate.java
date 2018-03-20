@@ -40,6 +40,13 @@ public class Gate {
 	* If the gate is reserved or occupied, the mCode of the MR of the aircraft which is expected/present.
 	*/
 	private int mCode;
+	
+	
+	private int gateNumber;
+	
+	public Gate(int gateNumber) {
+		this.gateNumber = gateNumber;
+	}
   
 	/**
 	* Return the status code for this gate.
@@ -75,4 +82,8 @@ public class Gate {
 			this.status = FREE;
 		}
   	}
+	
+	public String toString() {
+		return "Gate" + gateNumber;
+	}
 }
