@@ -275,7 +275,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 			
 		}
 		
-		aircraftList.setListData(flightList);
+		//aircraftList.setListData(flightList);
 	}
 		
 		
