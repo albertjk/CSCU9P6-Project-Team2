@@ -24,35 +24,35 @@ public class PassengerList {
  */
   //private PassengerDetails[] details = new PassengerDetails[189]; //number of seats in a boeing 727
   
-  private ArrayList<PassengerDetails> details = new ArrayList<PassengerDetails>(); 
+  private ArrayList<PassengerDetails> details = new ArrayList<PassengerDetails>();  //the list that holds the passengers
 
 /**
  * The given passenger is boarding.
  * Their details are recorded, in the passenger list.
  * @preconditions Status is READY_PASSENGERS
  */
-  public void addPassenger(PassengerDetails details){
+  public void addPassenger(PassengerDetails details){ //adds a passenger to the list
 	  
 	  this.details.add(details);
 	  
   }
   
-  public ArrayList<PassengerDetails> getPassengerList() {
+  public ArrayList<PassengerDetails> getPassengerList() { //returns the passenger list
 	  
 	  return this.details;
   }
  
-  public PassengerDetails getDetails(int r) {
+  public PassengerDetails getDetails(int r) { //returns a specific passenger
 	  
 	 return details.get(r);
   }
   
-  public void unloadPassengers() {
+  public void unloadPassengers() { //"unloads" the passengers (clears the list)
 	  
 	  details.clear();
   }
   
-  public Boolean emptyCheck() {
+  public Boolean emptyCheck() { //checks to see if the list is empty
 	  
 	  if (details.isEmpty() == true) {
 		  return true;

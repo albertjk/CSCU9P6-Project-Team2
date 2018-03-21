@@ -128,7 +128,7 @@ public void actionPerformed(ActionEvent e) {
 		randFD = new FlightDescriptor(randFCode, randIT, randPL);
 		airCraftDB.radarDetect(randFD);
 		
-		airCraftDB.setStatus(0, 9);
+		airCraftDB.setStatus(0, 8);
 		}
 	}
 }
