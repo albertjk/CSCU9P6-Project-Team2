@@ -149,7 +149,7 @@ private void getFlightInfo() {
 	//scan through the list fills in the needed entries to the list.
 	for(int i = 0; i < airDB.maxMRs;i++)
 	{
-		if(airDB.getStatus(i) == 3 || airDB.getStatus(i) == 1 || airDB.getStatus(i) == 18)
+		if(airDB.getStatus(i) == 3 || airDB.getStatus(i) == 1 || airDB.getStatus(i) == 18 || airDB.getStatus(i) == 2)
 		{
 			incomingFlightModel.addElement(airDB.getFlightCode(i) + "      " + airDB.getStatus(i));
 			indexL = i;
