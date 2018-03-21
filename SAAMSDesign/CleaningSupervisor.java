@@ -141,9 +141,9 @@ public void actionPerformed(ActionEvent e) {
 		index = displayDirty.getSelectedIndex(); //gets the value held in current index in JList
 		int trace = tracker.get(index); //matches the indexes of JList and index of MR array
 		
-		if(airDB.getStatus(trace) == 11) {
+		if(airDB.getStatus(trace) == 11) { //checks current MR in trace to see if the status is 11
 			
-			airDB.setStatus(trace, 13);
+			airDB.setStatus(trace, 13); //changes the status of current MR to 13
 		}
 		else if(airDB.getStatus(trace) == 9) {
 			
@@ -153,21 +153,14 @@ public void actionPerformed(ActionEvent e) {
 			
 			airDB.setStatus(trace, 10);
 		}
-		else 
-		{
-			
-			JOptionPane.showMessageDialog(this, "Please select an item from the list");
-			
-			checkList();// refreshes the list
-		}
 		
 	}
-	else if(e.getSource().equals(changeStat) && displayDirty.isSelectionEmpty() == true) {
+	else if(e.getSource().equals(changeStat) && displayDirty.isSelectionEmpty() == true) { //prompts for item selection
 		
 		
-		JOptionPane.showMessageDialog(this, "Something's wrong!");
+		JOptionPane.showMessageDialog(this, "Please select an item from the list");
 		
-		checkList();
+		checkList();//refreshes the list
 	}
 	
 }
