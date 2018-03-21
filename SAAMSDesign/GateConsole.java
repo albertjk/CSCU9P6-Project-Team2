@@ -52,7 +52,7 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	* @clientCardinality 0..*
 	* @directed
 	* @label accesses/observes*/
-	private AircraftManagementDatabase aircraftManagementDatabase;
+	private AircraftManagementDatabase aircraftDB;
 
 	/**
 	* This gate's gateNumber
@@ -128,7 +128,7 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	private JTextArea gateDescriptionTextArea = new JTextArea(5,20);
 	
 
-
+	private JLabel flightCodeLabel;
 
 	
 	// These are the GUI elements on the addPassengerPanel
@@ -148,10 +148,12 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	/**
 	 * Constructor.
 	 */
-	public GateConsole(GateInfoDatabase gateInfoDatabase, AircraftManagementDatabase aircraftManagementDatabase, int locationX, int locationY) {
+	public GateConsole(GateInfoDatabase gateInfoDatabase, AircraftManagementDatabase aircraftDB, int locationX, int locationY, int gateNumber) {
 		
 		this.gateInfoDatabase = gateInfoDatabase;
-		this.aircraftManagementDatabase = aircraftManagementDatabase;
+		this.aircraftDB = aircraftDB;
+		
+		this.gateNumber = gateNumber;
 		
 		passengerList = new PassengerList();
 
@@ -171,10 +173,10 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		aircraftPanel.setBackground(Color.cyan);
 		aircraftPanel.setPreferredSize(new Dimension(500, 160));
 		aircraftPanel.add(new JLabel("Manage the aircraft allocated to this gate:"));
-		currentFlight.addElement("LA 342"); // TODO: THIS SHOULD BE JUST A JLABEL. I NEED AN MCODE. THEN  I CAN GET THE FLIGHT CODE USING THE MCODE.
-		//aircraftList.setListData(currentFlight);
-		//aircraftList.setVisibleRowCount(1);
-		//aircraftPanel.add(aircraftList);		
+		
+		flightCodeLabel = new JLabel("");
+		//currentFlight.addElement("LA 342"); // TODO: THIS SHOULD BE JUST A JLABEL. I NEED AN MCODE. THEN  I CAN GET THE FLIGHT CODE USING THE MCODE.
+		aircraftPanel.add(flightCodeLabel);
 		
 		showFlightDetailsButton = new JButton("Show flight details");
 		aircraftPanel.add(showFlightDetailsButton);
@@ -221,8 +223,6 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		gatePanel.add(gateDescriptionTextArea);
 		window.add(gatePanel);
 		
-		// Update the flight status
-		//updateFlight();
 		
 		// Put the aircraftPanel and gatePanel together in a JPanel and add them to a tab		
 		JPanel aircraftAndGatePanel = new JPanel();
@@ -262,86 +262,66 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		
 		// Subscribe to the GateInfoDatabase and AircraftManagementDatabase models
 		gateInfoDatabase.addObserver(this);
-		aircraftManagementDatabase.addObserver(this);
+		aircraftDB.addObserver(this);
 	}
 	
+	int mCode;
+
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == quitButton) {
-			System.exit(0);
-		}
-		
-		// Show the details of the currently selected flight
+				System.exit(0);
+			}
 		else if(e.getSource() == showFlightDetailsButton) {
-			int mCode = getSelectedFlightMCode();
+		
+			mCode = updateFlight();	
 			
-			// If -1: nothing is selected
-			if(mCode != -1) {
-				showingDetailsOfFlight = mCode;
-			} else {
-				JOptionPane.showMessageDialog(this, "No aircraft is selected.");
-			}		
-		} 
-		// Set the status of the aircraft at the gate to UNLOADING (status code 7)
-		//else if(e.getSource() == aircraftUnloadingButton) {			
-			//aircraftManagementDatabase.setStatus(getSelectedFlightMCode(), 7);
-		//}
-		// Set the status of the aircraft at the gate to READY_CLEAN_AND_MAINT (status code 8)
+			flightDescriptionTextArea.setText("Flight code: " + aircraftDB.getFlightCode(mCode) + "\n"
+			+ "mCode: " + mCode + "\n"  // trace is the mCode
+			+ "Flight status: " + aircraftDB.getStatus(mCode) + "\n"
+			+ "From: " + aircraftDB.getItinerary(mCode).getFrom() + "\n"
+			+ "To: " + aircraftDB.getItinerary(mCode).getTo());
+		}
 		else if(e.getSource() == aircraftReadyCleanAndMaintButton) {
-			aircraftManagementDatabase.setStatus(getSelectedFlightMCode(), 8);
+			aircraftDB.setStatus(mCode, 8);
 		}
-		/* When boarding is complete, or the gate staff decide that no more passengers 
-		are presenting themselves, the gate staff "close the flight".
-		The passenger list is uploaded from the aircraft's MR to the 
-		aircraft's on-board computer by the radar/transceiver system.
-		The aircraft's status becomes READY_DEPART (status code 15)  */
 		else if(e.getSource() == closeFlightButton) {
-			aircraftManagementDatabase.setStatus(getSelectedFlightMCode(), 15);
-			
-			// TODO RadarTransceiver should upload the passenger list!!
-			
-			
+			aircraftDB.setStatus(mCode, 15);
 		}
-		// Show the details of the nearby gate
 		else if(e.getSource() == showGateStatusButton) {
-			showingDetailsOfGate = gateNumber;
-			showGateStatus();
+			gateDescriptionTextArea.setText("Status: " + gateInfoDatabase.getStatus(gateNumber));			
 		}
-		/* When the aircraft arrived to the gate:
-		Set the nearby gate to OCCUPIED (status code 2).
-		Set the aircraft's status to UNLOADING (status code 7). */
 		else if(e.getSource() == gateOccupiedAircraftUnloadingButton) {
-			gateInfoDatabase.docked(gateNumber);
-			aircraftManagementDatabase.setStatus(getSelectedFlightMCode(), 7);
+				gateInfoDatabase.docked(gateNumber);
+				aircraftDB.setStatus(mCode, 7);
 		}
-		// If the aircraft has departed and the user determines it is time to free the gate, then this button is clicked and the gate is freed.
 		else if(e.getSource() == gateFreedButton) {
 			gateInfoDatabase.departed(gateNumber);
 		}
-		// Add a passenger to the passenger list. Only add a passenger if the user has entered a name
 		else if(e.getSource() == addPassengerButton && !nameTextField.getText().isEmpty()) {
-		
-			String name = nameTextField.getText();
-			PassengerDetails passenger = new PassengerDetails(name);
-			passengerList.addPassenger(passenger);
+				String name = nameTextField.getText();
+				PassengerDetails passenger = new PassengerDetails(name);
+				passengerList.addPassenger(passenger);
 		}
-		
-		updateFlight();  // Update the selectable flight
-		showFlightDetails(); // Update the flight details display
-		
-		showGateStatus(); // Update the gate status display
 	}
-	
-	/**
-	 * This method returns the mCode of the selected flight in the flight list.
-	 * If no flight is selected, -1 is returned.
-	 * @return mCode
-	 */
-	public int getSelectedFlightMCode() {		
-		if(aircraftList.getSelectedValue() != null) {
-			return aircraftList.getSelectedIndex();
+
+	// Sets the flight code to the label.
+	// Returns the mCode of the flight allocated to the gate.
+	public int updateFlight() {		
+			for(int i = 0; i < aircraftDB.maxMRs; i++) {	
+				
+				// If the aircraft is taxiing, a gate has been allocated.
+				if(aircraftDB.getStatus(i) == 6) {
+					
+					// Get the gate number to which the aircraft was allocated.
+					if(aircraftDB.getGateNum(i) == gateNumber) {
+						flightCodeLabel.setText(aircraftDB.getFlightCode(i));
+					}
+					
+					
+				}							
+			}	
+			return 0;
 		}
-		return -1;
-	}
 	
 	/**
 	 * Show the status of the selected gate in the gatesDisplayPanel.
@@ -364,31 +344,32 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	/**
 	 *  Re-populate the displayed flight list from the AircraftManagementDatabase.
 	 */
-	private void updateFlight() {
-		
-		// First clear the list of previous elements, then update the list.
-		flightList.removeAllElements();
-		
-		tracker.clear(); // Reset the tracker array list		
-		trackerIndex = 0; // Reset the tracker index
-		
-		for(int i = 0; i < aircraftManagementDatabase.maxMRs; i++) {
-			
-			if(aircraftManagementDatabase.getStatus(i) >= 2 || aircraftManagementDatabase.getStatus(i) <= 17) {
-				
-				trackerIndex = i; // Set the index to the current index in the MR array
-				// Adds the current index to the tracker
-				tracker.add(trackerIndex);
-				
-				// Add the list item
-				flightList.addElement(aircraftManagementDatabase.getFlightCode(i));
-				
-				
-			}
-			
-			
-		}
-	}
+	
+//	private void updateFlight() {
+//		
+//		// First clear the list of previous elements, then update the list.
+//		flightList.removeAllElements();
+//		
+//		tracker.clear(); // Reset the tracker array list		
+//		trackerIndex = 0; // Reset the tracker index
+//		
+//		for(int i = 0; i < aircraftDB.maxMRs; i++) {
+//			
+//			if(aircraftDB.getStatus(i) >= 2 || aircraftDB.getStatus(i) <= 17) {
+//				
+//				trackerIndex = i; // Set the index to the current index in the MR array
+//				// Adds the current index to the tracker
+//				tracker.add(trackerIndex);
+//				
+//				// Add the list item
+//				flightList.addElement(aircraftDB.getFlightCode(i));
+//				
+//				
+//			}
+//			
+//			
+//		}
+//	}
 	
 	/**
 	 * Show the details of the selected flight in the flightsDisplayPanel.
@@ -402,11 +383,11 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		We can use showingDetailsOfFlight to get the data as this variable is equal to the mCode of the selected flight.
 		(It was assigned after the showFlightDetailsButton was clicked in actionPerformed.) */
 		else {			
-			flightDescriptionTextArea.setText("Flight code: " + aircraftManagementDatabase.getFlightCode(showingDetailsOfFlight) + "\n"
+			flightDescriptionTextArea.setText("Flight code: " + aircraftDB.getFlightCode(showingDetailsOfFlight) + "\n"
 					+ "mCode: " + showingDetailsOfFlight + "\n"
-					+ "Flight status: " + aircraftManagementDatabase.getStatus(showingDetailsOfFlight) + "\n"
-					+ "From: " + aircraftManagementDatabase.getItinerary(showingDetailsOfFlight).getFrom() + "\n"
-					+ "To: " + aircraftManagementDatabase.getItinerary(showingDetailsOfFlight).getTo());	
+					+ "Flight status: " + aircraftDB.getStatus(showingDetailsOfFlight) + "\n"
+					+ "From: " + aircraftDB.getItinerary(showingDetailsOfFlight).getFrom() + "\n"
+					+ "To: " + aircraftDB.getItinerary(showingDetailsOfFlight).getTo());	
 		}
 	}
 
@@ -416,8 +397,6 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	public void update(Observable o, Object arg) {
 		// Update the flight status
 		updateFlight();
-		showFlightDetails();
-		showGateStatus();
 	}
 
 	
