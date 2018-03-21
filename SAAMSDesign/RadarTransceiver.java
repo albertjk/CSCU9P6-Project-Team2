@@ -30,6 +30,7 @@ import javax.swing.JFrame;
 public class RadarTransceiver extends JFrame implements ActionListener{
 	private JButton generateInboundFlight;
 	private JButton generateIntransitFlight;
+	private JButton testStatus;
 	private RadarTransceiver RD;
 	
 /**
@@ -58,6 +59,10 @@ public RadarTransceiver(AircraftManagementDatabase airCraftDB,int locationX, int
     generateIntransitFlight = new JButton("Generate In-Transit Flight");
     window.add(generateIntransitFlight);
     generateIntransitFlight.addActionListener(this);
+    
+    testStatus = new JButton("Test Status Code");
+    window.add(testStatus);
+    testStatus.addActionListener(this);
     
     setVisible(true);
 }
@@ -107,6 +112,25 @@ public void actionPerformed(ActionEvent e) {
 		randFD = new FlightDescriptor(randFCode, randIT, randPL);
 		airCraftDB.radarDetect(randFD);
 	}
+	if(e.getSource().equals(testStatus)) {
+		
+		randPL = new PassengerList();
+		for(int i = 0; i < 5;i++)
+		{
+			randNum = i;
+			randName = "Bill" + randNum;
+			randPD = new PassengerDetails(randName);
+			randPL.addPassenger(randPD);
+		}
+		Random rand = new Random();
+		randFCode = "F" + rand.nextInt(100) + "GZ";
+		randIT = new Itinerary("Glasgow", "New York","London");
+		randFD = new FlightDescriptor(randFCode, randIT, randPL);
+		airCraftDB.radarDetect(randFD);
+		
+		airCraftDB.setStatus(0, 9);
+		}
+	}
 }
 
-}
+
