@@ -51,8 +51,11 @@ private AircraftManagementDatabase DB;
 private JButton quit;
 private JButton maintButton;
 private JButton repairButton;
+private ArrayList<Integer> tracker = new ArrayList<Integer>();
+
 String[] flights;
 DefaultListModel<String> flightListModel = new DefaultListModel<>();
+int index;
  
 JScrollPane scrollPane = new JScrollPane();
 JList<String> flightList;
@@ -113,21 +116,29 @@ public void getFlights() {
    
     //clear list first
     flightListModel.removeAllElements();
+    tracker.removeAll(tracker);
+    index = 0;
    
     //re-populate -- with comments for certain status codes
     for(int i = 0; i < DB.maxMRs; i++) {
-        if(DB.getStatus(i) == 8 || DB.getStatus(i) == 10) {
+        if(DB.getStatus(i) == 8 || DB.getStatus(i) == 10) 
+        {
             flightListModel.addElement(DB.getFlightCode(i) + " " + DB.getStatus(i) + " REQUIRES MAINTENANCE");  
+            index = i;
+            tracker.add(index);
         }
-        else if(DB.getStatus(i) == 11 || DB.getStatus(i) == 13) {
-            flightListModel.addElement(DB.getFlightCode(i) + " " + DB.getStatus(i) + " REPORTED OK");  
+        else if(DB.getStatus(i) == 11 || DB.getStatus(i) == 13) 
+        {
+            flightListModel.addElement(DB.getFlightCode(i) + " " + DB.getStatus(i) + " REPORTED OK"); 
+            index = i;
+            tracker.add(index);
         }
-        else if(DB.getStatus(i) == 12 || DB.getStatus(i) == 9) {
+        else if(DB.getStatus(i) == 12 || DB.getStatus(i) == 9) 
+        {
             String faultString = DB.getFaultDescription(i);
-            flightListModel.addElement(DB.getFlightCode(i) + " " + DB.getStatus(i) + " REQUIRES REPAIR "  +'"'+faultString+'"');  
-        }
-        else {
-            flightListModel.addElement(DB.getFlightCode(i) + " " + DB.getStatus(i));    
+            flightListModel.addElement(DB.getFlightCode(i) + " " + DB.getStatus(i) + " REQUIRES REPAIR "  +'"'+faultString+'"');
+            index = i;
+            tracker.add(index);
         }
     }
 }
