@@ -139,7 +139,7 @@ public void actionPerformed(ActionEvent e) {
 	else if(e.getSource().equals(changeStat) && displayDirty.isSelectionEmpty() == false) {
 		
 		index = displayDirty.getSelectedIndex(); //gets the value held in current index in JList
-		int trace = tracker.get(index); //matches the indexes of JList and index of MR array
+		int trace = tracker.get(index); //matches the indexes of JList and index of MR arrayf
 		
 		if(airDB.getStatus(trace) == 11) { //checks current MR in trace to see if the status is 11
 			
