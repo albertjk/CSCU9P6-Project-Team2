@@ -118,7 +118,7 @@ public void checkList() {
 	
 	for(int i = 0; i < airDB.maxMRs; i++) { //loops through the MR's and finds the matching status codes
 		
-		if(airDB.getStatus(i) == 11 || airDB.getStatus(i) == 9 && airDB.getGateNum(i) != 0) { //only adds planes with a gate assigned, to the list
+		if(airDB.getStatus(i) == 8 || airDB.getStatus(i) == 11 || airDB.getStatus(i) == 9 && airDB.getGateNum(i) != 0) { //only adds planes with a gate assigned, to the list
 			
 			index = i; //sets index to current index in the array
 			tracker.add(index); //adds current index to the tracker
@@ -133,21 +133,23 @@ public void checkList() {
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
 	if(e.getSource().equals(quit)) {
-		System.exit(0); //exits the program
-		
+		System.exit(0); //exits the program 12
 		
 	}
 	else if(e.getSource().equals(changeStat) && displayDirty.isSelectionEmpty() == false) {
-		
 		
 		index = displayDirty.getSelectedIndex(); //gets the value held in current index in JList
 		int trace = tracker.get(index); //matches the indexes of JList and index of MR array
 		
 		if(airDB.getStatus(trace) == 11) {
 			
-			airDB.setStatus(trace, 8);
+			airDB.setStatus(trace, 13);
 		}
 		else if(airDB.getStatus(trace) == 9) {
+			
+			airDB.setStatus(trace, 13);
+		}
+		else if(airDB.getStatus(trace) == 8) {
 			
 			airDB.setStatus(trace, 10);
 		}
@@ -156,7 +158,7 @@ public void actionPerformed(ActionEvent e) {
 			
 			JOptionPane.showMessageDialog(this, "Please select an item from the list");
 			
-			checkList();
+			checkList();// refreshes the list
 		}
 		
 	}
