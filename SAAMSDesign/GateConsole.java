@@ -282,10 +282,15 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 			+ "To: " + aircraftDB.getItinerary(mCode).getTo());
 		}
 		else if(e.getSource() == aircraftReadyCleanAndMaintButton) {
-			aircraftDB.setStatus(mCode, 8);
+			if(aircraftDB.getStatus(mCode) == 7) {
+				aircraftDB.setStatus(mCode, 8);
+			}
+			
 		}
 		else if(e.getSource() == closeFlightButton) {
-			aircraftDB.setStatus(mCode, 15);
+			if(aircraftDB.getStatus(mCode) == 14) {
+				aircraftDB.setStatus(mCode, 15);
+			}			
 		}
 		else if(e.getSource() == showGateStatusButton) {
 			gateDescriptionTextArea.setText("Status: " + gateInfoDatabase.getStatus(gateNumber));			
