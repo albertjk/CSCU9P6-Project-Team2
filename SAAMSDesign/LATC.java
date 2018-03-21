@@ -122,7 +122,7 @@ public class LATC extends JFrame implements Observer, ActionListener {
 	  awaitTakeoff.setFixedCellWidth(250);
 	  awaitTakeoff.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	  awaitTakeoff.setBorder(BorderFactory.createTitledBorder("FLIGHT CODE || STATUS || TAKING OFF"));
-	  
+	  //Populates the flight list
 	  getFlightInfo();
 	  content.add(landingPane);
 	  content.add(TransitPane);
@@ -203,14 +203,14 @@ public void actionPerformed(ActionEvent e) {
 	else if(e.getSource().equals(lostContact) && awaitTakeoff.isSelectionEmpty() == false)
 	{
 		indexT = awaitTakeoff.getSelectedIndex();
-		int trace = trackerT.get(indexT);
+		int trace = trackerTO.get(indexT);
 		
 		airDB.radarLostContact(trace);
 	}
 	else if(e.getSource().equals(takeOff) && awaitTakeoff.isSelectionEmpty() == false) {
 		
 		indexT = awaitTakeoff.getSelectedIndex();
-		int trace = trackerT.get(indexT);
+		int trace = trackerTO.get(indexT);
 		
 		if(airDB.getStatus(trace) == 17) {
 			
@@ -220,7 +220,7 @@ public void actionPerformed(ActionEvent e) {
 	else if(e.getSource().equals(allocateAirSlot) && awaitTakeoff.isSelectionEmpty() == false)
 	{
 		indexT = awaitTakeoff.getSelectedIndex();
-		int trace = trackerT.get(indexT);
+		int trace = trackerTO.get(indexT);
 		
 		if(airDB.getStatus(trace) == 15)
 		{
