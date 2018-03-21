@@ -74,12 +74,21 @@ private void getFlightInfo() {
         if(airCraftDB.getStatus(i) == 2) {
             flightListModel.addElement(airCraftDB.getFlightCode(i) + "              " + "Inbound");  
         }
-        else if(airCraftDB.getStatus(i) == 3 || airCraftDB.getStatus(i) == 4 || airCraftDB.getStatus(i) == 5) {
+        else if(airCraftDB.getStatus(i) == 3 || airCraftDB.getStatus(i) == 4) {
             flightListModel.addElement(airCraftDB.getFlightCode(i) + "          " + "Landing");   
+        }
+        else if(airCraftDB.getStatus(i) == 5)
+        {
+        	flightListModel.addElement(airCraftDB.getFlightCode(i) + "           " + "Landed");
+        }
+        else if(airCraftDB.getStatus(i) >= 6 && airCraftDB.getStatus(i) <= 13)
+        {
+        	flightListModel.addElement(airCraftDB.getFlightCode(i) + "       " + "Proccessing");
         }
         else if(airCraftDB.getStatus(i) == 14) {
             flightListModel.addElement(airCraftDB.getFlightCode(i) + "        " + "Loading Passengers" + "       " + airCraftDB.getGateNum(i));   
         }
+        
     }
 	
 }
