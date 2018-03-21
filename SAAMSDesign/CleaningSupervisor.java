@@ -118,7 +118,7 @@ public void checkList() {
 	
 	for(int i = 0; i < airDB.maxMRs; i++) { //loops through the MR's and finds the matching status codes
 		
-		if(airDB.getStatus(i) == 8 || airDB.getStatus(i) == 11 || airDB.getStatus(i) == 9 && airDB.getGateNum(i) != 0) { //only adds planes with a gate assigned, to the list
+		if(airDB.getStatus(i) == 8 || airDB.getStatus(i) == 11 || airDB.getStatus(i) == 9) { //only adds planes with a gate assigned, to the list
 			
 			index = i; //sets index to current index in the array
 			tracker.add(index); //adds current index to the tracker
