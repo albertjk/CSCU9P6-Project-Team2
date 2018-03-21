@@ -63,7 +63,7 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	/* 
 	 * Passenger list storing the names of passengers on the next departing flight from the current gate.
 	 */
-	PassengerList passengerList;
+	//PassengerList passengerList;
 	
 	private JTabbedPane tabbedPane = new JTabbedPane();
 	
@@ -143,6 +143,10 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		private ArrayList<Integer> tracker = new ArrayList();
 		
 		private int trackerIndex;
+		
+		
+		private int numPassengers = 0; // Stores the number of passengers currently on the plane
+		private JLabel numberOfPassengersLabel;
 	
 	
 	/**
@@ -155,7 +159,7 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		
 		this.gateNumber = gateNumber;
 		
-		passengerList = new PassengerList();
+		//passengerList = new PassengerList();
 
 		// Set up the GUI
 		setTitle("Gate Console");
@@ -240,6 +244,9 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		addPassengerPanel.add(nameTextField);
 		addPassengerButton = new JButton("Add passenger to current flight");
 		addPassengerPanel.add(addPassengerButton);
+		
+		numberOfPassengersLabel = new JLabel("Number of passengers:");
+		addPassengerPanel.add(numberOfPassengersLabel);
 		addPassengerButton.addActionListener(this);
 		
 		tabbedPane.addTab("Add passenger to flight", null, addPassengerPanel, "Click here to add a passenger to the departing flight.");
@@ -298,14 +305,24 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		else if(e.getSource() == gateOccupiedAircraftUnloadingButton) {
 				gateInfoDatabase.docked(gateNumber);
 				aircraftDB.setStatus(mCode, 7);
+				
+				// Unload passengers
+				aircraftDB.unloadPass(mCode);
+				
 		}
 		else if(e.getSource() == gateFreedButton) {
 			gateInfoDatabase.departed(gateNumber);
 		}
 		else if(e.getSource() == addPassengerButton && !nameTextField.getText().isEmpty()) {
-				String name = nameTextField.getText();
-				PassengerDetails passenger = new PassengerDetails(name);
-				passengerList.addPassenger(passenger);
+			
+			//(String flightCode, Itinerary itinerary, PassengerList list)		
+			
+			String name = nameTextField.getText();
+				PassengerDetails passenger = new PassengerDetails(name);				
+				aircraftDB.addPassenger(mCode, passenger);
+				numPassengers++;
+				numberOfPassengersLabel.setText("Number of passengers: " + String.valueOf(numPassengers));		
+					
 		}
 	}
 
