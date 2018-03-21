@@ -135,7 +135,7 @@ public class RefuellingSupervisor extends JFrame implements ActionListener, Obse
 			  //If the status is 13, set it to 15 (ready for departure) since that's what happens after refuel process
 			  
 			  if(AMD.getStatus(selection) == 13){
-				  AMD.setStatus(selection, 15);
+				  AMD.setStatus(selection, 14);
 			  }  
 		  }  
 	  }	

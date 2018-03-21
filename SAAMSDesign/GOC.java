@@ -161,7 +161,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		flightsDisplayPanel.setBackground(Color.cyan);
 		flightsDisplayPanel.setPreferredSize(new Dimension(500, 150));
 		flightsDisplayPanel.add(new JLabel("Aircraft:"));
-		aircraftList.setVisibleRowCount(7);
+		aircraftList.setVisibleRowCount(5);
 		flightsDisplayPanel.add(aircraftScrollList);
 		flightsDisplayPanel.add(flightDescriptionTextArea);
 		flightsDisplayPanel.add(showFlightDetailsButton);
