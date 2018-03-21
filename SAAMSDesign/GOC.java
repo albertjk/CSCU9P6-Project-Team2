@@ -159,9 +159,9 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		// Set up the display panel
 		flightsDisplayPanel = new JPanel();
 		flightsDisplayPanel.setBackground(Color.cyan);
-		flightsDisplayPanel.setPreferredSize(new Dimension(400, 200));
+		flightsDisplayPanel.setPreferredSize(new Dimension(500, 150));
 		flightsDisplayPanel.add(new JLabel("Aircraft:"));
-		aircraftList.setVisibleRowCount(5);
+		aircraftList.setVisibleRowCount(7);
 		flightsDisplayPanel.add(aircraftScrollList);
 		flightsDisplayPanel.add(flightDescriptionTextArea);
 		flightsDisplayPanel.add(showFlightDetailsButton);
@@ -185,7 +185,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		
 		gatesDisplayPanel = new JPanel();
 		gatesDisplayPanel.setBackground(Color.green);
-		gatesDisplayPanel.setPreferredSize(new Dimension(400, 200));
+		gatesDisplayPanel.setPreferredSize(new Dimension(400, 150));
 		gatesDisplayPanel.add(new JLabel("Gate:"));
 		gateList.setVisibleRowCount(2); // There are only two gates at the airport
 		gatesDisplayPanel.add(gateList);

@@ -7,7 +7,7 @@ public class RTTest {
 	AircraftManagementDatabase airDB;
 	RadarTransceiver RTTest;
 	
-	@Before
+	
 	public void main(String args[])
 	{
 		airDB = new AircraftManagementDatabase();
