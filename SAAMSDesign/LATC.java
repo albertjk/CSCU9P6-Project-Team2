@@ -69,10 +69,10 @@ public class LATC extends JFrame implements Observer, ActionListener {
   
   
   public LATC(AircraftManagementDatabase DB) {
-	  
+	  //Set the local instance of AirDb to the main one
 	  airDB = DB;
-	  airDB.addObserver(this);
-	  
+	  airDB.addObserver(this); // adds it as a observer
+	  //sets up the window
 	  setTitle("LATC UI");
 	  setSize(700,400);
 	  setLocation(500,500);
@@ -80,19 +80,19 @@ public class LATC extends JFrame implements Observer, ActionListener {
 	  setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 	  Container content = getContentPane();
 	  content.setLayout(new FlowLayout());
-	  
+	  //add the button for granding landing permission
 	  landingPermission = new JButton("Grant Landing Permission");
 	  content.add(landingPermission);
 	  landingPermission.addActionListener(this);
-	  
+	  //Adds the button to confirm landing
 	  confirmLanding = new JButton("Confirm Landing");
 	  content.add(confirmLanding);
 	  confirmLanding.addActionListener(this);
-	  
+	  //Adds the button to allocate air slot 
 	  allocateAirSlot = new JButton("Allocate Air Slot");
 	  content.add(allocateAirSlot);
 	  allocateAirSlot.addActionListener(this);
-	  
+	  //adds the button to set the plan to having took off
 	  takeOff = new JButton("Take Off");
 	  content.add(takeOff);
 	  takeOff.addActionListener(this);
@@ -197,6 +197,13 @@ public void actionPerformed(ActionEvent e) {
 		
 		indexL = waitForLanding.getSelectedIndex();
 		int trace = trackerL.get(indexT);
+		
+		airDB.radarLostContact(trace);
+	}
+	else if(e.getSource().equals(lostContact) && awaitTakeoff.isSelectionEmpty() == false)
+	{
+		indexT = awaitTakeoff.getSelectedIndex();
+		int trace = trackerT.get(indexT);
 		
 		airDB.radarLostContact(trace);
 	}
