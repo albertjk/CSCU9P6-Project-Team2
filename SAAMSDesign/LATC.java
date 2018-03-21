@@ -161,7 +161,7 @@ private void getFlightInfo() {
 			indexT = i;
 			trackerT.add(indexT);
 		}
-		else if(airDB.getStatus(i) == 17)
+		else if(airDB.getStatus(i) == 17 || airDB.getStatus(i) == 15)
 		{
 			outGoingFlightModel.addElement(airDB.getFlightCode(i) +  "       " + airDB.getStatus(i));
 			indexTO = i;
@@ -202,12 +202,22 @@ public void actionPerformed(ActionEvent e) {
 	}
 	else if(e.getSource().equals(takeOff) && awaitTakeoff.isSelectionEmpty() == false) {
 		
-		indexT = waitForLanding.getSelectedIndex();
+		indexT = awaitTakeoff.getSelectedIndex();
 		int trace = trackerT.get(indexT);
 		
 		if(airDB.getStatus(trace) == 17) {
 			
 			airDB.setStatus(trace, 18);
+		}
+	}
+	else if(e.getSource().equals(allocateAirSlot) && awaitTakeoff.isSelectionEmpty() == false)
+	{
+		indexT = awaitTakeoff.getSelectedIndex();
+		int trace = trackerT.get(indexT);
+		
+		if(airDB.getStatus(trace) == 15)
+		{
+			airDB.setStatus(trace, 16);
 		}
 	}
 }
