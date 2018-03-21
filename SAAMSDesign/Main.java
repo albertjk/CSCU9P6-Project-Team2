@@ -33,7 +33,8 @@ public static void main(String[] args) {
     GOC GC1 = new GOC(GDB, ADB, 200, 200);
     CleaningSupervisor CS1 = new CleaningSupervisor(ADB);
     
-    GateConsole gateConsole = new GateConsole(GDB, ADB, 500, 200);
+    GateConsole gateConsole1 = new GateConsole(GDB, ADB, 500, 200, 0);
+    GateConsole gateConsole2 = new GateConsole(GDB, ADB, 500, 500, 1);
     LATC latc = new LATC(ADB);
   }
 
