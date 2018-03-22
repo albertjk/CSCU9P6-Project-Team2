@@ -27,7 +27,7 @@ public static void main(String[] args) {
     MaintenanceInspector MI1 = new MaintenanceInspector(ADB);
     MI1.setTitle("Maintenance Inspector");
     MI1.setLocation(50,50);
-    RadarTransceiver RT1 = new RadarTransceiver(ADB, 250, 250);
+    RadarTransceiver RT1 = new RadarTransceiver(ADB, 1000, 250);
     PublicInfo PI1 = new PublicInfo(ADB);
     RefuellingSupervisor RS1 = new RefuellingSupervisor(ADB);
     GOC GC1 = new GOC(GDB, ADB, 200, 200);
