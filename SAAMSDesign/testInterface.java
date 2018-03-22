@@ -100,7 +100,7 @@ implements ActionListener, Observer{
                 flightListModel.addElement(DB.getFlightCode(i) + " " + DB.getStatus(i) + " LANDING (CONFIRM LANDING)");  
             }
             else if(DB.getStatus(i) == 5) {
-                flightListModel.addElement(DB.getFlightCode(i) + " " + DB.getStatus(i) + " LANDED (SET TO TAXI)");  
+                flightListModel.addElement(DB.getFlightCode(i) + " " + DB.getStatus(i) + " LANDED (ALLOCATE GATE)");  
             }
             else if(DB.getStatus(i) == 6) {
                 flightListModel.addElement(DB.getFlightCode(i) + " " + DB.getStatus(i) + " TAXIING (DOCK AIRCRAFT / SET OCCUPIED * UNLOADING)");  
