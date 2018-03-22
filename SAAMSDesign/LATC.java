@@ -196,7 +196,7 @@ public void actionPerformed(ActionEvent e) {
 	else if(e.getSource().equals(lostContact) && waitForLanding.isSelectionEmpty() == false) {
 		
 		indexL = waitForLanding.getSelectedIndex();
-		int trace = trackerL.get(indexT);
+		int trace = trackerL.get(indexL);
 		
 		airDB.radarLostContact(trace);
 	}
