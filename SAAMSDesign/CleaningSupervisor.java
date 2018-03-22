@@ -104,7 +104,6 @@ public class CleaningSupervisor extends JFrame implements Observer, ActionListen
   
 @Override
 public void update(Observable arg0, Object arg1) {
-	// TODO Auto-generated method stub
 	checkList(); //updates the list with the most up to data cleaning requirements
 	
 }
@@ -123,8 +122,7 @@ public void checkList() {
 			index = i; //sets index to current index in the array
 			tracker.add(index); //adds current index to the tracker
 			
-			dirtyModel.addElement(index + " Flight " + airDB.getFlightCode(i) + " at Gate " + airDB.getGateNum(i) + "  Awating Cleaning"); //adds the list item
-			
+			dirtyModel.addElement("Flight " + airDB.getFlightCode(i) + " at Gate " + airDB.getGateNum(i) + "  Awating Cleaning"); //adds the list item
 		}
 	}
 }
@@ -162,7 +160,7 @@ public void actionPerformed(ActionEvent e) {
 		
 		checkList();//refreshes the list
 	}
-	
+	checkList();
 }
 
 }

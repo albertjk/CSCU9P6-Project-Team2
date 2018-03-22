@@ -280,7 +280,7 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 			}
 		else if(e.getSource() == showFlightDetailsButton) {
 		
-			mCode = updateFlight();	
+			mCode = this.updateFlight();	
 			
 			flightDescriptionTextArea.setText("Flight code: " + aircraftDB.getFlightCode(mCode) + "\n"
 			+ "mCode: " + mCode + "\n"  // trace is the mCode
@@ -399,13 +399,13 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	private void showFlightDetails() {
 		
 		if(showingDetailsOfFlight == -1) {
-			flightDescriptionTextArea.setText("");
+			this.flightDescriptionTextArea.setText("");
 		}
 		/* If a flight was selected, get the data associated with it. 
 		We can use showingDetailsOfFlight to get the data as this variable is equal to the mCode of the selected flight.
 		(It was assigned after the showFlightDetailsButton was clicked in actionPerformed.) */
 		else {			
-			flightDescriptionTextArea.setText("Flight code: " + aircraftDB.getFlightCode(showingDetailsOfFlight) + "\n"
+			this.flightDescriptionTextArea.setText("Flight code: " + aircraftDB.getFlightCode(showingDetailsOfFlight) + "\n"
 					+ "mCode: " + showingDetailsOfFlight + "\n"
 					+ "Flight status: " + aircraftDB.getStatus(showingDetailsOfFlight) + "\n"
 					+ "From: " + aircraftDB.getItinerary(showingDetailsOfFlight).getFrom() + "\n"
@@ -418,7 +418,7 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
   	 */
 	public void update(Observable o, Object arg) {
 		// Update the flight status
-		updateFlight();
+		this.updateFlight();
 	}
 
 	

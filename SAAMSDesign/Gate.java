@@ -83,6 +83,11 @@ public class Gate {
 		}
   	}
 	
+	public int getmCode()
+	{
+		return mCode;
+	}
+	
 	public String toString() {
 		return "Gate" + gateNumber;
 	}
