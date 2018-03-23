@@ -149,6 +149,8 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	private int numPassengers = 0; // Stores the number of passengers currently on the plane
 	private JLabel numberOfPassengersLabel;	
 
+	/* mCode is initialised to -1 because no flight details should be displayed when an aircraft is not allocated to the gate yet.
+	It is updated when an aircraft is allocated to the gate. */
 	private int mCode = -1;
 	
 	/**
