@@ -39,7 +39,6 @@ public class RefuellingSupervisor extends JFrame implements ActionListener, Obse
   * @clientCardinality 1
   * @label accesses/observes
   * @directed*/
-  private AircraftManagementDatabase lnkUnnamed; // REMOVE MAYBE
   private AircraftManagementDatabase AMD;
   
   //buttons
@@ -104,15 +103,20 @@ public class RefuellingSupervisor extends JFrame implements ActionListener, Obse
 	    
 	    //Clears list so we start with a clean one
 	    flightListModel.removeAllElements();
+	    tracker.removeAll(tracker);
+	    index = 0;
 	    
 	    //re-populate based on the code given to certain scenarios. 13 being the refuel scenario
 	    for(int i = 0; i < AMD.maxMRs; i++) { // iterate through array, condition of under max amount of MR 
 	        if(AMD.getStatus(i) == 13) { // if the status is equal to 13, do below
-	            flightListModel.addElement(AMD.getFlightCode(i) + "           " + AMD.getStatus(i) + " REFUEL READY ");  
+	            flightListModel.addElement(AMD.getFlightCode(i) + "           " + AMD.getStatus(i) + " REFUEL READY ");
+	            index = i;
+	            tracker.add(index);
 	        }
 	    }
 	}
-
+ArrayList<Integer> tracker = new ArrayList<Integer>();
+private int index;
   
   //Action Listener - handles buttons
   @Override
@@ -126,20 +130,21 @@ public class RefuellingSupervisor extends JFrame implements ActionListener, Obse
 	  
 	  // Refuel Button -- needs to change status from refueling to ready 
 	  
-	  else if(e.getSource() == refuelButton){
-		  if(flightList.isSelectionEmpty() != true){ // conditional based on fullness of flightList 
+	  else if(e.getSource() == refuelButton && flightList.isSelectionEmpty()){
+		   // conditional based on fullness of flightList 
 			
 			  //sets selection to the index of the flightList through get method 
-			  int selection = flightList.getSelectedIndex();
+			  index = flightList.getSelectedIndex();
+			  int trace = tracker.get(index);
 			  
-			  //If the status is 13, set it to 15 (ready for departure) since that's what happens after refuel process
+			  //If the status is 13, set it to 14 (ready for departure) since that's what happens after refuel process
 			  
-			  if(AMD.getStatus(selection) == 13){
-				  AMD.setStatus(selection, 14);
+			  if(AMD.getStatus(trace) == 13){
+				  AMD.setStatus(trace, 14);
 			  }  
 		  }  
 	  }	
-}
+
   
   //Method for updating observers
   
