@@ -161,7 +161,7 @@ private void getFlightInfo() {
 			indexT = i;
 			trackerT.add(indexT);
 		}
-		else if(airDB.getStatus(i) == 17 || airDB.getStatus(i) == 15)
+		else if(airDB.getStatus(i) == 17 || airDB.getStatus(i) == 15 || airDB.getStatus(i) == 16)
 		{
 			outGoingFlightModel.addElement(airDB.getFlightCode(i) +  "       " + airDB.getStatus(i));
 			indexTO = i;
