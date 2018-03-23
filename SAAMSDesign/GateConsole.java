@@ -34,8 +34,9 @@ import javax.swing.JTextField;
  * @url element://model:project::SAAMS/design:view:::id1un8dcko4qme4cko4sw27
  * @url element://model:project::SAAMS/design:view:::id1jkohcko4qme4cko4svww
  * @url element://model:project::SAAMS/design:node:::id1un8dcko4qme4cko4sw27.node61
- * @author Albert Jozsa-Kiraly
- * Date: 20/03/2018
+ * CSCU9P6 Project Group 2
+ * Student ID: 2421468
+ * Date: 22/03/2018
  */
 public class GateConsole extends JFrame implements ActionListener, Observer  {  // This class is an Observer of GateInfoDatabase and AircraftManagementDatabase
 	/**
@@ -137,17 +138,20 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 	private JButton addPassengerButton;
 	
 	// Stores the flight codes of the aircrafts in the airport (not those which are free or are in transit or have departed through local airspace).
-		private Vector<String> flightList = new Vector();
+	private Vector<String> flightList = new Vector();
 	  
-		// Stores the position where a list item is in the MR array
-		private ArrayList<Integer> tracker = new ArrayList();
+	// Stores the position where a list item is in the MR array
+	private ArrayList<Integer> tracker = new ArrayList();
 		
-		private int trackerIndex;
+	private int trackerIndex;
 		
 		
-		private int numPassengers = 0; // Stores the number of passengers currently on the plane
-		private JLabel numberOfPassengersLabel;
-	
+	private int numPassengers = 0; // Stores the number of passengers currently on the plane
+	private JLabel numberOfPassengersLabel;	
+
+	/* mCode is initialised to -1 because no flight details should be displayed when an aircraft is not allocated to the gate yet.
+	mCode is updated when an aircraft is allocated to the gate. */
+	private int mCode;
 	
 	/**
 	 * Constructor.
@@ -272,7 +276,7 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		aircraftDB.addObserver(this);
 	}
 	
-	int mCode = -1;
+	
 
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == quitButton) {
@@ -280,13 +284,15 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 			}
 		else if(e.getSource() == showFlightDetailsButton) {
 		
-			mCode = this.updateFlight();	
-			
-			flightDescriptionTextArea.setText("Flight code: " + aircraftDB.getFlightCode(mCode) + "\n"
-			+ "mCode: " + mCode + "\n"  // trace is the mCode
-			+ "Flight status: " + aircraftDB.getStatus(mCode) + "\n"
-			+ "From: " + aircraftDB.getItinerary(mCode).getFrom() + "\n"
-			+ "To: " + aircraftDB.getItinerary(mCode).getTo());
+			// Only display the flight details if it is allocated to the gate, and before it is departed for takeoff.
+			if(aircraftDB.getStatus(mCode) >= 6 && aircraftDB.getStatus(mCode) <= 16) {
+				this.updateFlight();	
+				flightDescriptionTextArea.setText("Flight code: " + aircraftDB.getFlightCode(mCode) + "\n"
+				+ "mCode: " + mCode + "\n"  // trace is the mCode
+				+ "Flight status: " + aircraftDB.getStatus(mCode) + "\n"
+				+ "From: " + aircraftDB.getItinerary(mCode).getFrom() + "\n"
+				+ "To: " + aircraftDB.getItinerary(mCode).getTo());
+			}			
 		}
 		else if(e.getSource() == aircraftReadyCleanAndMaintButton) {
 			if(aircraftDB.getStatus(mCode) == 7) {
@@ -328,7 +334,7 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 
 	// Sets the flight code to the label.
 	// Returns the mCode of the flight allocated to the gate.
-	public int updateFlight() {		
+	public void updateFlight() {		
 			for(int i = 0; i < aircraftDB.maxMRs; i++) {	
 				
 				// If the aircraft is taxiing, a gate has been allocated.
@@ -337,10 +343,15 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 					// Get the gate number to which the aircraft was allocated.
 					if(aircraftDB.getGateNum(i) == gateNumber) {
 						flightCodeLabel.setText(aircraftDB.getFlightCode(i));
+						
+						mCode = i;
+						
+						//mCode = gateInfoDatabase.getMCode(gateNumber);
+						//return i;
 					}
 				}							
 			}	
-			return 0;
+			//return 0;
 		}
 	
 	/**
