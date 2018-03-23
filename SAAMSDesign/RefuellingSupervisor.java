@@ -130,7 +130,7 @@ private int index;
 	  
 	  // Refuel Button -- needs to change status from refueling to ready 
 	  
-	  else if(e.getSource() == refuelButton && flightList.isSelectionEmpty()){
+	  else if(e.getSource() == refuelButton && flightList.isSelectionEmpty() == false){
 		   // conditional based on fullness of flightList 
 			
 			  //sets selection to the index of the flightList through get method 
