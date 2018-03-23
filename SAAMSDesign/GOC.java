@@ -120,7 +120,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		aircraftList = new JList<String>(flightList);
 		aircraftScrollList.setViewportView(aircraftList);
 		aircraftScrollList.setPreferredSize(new Dimension(200, 100));
-		aircraftList.setFixedCellWidth(250);
+		aircraftList.setFixedCellWidth(70);
 		aircraftList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		//window.add(aircraftScrollList);
 		
@@ -128,7 +128,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		gateList = new JList<Gate>(gatesList);
 		gateScrollList.setViewportView(gateList);
 		gateScrollList.setPreferredSize(new Dimension(200, 100));
-		gateList.setFixedCellWidth(250);
+		gateList.setFixedCellWidth(100);
 		gateList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		//window.add(gateScrollList);
 		
@@ -185,7 +185,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		
 		gatesDisplayPanel = new JPanel();
 		gatesDisplayPanel.setBackground(Color.green);
-		gatesDisplayPanel.setPreferredSize(new Dimension(400, 150));
+		gatesDisplayPanel.setPreferredSize(new Dimension(400, 130));
 		gatesDisplayPanel.add(new JLabel("Gate:"));
 		gateList.setVisibleRowCount(2); // There are only two gates at the airport
 		gatesDisplayPanel.add(gateList);
@@ -200,7 +200,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		
 		// Display the frame
 		// TODO: CHANGE NUMBERS TO CONSTANTS
-		setSize(700, 500);
+		setSize(580, 380);
 		setLocation(locationX, locationY);
 		setVisible(true);
 		
@@ -298,71 +298,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		}
 	}
 	
-	private void updateGateList() {
-			
-			// First clear the list of previous elements, then update the list.
-			flightList.removeAllElements();
-			
-			tracker.clear(); // Reset the tracker array list		
-			trackerIndex = 0; // Reset the tracker index
-			
-			for(int i = 0; i < aircraftDB.maxMRs; i++) {
-				
-				if(aircraftDB.getStatus(i) >= 2 || aircraftDB.getStatus(i) <= 17) {
-					
-					trackerIndex = i; // Set the index to the current index in the MR array
-					// Adds the current index to the tracker
-					tracker.add(trackerIndex);
-					
-					// Add the list item
-					flightList.addElement(aircraftDB.getFlightCode(i));				
-				}			
-			}
-		}
-		
-		
-		
-		
-		/* If an aircraft's status code is between 2 (WANTING_TO_LAND) and 17 (AWAITING_TAKEOFF) inclusive, 
-		display its flight code on the GOC screen, and also the details on selecting the aircraft. 
-		Aircrafts with statuses FREE, IN_TRANSIT, and DEPARTING_THROUGH_LOCAL_AIRSPACE are not displayed. */
-		/*
-		ArrayList<Integer> mCodes = new ArrayList<>();
-		for(int i = 2; i <= 17; i++) { */
-			// Get the aircrafts with the current status code and store their mCodes.			
-			
-			/*
-			int updatedMCode = aircraftDB.getStatus(i);
-			*/
-			
-			/* Use the mCodes of the aircrafts to identify them and get their flight codes. 
-			Add the flight codes to the flight list. This list will be displayed on the GOC screen. */
-		/*
-			for(int j = 0; j < aircraftDB.maxMRs; j++) {
-				flightList.add(aircraftDB.getFlightCode(mCodes.get(j)));
-			}
-		}
-		// Update the entire content of aircraftList
-		aircraftList.setListData(flightList);
-	}
-	*/
-	
-	/**
-	 * This method checks if an aircraft wants to land at Stirling Airport.
-	 * If so, then the data about the flight is added to flightList.
-	 * This list is displayed on the GOC screen.
-	 * True is returned if the aircraft wants to land, false otherwise.
-	 * 2 is the status code for WANTING_TO_LAND in ManagementRecord.
-	 * @param mCode
-	 */
-	/*
-	public boolean checkIfWantingToLand(int mCode) {
-		if(aircraftDB.getStatus(mCode) == 2) {
-			flightList.add(aircraftDB.getFlightCode(mCode));
-			return true;
-		}
-		return false;
-	}*/
+
 
 	/**
 	 * The user verifies from the information displayed on the GOC screen that enough space is available on the ground for a landing aircraft.
@@ -373,43 +309,6 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	public void givePermissionToLand(int mCode) {		
 			aircraftDB.setStatus(mCode, 3);							
 	}
-	
-	/**
-	 * Show the details of the selected flight in the flightsDisplayPanel.
-	 */
-	private void showFlightDetails() {
-		
-		if(showingDetailsOfFlight == -1) {
-			flightDescriptionTextArea.setText("");
-		}
-		/* If a flight was selected, get the data associated with it. 
-		We can use showingDetailsOfFlight to get the data as this variable is equal to the mCode of the selected flight.
-		(It was assigned after the showFlightDetailsButton was clicked in actionPerformed.) */
-		else {			
-			flightDescriptionTextArea.setText("Flight code: " + aircraftDB.getFlightCode(showingDetailsOfFlight) + "\n"
-					+ "mCode: " + showingDetailsOfFlight + "\n"
-					+ "Flight status: " + aircraftDB.getStatus(showingDetailsOfFlight) + "\n"
-					+ "From: " + aircraftDB.getItinerary(showingDetailsOfFlight).getFrom() + "\n"
-					+ "To: " + aircraftDB.getItinerary(showingDetailsOfFlight).getTo());	
-		}
-	}
-	
-	/**
-	 * Show the status of the selected gate in the gatesDisplayPanel.
-	 */
-	private void showGateStatus() {
-		//if(showingDetailsOfGate == -1) {
-		//	gateDescriptionTextArea.setText("");
-		//}
-		/* If a gate was selected, get its status.
-		We can use showingDetailsOfGate to get the status as this variable is equal to the array index of the selected gate in the list.
-		(It was assigned after the showGateStatusButton was clicked in actionPerformed.) */
-		//else {
-			gateDescriptionTextArea.setText("Status: " + gateInfoDatabase.getStatus(showingDetailsOfGate));
-		//}
-	}
-	
-	
 	
 	/**
 	 * This method returns the mCode of the selected flight in the flight list.
@@ -463,35 +362,13 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		// TODO: MAKE THE AIRCRAFT APPEAR ON THE GATECONSOLE DISPLAY AFTER A GATE HAS BEEN ALLOCATED FOR IT!
 		
 	}
-	
-	/**
-	 * Allocated the given gate to the aircraft with the given mCode supplied as a parameter for unloading passengers. The message is forwarded to the given MR for status update.
-	 */
-	
-	/*
-	public void taxiToGate(int mCode, int gateNumber) {
-		
-	} */
-	
-	/**
-	 * If an aircraft's status is AWAITING_TAXI (status code 16) and there is space on the tarmac for taxiing (determined by the user), the GOC grants taxiing permission.
-	 * Then, the aircraft's status is updated to AWAITING_TAKEOFF (status code 17).
-	 * @param mCode
-	 */
-	
-	/*
-	public void taxiAcrossTarmac(int mCode) {		
-		aircraftDB.setStatus(mCode, 17);		 
-	} */
+
   
 	/**
 	 * This method gets called when AircraftMangementDatabase updates its observers. Fetches information about the aircrafts and gates.	 * 
 	 */
 	public void update(Observable o, Object arg) {
 		updateFlightList(); 
-		updateGateList();
-		//showFlightDetails(); // Update the flight details display		
-		//showGateStatus();
 	}
   
   
