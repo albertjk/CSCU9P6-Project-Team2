@@ -199,11 +199,12 @@ public void actionPerformed(ActionEvent e) {
             //if something is selected
             if(flightList.isSelectionEmpty() != true) {
                 //get selected item's position in list -- essentially the flight's position in MR array
-                int selection = flightList.getSelectedIndex();
                
+            	index = flightList.getSelectedIndex();
+                int trace = tracker.get(index);
                 //if status is 9(FAULTY AWAIT CLEAN) or 12 (AWAIT REPAIR) -- set status to 11 (OK_AWAIT_CLEAN)
-                if(DB.getStatus(selection) == 9 || DB.getStatus(selection) == 12){
-                    DB.setStatus(selection, 11);
+                if(DB.getStatus(trace) == 9 || DB.getStatus(trace) == 12){
+                    DB.setStatus(trace, 11);
                 }
        
             }
