@@ -318,6 +318,9 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		}
 		else if(e.getSource() == gateFreedButton) {
 			gateInfoDatabase.departed(gateNumber);
+			updateFlight();
+			flightCodeLabel.setText("");
+			flightDescriptionTextArea.setText("");
 		}
 		else if(e.getSource() == addPassengerButton && !nameTextField.getText().isEmpty()) {
 			
@@ -345,13 +348,9 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 						flightCodeLabel.setText(aircraftDB.getFlightCode(i));
 						
 						mCode = i;
-						
-						//mCode = gateInfoDatabase.getMCode(gateNumber);
-						//return i;
 					}
 				}							
 			}	
-			//return 0;
 		}
 	
 	/**
@@ -369,38 +368,7 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		}
 	}
 	
-	/**
-	 *  Re-populate the displayed flight list from the AircraftManagementDatabase.
-	 */
-	/**
-	 *  Re-populate the displayed flight list from the AircraftManagementDatabase.
-	 */
-	
-//	private void updateFlight() {
-//		
-//		// First clear the list of previous elements, then update the list.
-//		flightList.removeAllElements();
-//		
-//		tracker.clear(); // Reset the tracker array list		
-//		trackerIndex = 0; // Reset the tracker index
-//		
-//		for(int i = 0; i < aircraftDB.maxMRs; i++) {
-//			
-//			if(aircraftDB.getStatus(i) >= 2 || aircraftDB.getStatus(i) <= 17) {
-//				
-//				trackerIndex = i; // Set the index to the current index in the MR array
-//				// Adds the current index to the tracker
-//				tracker.add(trackerIndex);
-//				
-//				// Add the list item
-//				flightList.addElement(aircraftDB.getFlightCode(i));
-//				
-//				
-//			}
-//			
-//			
-//		}
-//	}
+
 	
 	/**
 	 * Show the details of the selected flight in the flightsDisplayPanel.
