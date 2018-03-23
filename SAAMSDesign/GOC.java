@@ -122,7 +122,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		aircraftScrollList.setPreferredSize(new Dimension(200, 100));
 		aircraftList.setFixedCellWidth(250);
 		aircraftList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		window.add(aircraftScrollList);
+		//window.add(aircraftScrollList);
 		
 		
 		gateList = new JList<Gate>(gatesList);
@@ -130,7 +130,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		gateScrollList.setPreferredSize(new Dimension(200, 100));
 		gateList.setFixedCellWidth(250);
 		gateList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		window.add(gateScrollList);
+		//window.add(gateScrollList);
 		
 		
 		grantGroundClearanceButton = new JButton("Grant ground clearance");
@@ -267,7 +267,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 			int trace = tracker.get(trackerIndex);			
 			
 		
-			gateDescriptionTextArea.setText("Status: " + gateInfoDatabase.getStatus(trace));
+			gateDescriptionTextArea.setText("Status: " + gateInfoDatabase.getStatus(trace) + "");
 			
 			
 		}
