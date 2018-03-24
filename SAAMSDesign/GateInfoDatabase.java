@@ -15,7 +15,8 @@ import java.util.*; // For Observable
  * @url element://model:project::SAAMS/design:view:::id1jkohcko4qme4cko4svww
  * @url element://model:project::SAAMS/design:node:::id1un8dcko4qme4cko4sw27.node61
  * @url element://model:project::SAAMS/design:view:::id1un8dcko4qme4cko4sw27
- * @author Albert Jozsa-Kiraly
+ * CSCU9P6 Project Group 2
+ * Student ID: 2421468
  * Date: 12/03/2018
  */
 public class GateInfoDatabase extends Observable {

@@ -11,7 +11,8 @@
  * @url element://model:project::SAAMS/design:node:::id1un8dcko4qme4cko4sw27.node61
  * @url element://model:project::SAAMS/design:view:::id2wdkkcko4qme4cko4svm2
  * @url element://model:project::SAAMS/design:view:::id1jkohcko4qme4cko4svww * 
- * @author Albert Jozsa-Kiraly
+ * CSCU9P6 Project Group 2
+ * Student ID: 2421468
  * Date: 05/03/2018
  */
 public class Gate {
@@ -51,14 +52,14 @@ public class Gate {
 	/**
 	* Return the status code for this gate.
 	*/
-	public int getStatus(){
+	public int getStatus() {
 		return this.status;
 	}
 
 	/**
 	* The gate has been allocated to the given aircraft, identified by mCode: Change status from FREE to RESERVED and note the mCode.
 	* @preconditions Status must be Free*/
-	public void allocate(int mCode){
+	public void allocate(int mCode) {
 		if(this.status == FREE) {
 			this.status = RESERVED;
 			this.mCode = mCode;
@@ -68,7 +69,7 @@ public class Gate {
 	/**
 	* Change gate status from RESERVED to OCCUPIED to indicate that aircraft has now docked.
 	* @preconditions Status must be Reserved*/
-	public void docked(){
+	public void docked() {
 		if(this.status == RESERVED) {
 			this.status = OCCUPIED;
 		}
@@ -77,18 +78,25 @@ public class Gate {
 	/**
 	* Change status from OCCUPIED to FREE as the docked aircraft has now departed.
 	* @preconditions Status must be Occupied*/
-	public void departed(){
+	public void departed() {
 		if(this.status == OCCUPIED) {
 			this.status = FREE;
 		}
   	}
 	
-	public int getmCode()
-	{
+	/**
+	 * Returns the mCode of the aircraft allocated to the gate.
+	 * @return the mCode of the aircraft allocated to the gate
+	 */
+	public int getmCode() {
 		return mCode;
 	}
 	
+	/** 
+	 * Returns a string containing the gate and the gate number.
+	 * @return a string containing the gate and the gate number
+	 */
 	public String toString() {
-		return "Gate" + gateNumber;
+		return "Gate " + gateNumber;
 	}
 }

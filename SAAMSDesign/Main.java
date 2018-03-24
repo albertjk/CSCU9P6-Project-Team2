@@ -14,51 +14,42 @@ public class Main {
  
 /**
  * Launch SAAMS.
- */
- 
+ */ 
 public static void main(String[] args) {
    
     // Instantiate databases
-    AircraftManagementDatabase ADB = new AircraftManagementDatabase(); //create shared database
-    GateInfoDatabase GDB = new GateInfoDatabase();
+    AircraftManagementDatabase adb = new AircraftManagementDatabase(); //create shared database
+    GateInfoDatabase gdb = new GateInfoDatabase();
    
     // Instantiate and show all interfaces as Frames
-    // Instantiate and show all interfaces as Frames
+    GOC goc = new GOC(gdb, adb, 200, 200);
+    goc.setLocation(1200,25);
    
+    RadarTransceiver rt1 = new RadarTransceiver(adb, 1000, 250);
+    rt1.setLocation(45,50);
    
+    CleaningSupervisor cs1 = new CleaningSupervisor(adb);
+    cs1.setLocation(50,225);
    
- 
+    MaintenanceInspector mt1 = new MaintenanceInspector(adb);
+    mt1.setTitle("Maintenance Inspector");
+    mt1.setLocation(50,650);
    
-    GOC GC1 = new GOC(GDB, ADB, 200, 200);
-    GC1.setLocation(1200,25);
+    PublicInfo pi1 = new PublicInfo(adb);
+    pi1.setLocation(450,50);;
    
-    RadarTransceiver RT1 = new RadarTransceiver(ADB, 1000, 250);
-    RT1.setLocation(45,50);
+    RefuellingSupervisor rs1 = new RefuellingSupervisor(adb);
+    rs1.setLocation(350,650);
    
-    CleaningSupervisor CS1 = new CleaningSupervisor(ADB);
-    CS1.setLocation(50,225);
-   
-    MaintenanceInspector MI1 = new MaintenanceInspector(ADB);
-    MI1.setTitle("Maintenance Inspector");
-    MI1.setLocation(50,650);
-   
-    PublicInfo PI1 = new PublicInfo(ADB);
-    PI1.setLocation(450,50);;
-   
-    RefuellingSupervisor RS1 = new RefuellingSupervisor(ADB);
-    RS1.setLocation(350,650);
-   
-    GateConsole gateConsole1 = new GateConsole(GDB, ADB, 500, 200, 0);
+    GateConsole gateConsole1 = new GateConsole(gdb, adb, 500, 200, 0);
     gateConsole1.setLocation(950,450);
-    GateConsole gateConsole2 = new GateConsole(GDB, ADB, 500, 500, 1);
+    GateConsole gateConsole2 = new GateConsole(gdb, adb, 500, 500, 1);
     gateConsole2.setLocation(950,750);
    
-    LATC latc = new LATC(ADB);
+    LATC latc = new LATC(adb);
     latc.setLocation(450,250);
    
-    testInterface TEST = new testInterface(ADB);
-    TEST.setLocation(675, 650);
-   
-  }
- 
+    testInterface test = new testInterface(adb);
+    test.setLocation(675, 650);
+  } 
 }
