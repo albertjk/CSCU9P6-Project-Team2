@@ -88,4 +88,5 @@ public class GateInfoDatabase extends Observable {
 	public void departed(int gateNumber){
 		gates[gateNumber].departed();
   	}
+	
 }

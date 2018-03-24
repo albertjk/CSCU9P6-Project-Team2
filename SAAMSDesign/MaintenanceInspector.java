@@ -157,7 +157,9 @@ public void actionPerformed(ActionEvent e) {
             //if something is selected
             if(flightList.isSelectionEmpty() != true) {
                 //get selected item's position in list -- essentially the flight's position in MR array
-                int selection = flightList.getSelectedIndex();  
+            	
+                index = flightList.getSelectedIndex();
+                int trace = tracker.get(index);
                 String[] options = {"REPORT OK","REPORT FAULTY"};
                 JPanel panel = new JPanel();
                 //pop up a window with 2 options -- report flight OK -- report flight faulty
@@ -166,24 +168,24 @@ public void actionPerformed(ActionEvent e) {
                 //if user reports OK
                 if(selectedOption == 0) {
                     //if status is 8 (READY CLEAN AND MAINT) or 10 (CLEAN AWAIT MAINT) -- set status to 11 (OK AWAIT CLEAN)
-                    if(DB.getStatus(selection) == 8){
-                        DB.setStatus(selection, 11);
+                    if(DB.getStatus(trace) == 8){
+                        DB.setStatus(trace, 11);
                     }
                    
                     //if status is 10(CLEAN AWAIT MAIN) -- set status to 13 (READY FOR REFUEL)
-                    if(DB.getStatus(selection) == 10){
-                        DB.setStatus(selection, 13);
+                    if(DB.getStatus(trace) == 10){
+                        DB.setStatus(trace, 13);
                     }
                 }
                
                 //if user reports faulty
                 else if(selectedOption ==1) {
-                    if(DB.getStatus(selection) == 8 || DB.getStatus(selection) == 10){                 
+                    if(DB.getStatus(trace) == 8 || DB.getStatus(trace) == 10){                 
                         //pop up window with text box for inputting fault description
                         String fault = JOptionPane.showInputDialog("FAULT DESCRIPTION");
                         if(fault != null) {
                             //call faultsFound method -- add the fault description that the user entered in pop up window
-                            DB.faultsFound(selection, fault);
+                            DB.faultsFound(trace, fault);
                         }
                         else {
                             //user must enter a fault description
@@ -199,11 +201,12 @@ public void actionPerformed(ActionEvent e) {
             //if something is selected
             if(flightList.isSelectionEmpty() != true) {
                 //get selected item's position in list -- essentially the flight's position in MR array
-                int selection = flightList.getSelectedIndex();
                
+            	index = flightList.getSelectedIndex();
+                int trace = tracker.get(index);
                 //if status is 9(FAULTY AWAIT CLEAN) or 12 (AWAIT REPAIR) -- set status to 11 (OK_AWAIT_CLEAN)
-                if(DB.getStatus(selection) == 9 || DB.getStatus(selection) == 12){
-                    DB.setStatus(selection, 11);
+                if(DB.getStatus(trace) == 9 || DB.getStatus(trace) == 12){
+                    DB.setStatus(trace, 11);
                 }
        
             }

@@ -4,4 +4,14 @@ SAAMSDesign/GateConsole.class
 SAAMSDesign/GOC.class
 SAAMSDesign/GateConsole.class
 SAAMSDesign/GOC.java
+<<<<<<< HEAD
 SAAMSDesign/GOC.class
+=======
+SAAMSDesign/GateConsole.java
+>>>>>>> fdf8f68ee3b114c3f4fb97db19ba7c2852b49bd2
+SAAMSDesign/AircraftManagementDatabase.java
+SAAMSDesign/GateConsole.java
+SAAMSDesign/GOC.java
+SAAMSDesign/LATC.java
+SAAMSDesign/MaintenanceInspector.java
+*.java
