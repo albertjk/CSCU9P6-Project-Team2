@@ -20,6 +20,7 @@ import java.util.*; // For Observable
  * Date: 12/03/2018
  */
 public class GateInfoDatabase extends Observable {
+	
 	/**
 	* Holds one gate object per gate in the airport.
 	* @clientCardinality 1
@@ -58,14 +59,13 @@ public class GateInfoDatabase extends Observable {
  	*/
 	public int[] getStatuses(){
 	  
-		// This array will store the statuses of all gates
+		// This array will store the status of all gates
 		int[] statuses = new int[MAX_GATE_NUMBER];
 	  
-		// Get the statuses of the Gate objects in the gates array, and copy these to the statuses array
+		// Get the status of each Gate object in the gates array, and copy these to the statuses array
 		for(int i = 0; i < gates.length; i++) {
 			statuses[i] = gates[i].getStatus();
-		}	  
-	  
+		}	  	  
 		return statuses;
   }
 
@@ -89,5 +89,4 @@ public class GateInfoDatabase extends Observable {
 	public void departed(int gateNumber){
 		gates[gateNumber].departed();
   	}
-	
 }

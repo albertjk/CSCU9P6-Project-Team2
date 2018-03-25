@@ -42,9 +42,15 @@ public class Gate {
 	*/
 	private int mCode;
 	
-	
+	/**
+	 * The number of the gate
+	 */
 	private int gateNumber;
 	
+	/**
+	 * Constructor of Gate.
+	 * @param gateNumber the number of the gate
+	 */
 	public Gate(int gateNumber) {
 		this.gateNumber = gateNumber;
 	}
