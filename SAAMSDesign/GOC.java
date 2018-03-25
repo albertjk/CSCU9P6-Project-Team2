@@ -232,7 +232,7 @@ public class GOC extends JFrame implements ActionListener, Observer {
 			
 			/* If there is a free gate, allocate that to the selected aircraft.
 			If there is no free gate, the gateNumber becomes -1. */
-			int gateNumber = findFreeGates();			
+			int gateNumber = findFreeGate();			
 			if(gateNumber != -1) {				
 				allocateGate(gateNumber, trace);
 			} else {					
@@ -327,7 +327,7 @@ public class GOC extends JFrame implements ActionListener, Observer {
 	 * If none are free, -1 is returned.
 	 * @return the number of the first free gate
 	 */
-	public int findFreeGates() {
+	public int findFreeGate() {
 		
 		// Store the statuses of all gates
 		int[] gateStatuses = gateInfoDatabase.getStatuses();
@@ -339,8 +339,9 @@ public class GOC extends JFrame implements ActionListener, Observer {
 		for(int i = 0; i < gateStatuses.length; i++) {
 			if(gateStatuses[i] == 0) {
 				freeGateNumber = i;
+				break;
 			}
-		}
+		}		
 		return freeGateNumber;
 	}
 	

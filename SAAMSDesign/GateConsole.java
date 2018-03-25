@@ -33,7 +33,7 @@ import javax.swing.JTextField;
  * Student ID: 2421468
  * Date: 22/03/2018
  */
-public class GateConsole extends JFrame implements ActionListener, Observer  {
+public class GateConsole extends JFrame implements ActionListener, Observer  {  // This class is an Observer of GateInfoDatabase and AircraftManagementDatabase
 	
 	/**
 	*  The GateConsole interface has access to the GateInfoDatabase.
@@ -266,9 +266,8 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {
 		as no flight is currently allocated to the gate. */ 
 		else if(e.getSource() == gateFreedButton) {
 			gateInfoDatabase.departed(gateNumber);
-			updateFlight();
 			flightCodeLabel.setText("");
-			flightDescriptionTextArea.setText("");
+			flightDescriptionTextArea.setText("");		
 		}
 		/* Get the name of a new passenger and add them to the flight.
 		The name cannot be empty. Increment and display the number of passengers 
@@ -286,24 +285,23 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {
 	 * Updates the aircraft allocated to the gate and sets the flight code in the flightCodeLabel.
 	 */
 	public void updateFlight() {		
-			for(int i = 0; i < aircraftDB.maxMRs; i++) {	
+		for(int i = 0; i < aircraftDB.maxMRs; i++) {	
 				
-				/* If the aircraft is taxiing, a gate has been allocated.
-				Get the gate number to which the aircraft was allocated.
-				Display the flight code of the aircraft. */
-				if(aircraftDB.getStatus(i) == 6 && aircraftDB.getGateNum(i) == gateNumber) {			
-					flightCodeLabel.setText(aircraftDB.getFlightCode(i));						
-					mCode = i;					
-				}							
-			}	
-		}
-	
+			/* If the aircraft is taxiing, a gate has been allocated.
+			Get the gate number to which the aircraft was allocated.
+			Display the flight code of the aircraft. */
+			if(aircraftDB.getStatus(i) == 6 && aircraftDB.getGateNum(i) == gateNumber) {			
+				flightCodeLabel.setText(aircraftDB.getFlightCode(i));						
+				mCode = i;					
+			}							
+		}	
+	}	
+
 	/**
 	 * This method gets called when AircraftMangementDatabase updates its observers. 
 	 * Fetches information about the aircraft allocated to the gate.	
 	 */
-	public void update(Observable o, Object arg) {
-		
+	public void update(Observable o, Object arg) {		
 		this.updateFlight();
 	}
 }
