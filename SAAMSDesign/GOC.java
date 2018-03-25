@@ -34,10 +34,12 @@ import javax.swing.ListSelectionModel;
  * @url element://model:project::SAAMS/design:view:::id1bl79cko4qme4cko4sw5j
  * @url element://model:project::SAAMS/design:view:::id15rnfcko4qme4cko4swib
  * @url element://model:project::SAAMS/design:node:::id15rnfcko4qme4cko4swib.node107
- * @author Albert Jozsa-Kiraly
+ * CSCU9P6 Project Group 2
+ * Student ID: 2421468
  * Date: 18/03/2018
  */
-public class GOC extends JFrame implements ActionListener, Observer { // This class is an Observer of GateInfoDatabase and AircraftManagementDatabase
+public class GOC extends JFrame implements ActionListener, Observer { 
+	
 	/** The Ground Operations Controller Screen interface has access to the GateInfoDatabase.
 	* @clientCardinality 1
 	* @supplierCardinality 1
@@ -52,6 +54,7 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	* @directed*/
 	private AircraftManagementDatabase aircraftDB;
 	
+	// Buttons present on the GUI
 	private JButton showFlightDetailsButton;
 	private JButton grantGroundClearanceButton;
 	private JButton allocateGateButton;
@@ -66,45 +69,42 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	private JPanel gatesDisplayPanel;
 	
 	// Stores the flight codes of the aircrafts in the airport (not those which are free or are in transit or have departed through local airspace).
+	// This will store the data displayed in the list about flights on the GUI.
 	private DefaultListModel<String> flightList = new DefaultListModel();
 	
-	// The list displaying all aircrafts
+	// This gives the list structure for displaying the aircrafts.
 	private JList<String> aircraftList;
-	// The list is embedded in a scrolling window
+	
+	// This will show the list embedded in a scrolling window on the GUI.
 	private JScrollPane aircraftScrollList = new JScrollPane();
 	
-	
+	// This will store the data displayed in the list about gates on the GUI.
 	private DefaultListModel<Gate> gatesList = new DefaultListModel();
 	
-	// The list displaying the two gates
+	// This gives the list structure for displaying the gates.
 	private JList<Gate> gateList;
 	
+	// This will show the list embedded in a scrolling window on the GUI.
 	private JScrollPane gateScrollList = new JScrollPane();
 	
-	
-	//private JScrollPane gateScrollList = new JScrollPane(gateList);
-	
-	// The text area where the details of a selected flight are displayed
-	// Rows: the number of items to display in each row about a flight
-	// Column: enough space for data display
+	/* The two text areas where the details of a selected flight and the status of the gates are displayed.
+	Rows: the maximum number of items to display in each row.
+	Column: enough space for data display. */
 	private JTextArea flightDescriptionTextArea = new JTextArea(5,20);
-	private JTextArea gateDescriptionTextArea = new JTextArea(5,20);
+	private JTextArea gateDescriptionTextArea = new JTextArea(5,20);	
 	
-	// The number of the selected flight to display details of. None initially. 
-	private int showingDetailsOfFlight = -1;
+	// Stores the positions where list items are in the MR array
+	private ArrayList<Integer> tracker = new ArrayList<>();
 	
-	// The number of the selected gate to display details of. None initially. 
-	private int showingDetailsOfGate = -1;
-	
-	
-  
-	// Stores the position where a list item is in the MR array
-	private ArrayList<Integer> tracker = new ArrayList();
-	
+	// Stores the index of a list item
 	private int trackerIndex;
 	
+	// Frame size constants
+	private static final int FRAME_WIDTH = 580;
+	private static final int FRAME_HEIGHT = 380;
+	
 	/**
-	 * Constructor of the GOC user interface
+	 * Constructor of GOC.
 	 */
 	public GOC(GateInfoDatabase gateInfoDatabase, AircraftManagementDatabase aircraftDB, int locationX, int locationY) {
 		
@@ -116,23 +116,21 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
 		Container window = getContentPane();
 		window.setLayout(new FlowLayout());		
-		
+
+		// Set up and display the two lists
 		aircraftList = new JList<String>(flightList);
 		aircraftScrollList.setViewportView(aircraftList);
 		aircraftScrollList.setPreferredSize(new Dimension(200, 100));
 		aircraftList.setFixedCellWidth(70);
 		aircraftList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		//window.add(aircraftScrollList);
-		
 		
 		gateList = new JList<Gate>(gatesList);
 		gateScrollList.setViewportView(gateList);
 		gateScrollList.setPreferredSize(new Dimension(200, 100));
 		gateList.setFixedCellWidth(100);
-		gateList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		//window.add(gateScrollList);
+		gateList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);		
 		
-		
+		// Set up the buttons
 		grantGroundClearanceButton = new JButton("Grant ground clearance");
 		window.add(grantGroundClearanceButton);
 		grantGroundClearanceButton.addActionListener(this);
@@ -152,11 +150,11 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		window.add(quitButton);
 		quitButton.addActionListener(this);
 		
-		// The user is not able to edit flight and gate details by typing text in the text area
+		// The user is not able to edit flight and gate details by typing text in the text areas
 		flightDescriptionTextArea.setEditable(false);
 		gateDescriptionTextArea.setEditable(false);
 		
-		// Set up the display panel
+		// Set up flightsDisplayPanel
 		flightsDisplayPanel = new JPanel();
 		flightsDisplayPanel.setBackground(Color.cyan);
 		flightsDisplayPanel.setPreferredSize(new Dimension(500, 150));
@@ -164,25 +162,22 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		aircraftList.setVisibleRowCount(5);
 		flightsDisplayPanel.add(aircraftScrollList);
 		flightsDisplayPanel.add(flightDescriptionTextArea);
-		flightsDisplayPanel.add(showFlightDetailsButton);
-		
+		flightsDisplayPanel.add(showFlightDetailsButton);		
 		window.add(flightsDisplayPanel);
 		
 		showGateStatusButton = new JButton("Show gate status");
 		showGateStatusButton.addActionListener(this);
 		
-		// Set the gates in the gate list
-		
+		/* Set the gates in the gate list. These are the two gates of the airport. 
+		We know these will not change, so they are set here. */
 		Gate[] gates = new Gate[2];
 		Gate gate1 = new Gate(0);
-		Gate gate2 = new Gate(1);
-		
+		Gate gate2 = new Gate(1);		
 		gates[0] = gate1;
 		gates[1] = gate2;
-		gateList.setListData(gates);
+		gateList.setListData(gates);		
 		
-		
-		
+		// Set up gatesDisplayPanel
 		gatesDisplayPanel = new JPanel();
 		gatesDisplayPanel.setBackground(Color.green);
 		gatesDisplayPanel.setPreferredSize(new Dimension(400, 130));
@@ -190,17 +185,14 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		gateList.setVisibleRowCount(2); // There are only two gates at the airport
 		gatesDisplayPanel.add(gateList);
 		gatesDisplayPanel.add(gateDescriptionTextArea);	
-		gatesDisplayPanel.add(showGateStatusButton);
-		
-		
+		gatesDisplayPanel.add(showGateStatusButton);		
 		window.add(gatesDisplayPanel);
 		
 		// Set up the flight display
 		updateFlightList();
 		
-		// Display the frame
-		// TODO: CHANGE NUMBERS TO CONSTANTS
-		setSize(580, 380);
+		// Display the frame		
+		setSize(FRAME_WIDTH, FRAME_HEIGHT);
 		setLocation(locationX, locationY);
 		setVisible(true);
 		
@@ -209,67 +201,96 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		aircraftDB.addObserver(this);
 	}
 	
+	/**
+	 * Handles actions on button clicks.
+	 */
 	public void actionPerformed(ActionEvent e) {
+ 		/* Grant ground clearance (give permission to land) to the currently 
+ 		selected aircraft. This permission is determined by the user. */
 		if(e.getSource() == grantGroundClearanceButton && !aircraftList.isSelectionEmpty()) {
 		
+			// Get the index of the selected flight
 			trackerIndex = aircraftList.getSelectedIndex();
+			
+			// Get the mCode of the selected flight
 			int trace = tracker.get(trackerIndex);
 			
+			/* Change the status from WANTING_TO_LAND (status code 2)
+			to GROUND_CLEARANCE_GRANTED (status code 3). */
 			if(aircraftDB.getStatus(trace) == 2) {
 				aircraftDB.setStatus(trace, 3);
 			}
 		}
+		// Allocate a gate to the currently selected aircraft.
 		else if(e.getSource() == allocateGateButton && !aircraftList.isSelectionEmpty()) {
 		
+			// Get the index of the selected flight
 			trackerIndex = aircraftList.getSelectedIndex();
+			
+			// Get the mCode of the selected flight
 			int trace = tracker.get(trackerIndex);
 			
-			// If there is a free gate, allocate that to the selected flight			
-			int gateNumber = findFreeGates();			
+			/* If there is a free gate, allocate that to the selected aircraft.
+			If there is no free gate, the gateNumber becomes -1. */
+			int gateNumber = findFreeGate();			
 			if(gateNumber != -1) {				
 				allocateGate(gateNumber, trace);
-			} else {
-					
-				// If there are no free gates, show a message dialog.
+			} else {					
+				// If there is no free gate, show a message dialog.
 				JOptionPane.showMessageDialog(this, "Unfortunately, there are no free gates.");
 			}	
 		}
+		/* Grant taxiing permission to the currently selected departing aircraft.
+		This permission is determined by the user observing the airport.  */
 		else if(e.getSource() == grantTaxiingPermissionButton && !aircraftList.isSelectionEmpty()) {
 		
+			// Get the index of the selected flight
 			trackerIndex = aircraftList.getSelectedIndex();
+			
+			// Get the mCode of the selected flight
 			int trace = tracker.get(trackerIndex);
 			
+			/* Check if the status of the aircraft is AWAITING_TAXI (status code 16). 
+			If so, grant taxiing permission. 
+			Set the status to AWAITING_TAKEOFF (status code 17). */
 			if(aircraftDB.getStatus(trace) == 16) {
 				aircraftDB.setStatus(trace, 17);	
 			} else {
+				// Otherwise, show a message dialog
 				JOptionPane.showMessageDialog(this, "The aircraft is not awaiting taxi yet.");
 			}
-
 		}
+		// Exit the application
 		else if(e.getSource() == quitButton) {
 					System.exit(0);
 		}
+		// Show the details of the currently selected flight
 		else if(e.getSource() == showFlightDetailsButton && !aircraftList.isSelectionEmpty()) {
 		
+			// Get the index of the selected flight
 			trackerIndex = aircraftList.getSelectedIndex();
+			
+			// Get the mCode of the selected flight
 			int trace = tracker.get(trackerIndex);
 		
-		
+			// Show the flight details in the flightDescriptionTextArea
 			flightDescriptionTextArea.setText("Flight code: " + aircraftDB.getFlightCode(trace) + "\n"
 			+ "mCode: " + trace + "\n"  // trace is the mCode
 			+ "Flight status: " + aircraftDB.getStatus(trace) + "\n"
 			+ "From: " + aircraftDB.getItinerary(trace).getFrom() + "\n"
 			+ "To: " + aircraftDB.getItinerary(trace).getTo());
 		}
+		// Show the status of the selected gate
 		else if(e.getSource() == showGateStatusButton && !gateList.isSelectionEmpty()) {
 		
+			// Get the index of the selected gate
 			trackerIndex = gateList.getSelectedIndex();
+			
+			// Get the number of the selected gate
 			int trace = tracker.get(trackerIndex);			
 			
-		
+			// Display the selected gate's status
 			gateDescriptionTextArea.setText("Status: " + gateInfoDatabase.getStatus(trace) + "");
-			
-			
 		}
 	}
 	
@@ -284,50 +305,21 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		tracker.clear(); // Reset the tracker array list		
 		trackerIndex = 0; // Reset the tracker index
 		
-		for(int i = 0; i < aircraftDB.maxMRs; i++) {
-			
+		/* Find the aircrafts at the airport. An aircraft is at the airport 
+		if its status code is between 2 and 17 inclusive. So, it is not free, 
+		not is in transit, and have not departed through local airspace. */
+		for(int i = 0; i < aircraftDB.maxMRs; i++) {			
 			if(aircraftDB.getStatus(i) >= 2 || aircraftDB.getStatus(i) <= 17) {
 				
 				trackerIndex = i; // Set the index to the current index in the MR array
-				// Adds the current index to the tracker
+				
+				// Add the current index to the tracker
 				tracker.add(trackerIndex);
 				
-				// Add the list item
+				// Add the flight to the list
 				flightList.addElement(aircraftDB.getFlightCode(i));				
 			}			
 		}
-	}
-	
-
-
-	/**
-	 * The user verifies from the information displayed on the GOC screen that enough space is available on the ground for a landing aircraft.
-	 * If so, then the permission is given to it to land. The status is updated to GROUND_CLEARANCE_GRANTED (status code 3).
-	 * @param mCode the mCode of the aircraft wishing to land
-	 * @return
-	 */
-	public void givePermissionToLand(int mCode) {		
-			aircraftDB.setStatus(mCode, 3);							
-	}
-	
-	/**
-	 * This method returns the mCode of the selected flight in the flight list.
-	 * If no flight is selected, -1 is returned.
-	 * @return mCode
-	 */
-	public int getSelectedFlightMCode() {		
-		
-		//System.out.println("getSelectedFlightMCode: " + aircraftList.getSelectedIndex());
-		
-		
-		
-		trackerIndex = aircraftList.getSelectedIndex();
-		System.out.println("INDEX: " + trackerIndex);
-		return trackerIndex;
-		
-		//int trace = 
-		//}
-		//return -1;
 	}
 
 	/**
@@ -335,7 +327,9 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	 * If none are free, -1 is returned.
 	 * @return the number of the first free gate
 	 */
-	public int findFreeGates() {
+	public int findFreeGate() {
+		
+		// Store the statuses of all gates
 		int[] gateStatuses = gateInfoDatabase.getStatuses();
 		
 		// This variable will store the number of the free gate
@@ -345,8 +339,9 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 		for(int i = 0; i < gateStatuses.length; i++) {
 			if(gateStatuses[i] == 0) {
 				freeGateNumber = i;
+				break;
 			}
-		}
+		}		
 		return freeGateNumber;
 	}
 	
@@ -358,19 +353,13 @@ public class GOC extends JFrame implements ActionListener, Observer { // This cl
 	public void allocateGate(int gateNumber, int mCode) {
 		gateInfoDatabase.allocate(gateNumber, mCode);
 		aircraftDB.taxiTo(mCode, gateNumber);
-		
-		// TODO: MAKE THE AIRCRAFT APPEAR ON THE GATECONSOLE DISPLAY AFTER A GATE HAS BEEN ALLOCATED FOR IT!
-		
 	}
-
   
 	/**
-	 * This method gets called when AircraftMangementDatabase updates its observers. Fetches information about the aircrafts and gates.	 * 
+	 * This method gets called when AircraftMangementDatabase updates its observers. 
+	 * Fetches information about the aircrafts.	
 	 */
 	public void update(Observable o, Object arg) {
 		updateFlightList(); 
 	}
-  
-  
-
 }

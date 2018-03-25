@@ -16,3 +16,5 @@ SAAMSDesign/LATC.java
 SAAMSDesign/MaintenanceInspector.java
 *.java
 SAAMSDesign/GOC.class
+*.java
+*.class
