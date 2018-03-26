@@ -187,9 +187,6 @@ public class ManagementRecord {
    * Return the flight code of this MR.
    */
   public String getFlightCode(){
-	 if(flightCode == null) {
-		 System.out.println("ERROR: No flight code");
-	 }
 	 return flightCode;
   }
 

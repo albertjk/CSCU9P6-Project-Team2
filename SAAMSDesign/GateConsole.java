@@ -263,11 +263,14 @@ public class GateConsole extends JFrame implements ActionListener, Observer  {  
 		}
 		/* After the aircraft has departed for takeoff, free the gate.
 		The flightCodeLabel and flightDescriptionTextArea should be empty
-		as no flight is currently allocated to the gate. */ 
+		as no flight is currently allocated to the gate. 
+		The gateDescriptionTextArea also becomes empty since 
+		the previous gate status is not valid anymore. */ 
 		else if(e.getSource() == gateFreedButton) {
 			gateInfoDatabase.departed(gateNumber);
 			flightCodeLabel.setText("");
 			flightDescriptionTextArea.setText("");		
+			gateDescriptionTextArea.setText("");	
 		}
 		/* Get the name of a new passenger and add them to the flight.
 		The name cannot be empty. Increment and display the number of passengers 
