@@ -152,8 +152,8 @@ private void getFlightInfo() {
 		if(airDB.getStatus(i) == 3 || airDB.getStatus(i) == 1 || airDB.getStatus(i) == 18 || airDB.getStatus(i) == 2)
 		{
 			incomingFlightModel.addElement(airDB.getFlightCode(i) + "      " + airDB.getStatus(i));
-			indexL = i;
-			trackerL.add(indexL);
+			indexL = i; // set the index to where in the list the item has been added
+			trackerL.add(indexL);//Add that item to the tracker array to be used later
 		}
 		else if(airDB.getStatus(i) == 3 || airDB.getStatus(i) == 4 || airDB.getStatus(i) == 5)
 		{
@@ -175,8 +175,8 @@ private void getFlightInfo() {
 public void actionPerformed(ActionEvent e) {
 	if(e.getSource().equals(landingPermission) && waitForLanding.isSelectionEmpty() == false)
 	{
-		indexL = waitForLanding.getSelectedIndex();
-		int trace = trackerL.get(indexL);
+		indexL = waitForLanding.getSelectedIndex();//get the index number of the item that was selected from the list.
+		int trace = trackerL.get(indexL); //use that index number to get the actual mCode of the item selected. This way you are always sure to get the correct entry from the main DB no matter where it is in the list
 		
 		if(airDB.getStatus(trace) == 3) //GOC has given ground clearance
 		{
