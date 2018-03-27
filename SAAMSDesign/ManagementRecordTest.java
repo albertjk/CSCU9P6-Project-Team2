@@ -53,7 +53,7 @@ public class ManagementRecordTest {
 
 	  /*
 	  0 = free / 1 = in transit / 2 = wanting to land / 3 = ground clearance granted /
-	  4 = landing / 5 = landed / 6 = taxiing / 7 = unloading/ 8 = ready for clean and maintainance /
+	  4 = landing / 5 = landed / 6 = taxiing / 7 = unloading/ 8 = ready for clean and maintenance /
 	  9 = faulty awaiting clean / 10 = clean and maintenance / 11 = ??? / 12 = awaiting repair /
 	  13 = Ready, refuel / 14 = ready for passengers / 15 = ready to depart / 16 = awaiting taxi / 
 	  17 = awaiting take off / 18 = departing through local airspace 
@@ -75,7 +75,6 @@ public class ManagementRecordTest {
 	}
 	
 	
-	
 	@Test
 	public void testSetStatus() {
 		
@@ -88,14 +87,8 @@ public class ManagementRecordTest {
 		assertEquals(newStatus, status);
 	}
 	
-	
 	@Test
 	public void testGetFlightCode() {
-		//Flight codes set to below in @Before
-		
-		//flightCode1 = "L33T";
-		//flightCode2 = "BH34";
-		
 		//retrieve flight codes
 		
 		String FC1 = mr1.getFlightCode();
@@ -105,9 +98,7 @@ public class ManagementRecordTest {
 		
 		assertEquals(FC1, "L33T");
 		assertEquals(FC2, "BH34");
-
 	}
-	
 	
 	@Test
 	public void testRadarDetect() {
@@ -117,13 +108,7 @@ public class ManagementRecordTest {
 		
 		ManagementRecord mr4;
 		mr4 = new ManagementRecord();
-		
-		//FD1 = new FlightDescriptor(flightCode1, it1, PL1);
-		//flightCode1 = "L33T";
-		//								FROM / TO / NEXT
-		//it1 = new Itinerary("Glasgow", "Stirling", "London");
-		//PL1 = Sally / Marty / Sally / Marty ...
-		
+				
 		//SHOULD add Flight Code, Passenger List, Itinerary to the Management Record
 		mr3.radarDetect(FD1);
 		
@@ -135,13 +120,6 @@ public class ManagementRecordTest {
 		//This flight is going TO Stirling -- RadarDetect should change status to WANTING TO LAND (2)
 		assertEquals(mr3.getStatus(), 2);
 		
-		
-		//FD2 = new FlightDescriptor(flightCode2, it2, PL2);
-		//flightCode2 = "BH34";
-		//							FROM / TO / NEXT
-		//it2 = new Itinerary("Paris", "Glasgow", "London");
-		//PL2 = Marty / Sally / Marty / Sally ...
-		
 		mr4.radarDetect(FD2);
 		
 		//Check that some Flight Code, Passenger List and Itinerary have been added to Management Record
@@ -151,9 +129,7 @@ public class ManagementRecordTest {
 		
 		//This flight is NOT going to Stirling -- RadarDetect should change status to IN TRANSIT (1)
 		assertEquals(mr4.getStatus(), 1);
-		
-	}
-	
+	}	
 
 	@Test
 	public void testRadarLostContact() {
@@ -179,12 +155,7 @@ public class ManagementRecordTest {
 		try {
 			assertNull(mr2.getItinerary());
 		} catch(NullPointerException e) {	
-		};
-		
-		
-		//MR1 should not be IN TRANSIT(1) or DEPAIRTING THROUGH LOCAL AIRSPACE(18)
-		//assertNotEquals(mr1.getStatus(), 1);
-		//assertNotEquals(mr1.getStatus(), 18);
+		};	
 		
 		//status SHOULD be WANTING TO LAND (2)
 		assertEquals(mr1.getStatus(), 2);
@@ -197,9 +168,7 @@ public class ManagementRecordTest {
 		
 		//status should still be WANTING TO LAND (2)
 		assertEquals(mr1.getStatus(), 2);
-			
-	}
-	
+	}	
 	
 	@Test
 	public void testTaxiTo() {
@@ -209,8 +178,6 @@ public class ManagementRecordTest {
 		//assertNotEquals(mr1.getStatus(), 5);
 		//therefore, TaxiTo should output an error, and not assign a gate number 
 		mr1.taxiTo(4);
-		//status should NOT be taxiing (6)
-		//assertNotEquals(mr1.getStatus(), 6);
 		//gate number should be 0
 		assertEquals(mr1.getGateNumber(), 0);
 		
@@ -224,7 +191,6 @@ public class ManagementRecordTest {
 		assertEquals(mr2.getStatus(), 6);
 		assertEquals(mr2.getGateNumber(), 25);
 	}
-	
 	
 	@Test
 	public void testFaultsFound() {
@@ -263,5 +229,4 @@ public class ManagementRecordTest {
 	public void testGetItinerary() {
 		assertEquals(mr1.getItinerary().getFrom(), "Glasgow");
 	}
-
 }
