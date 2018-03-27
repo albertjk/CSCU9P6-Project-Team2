@@ -108,6 +108,9 @@ public void update(Observable arg0, Object arg1) {
 	
 }
 
+/**
+ * updates the list in the UI with planes that need cleaning
+ */
 @SuppressWarnings("unchecked")
 public void checkList() {
 	
@@ -119,6 +122,7 @@ public void checkList() {
 		
 		if(airDB.getStatus(i) == 8 || airDB.getStatus(i) == 11 || airDB.getStatus(i) == 9) { //only adds planes with a gate assigned, to the list
 			
+			//this is used to match the index in the list and the index in the management record array
 			index = i; //sets index to current index in the array
 			tracker.add(index); //adds current index to the tracker
 			
@@ -137,7 +141,7 @@ public void actionPerformed(ActionEvent e) {
 	else if(e.getSource().equals(changeStat) && displayDirty.isSelectionEmpty() == false) {
 		
 		index = displayDirty.getSelectedIndex(); //gets the value held in current index in JList
-		int trace = tracker.get(index); //matches the indexes of JList and index of MR arrayf
+		int trace = tracker.get(index); //matches the indexes of JList and index of MR array
 		
 		if(airDB.getStatus(trace) == 11) { //checks current MR in trace to see if the status is 11
 			
@@ -160,7 +164,6 @@ public void actionPerformed(ActionEvent e) {
 		
 		checkList();//refreshes the list
 	}
-	checkList();
 }
 
 }

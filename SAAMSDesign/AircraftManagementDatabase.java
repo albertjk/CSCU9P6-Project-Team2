@@ -183,6 +183,10 @@ public class AircraftManagementDatabase extends Observable {
 	  return MRs[mCode].getFaultDescription();
   }
   
+  /**
+   * empties a given flights passengerlist
+   * @param mCode
+   */
   public void unloadPass(int mCode) {
 	  
 	  MRs[mCode].unloading();
