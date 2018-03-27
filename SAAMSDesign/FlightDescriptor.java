@@ -58,15 +58,20 @@ public class FlightDescriptor  {
   
   private String fCode;
   
-  //Gets the Itinerary and returns it
-
+ 
+/**
+ * Returns the Itinerary 
+ * @return
+ */
   public Itinerary getIT(){
 	  
 	  return it;
   }
 
-  //Gets the flightCode and returns it
- 
+ /**
+  * Returns the Flight Code
+  * @return
+  */
   public String getfCode(){ 
 	
 		return fCode;

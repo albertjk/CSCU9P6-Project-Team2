@@ -26,8 +26,8 @@ public class PassengerDetailsTest {
 	//should return names of the two passenger objects
 	@Test
 	public void testName() {
-		p1.getName();
-		p2.getName();
+		assertEquals("James", p1.getName());
+		assertEquals("Brown", p2.getName());
 	}
 	
 	

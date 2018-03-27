@@ -23,17 +23,17 @@ public class flightDescriptorTest {
 @Test
 public void testItinerary()
 {
-	fd1.getIT();	
+	assertEquals(it1.getTo(), fd1.getIT().getTo());	
 }
 @Test
 public void testFlightNumber()
 {
-	fd1.getfCode();
+	assertEquals("BE111", fd1.getfCode());
 }
 
 @Test
 public void testPassengerList()
 {
-	fd1.getPassList();
+	assertEquals(pl1, fd1.getPassList());
 }
 }
