@@ -17,19 +17,19 @@ public class ItineraryTest {
 	@Test
 	public void testFrom()
 	{
-		it1.getFrom();
-		it2.getFrom();
+		assertEquals("Glasgow", it1.getFrom());
+		assertEquals("Stirling",it2.getFrom());
 	}
 	@Test
 	public void testTo()
 	{
-		it1.getTo();
-		it2.getTo();
+		assertEquals("Stirling", it1.getTo());
+		assertEquals("Callais", it2.getTo());
 	}
 	@Test
 	public void testNext()
 	{
-		it1.getNext();
-		it2.getNext();
+		assertEquals("London",it1.getNext());
+		assertEquals("Glasgow", it2.getNext());
 	}
 }
